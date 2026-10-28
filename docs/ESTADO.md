@@ -111,6 +111,8 @@ evalúa es lo rojo.
 
 ## 6 · Bitácora
 
+- **2026-10-28** — Código de la landing y /app exportado de Lovable (`2027a0089c331844df2e1b7214f99ae380472db8`) a `frontend/lovable/`, como frontend independiente del monorepo. Incluye código, lockfile, pruebas, diseño, instrucciones de ejecución y manifiesto de procedencia. Se conserva el backend Next y su despliegue. Verificado localmente: 24 pruebas del frontend, tipos, build y HTTP 200 de / y /app; 57 pruebas del monorepo y build Next con Webpack. Turbopack no pudo abrir un puerto auxiliar en este entorno. Importación en rama `feat/import-lovable-ui`, pendiente de revisión; sin conexión nueva del frontend al agente ni despliegue.
+
 - **2026-10-27 noche** — Se definió la idea (documento de Artur + libreta + retroalimentación). Se creó
   el agente de Donna con identidad propia, su API con llave y su bot de Telegram. Se armó el monorepo:
   Next.js + Tailwind, puerta al agente, motor de reglas v0 (7 pruebas en verde), simulado, `/api/chat`

@@ -1,0 +1,147 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Donna design system. Palette values are normative (see DESIGN.md). */
+
+@theme inline {
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-pressed: var(--primary-pressed);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--muted);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--foreground);
+  --color-copper: var(--copper);
+  --color-ink: var(--ink);
+  --color-on-ink: var(--on-ink);
+  --color-on-ink-accent: var(--on-ink-accent);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-destructive: var(--destructive);
+  --color-destructive-bg: var(--destructive-bg);
+  --color-destructive-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--border-strong);
+  --color-ring: var(--primary);
+}
+
+:root {
+  --background: #f8f4ee;
+  --foreground: #211b19;
+  --card: #fffdfa;
+  --primary: #8c382e;
+  --primary-hover: #752c24;
+  --primary-pressed: #60231d;
+  --primary-foreground: #ffffff;
+  --muted: #f0e9e0;
+  --muted-foreground: #6d6059;
+  --accent: #f5e4dd;
+  --copper: #af7150;
+  --ink: #211b19;
+  --on-ink: #f8f4ee;
+  --on-ink-accent: #e9aa8e;
+  --success: #35634d;
+  --success-bg: #eaf2ec;
+  --destructive: #a12d3a;
+  --destructive-bg: #faedef;
+  --border: #d8ccc1;
+  --border-strong: #8b7b70;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    text-wrap: balance;
+  }
+  [id] {
+    scroll-margin-top: 80px;
+  }
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
+
+@utility text-display {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  @media (min-width: 1024px) {
+    font-size: 64px;
+    line-height: 1.04;
+  }
+}
+
+@utility text-section {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+}
+
+@utility on-ink-focus {
+  &:focus-visible {
+    outline-color: var(--on-ink-accent);
+  }
+}
+
+@utility bg-primary-gradient {
+  background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-pressed) 100%);
+}
+
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+@utility panel-enter {
+  animation: panel-in 180ms ease-out;
+}
+
+@utility on-primary-focus {
+  &:focus-visible {
+    outline-color: var(--primary-foreground);
+  }
+}
