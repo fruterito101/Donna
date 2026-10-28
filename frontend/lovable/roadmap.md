@@ -18,3 +18,11 @@
 # Corrección de formularios de admisión
 - [x] Separar conversación y ficha; declarar tipos de botones.
 - [x] Probar iniciar, enviar, reintentar y cancelar con ficha válida; verificar compilación.
+
+# Contexto de ejemplo en admisión
+- [x] Precargar ficha aislada y editable, inicio explícito y etiqueta de registro.
+- [x] Probar aislamiento, reapertura, chat y consentimiento; actualizar briefs.
+
+# Error de sesión en actualización en vivo
+- [x] Estabilizar identidad de contexto sin mover datos fuera del provider.
+- [x] Verificar recarga, actualización en vivo, navegación e aislamiento de sesiones.

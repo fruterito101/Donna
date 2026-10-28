@@ -2,7 +2,8 @@ import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { SessionProvider, useDonnaSession } from '@/components/workspace/SessionProvider';
 import { IntakeView } from '@/components/intake/IntakeView';
-import { initialWorkspace } from '@/lib/donna-workspace';
+import { admissionMessage } from '@/lib/donna-chat';
+import { makeExampleDraft } from '@/lib/donna-intake';
 
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
 
@@ -10,7 +11,7 @@ function IntakeHarness({ onReturn }: { onReturn: () => void }) {
   const { intake, intakeDispatch } = useDonnaSession();
   return <>
     <button type="button" onClick={() => intakeDispatch({
-      type: 'open', id: 'form-regression', workspace: initialWorkspace(),
+      type: 'open-example', id: 'form-regression',
     })}>Abrir ficha</button>
     <output data-testid="draft-state">{intake.draft?.step ?? 'null'}</output>
     <output data-testid="lead-count">{intake.leads.length}</output>
@@ -35,8 +36,7 @@ it('starting, replying and retrying admission with valid fields never submit the
     .mockResolvedValueOnce(Response.json({ reply: 'Respuesta de admisión recibida' }));
   vi.stubGlobal('fetch', fetcher);
   openValidIntake();
-  fireEvent.click(screen.getByRole('checkbox', { name: 'He revisado este contexto y quiero aportarlo a Donna.' }));
-  fireEvent.click(screen.getByRole('button', { name: 'Iniciar admisión con Donna' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Comenzar conversación' }));
   await screen.findByText('¿Qué quieres preparar?');
   expect(screen.getByTestId('draft-state')).toHaveTextContent('information');
 
@@ -55,6 +55,33 @@ it('starting, replying and retrying admission with valid fields never submit the
   expect(screen.getByTestId('draft-state')).toHaveTextContent('review');
   expect(screen.queryByRole('region', { name: 'Conversación de admisión' })).toBeNull();
   expect(screen.getByTestId('lead-count')).toHaveTextContent('0');
+});
+
+it('opens valid example without auto-sending, preserves edits on reopening and requires final consent', async () => {
+  const fetcher = vi.fn().mockResolvedValue(Response.json({ reply: 'Pregunta de Donna' }));
+  vi.stubGlobal('fetch', fetcher);
+  render(<SessionProvider><IntakeHarness onReturn={vi.fn()} /></SessionProvider>);
+  fireEvent.click(screen.getByRole('button', { name: 'Abrir ficha' }));
+  expect(screen.getByLabelText('Nombre de la persona *')).toHaveValue('Ana Torres');
+  expect(screen.getByLabelText('Email')).toHaveValue('ana@circuito.example');
+  expect(fetcher).not.toHaveBeenCalled();
+  expect(screen.queryByRole('checkbox')).toBeNull();
+  fireEvent.click(screen.getByRole('button', { name: 'Comenzar conversación' }));
+  await screen.findByText('Pregunta de Donna');
+  expect(fetcher).toHaveBeenCalledTimes(1);
+  expect(fetcher).toHaveBeenCalledWith('/api/donna/chat', expect.objectContaining({ body: JSON.stringify({ message: admissionMessage(makeExampleDraft('form-regression')) }) }));
+  expect(screen.getByLabelText('Mensaje para la admisión')).toHaveFocus();
+  expect(screen.getByTestId('draft-state')).toHaveTextContent('information');
+  fireEvent.change(screen.getByLabelText('Nombre de la startup *'), { target: { value: 'Circuito editado' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Abrir ficha' }));
+  expect(screen.getByLabelText('Nombre de la startup *')).toHaveValue('Circuito editado');
+  expect(fetcher).toHaveBeenCalledTimes(1);
+  fireEvent.click(screen.getByRole('button', { name: 'Revisar ficha' }));
+  expect(screen.getByRole('checkbox')).not.toBeChecked();
+  expect(screen.getByRole('button', { name: 'Registrar prospecto en esta sesión' })).toBeDisabled();
+  expect(screen.getByTestId('lead-count')).toHaveTextContent('0');
+  fireEvent.click(screen.getByRole('checkbox'));
+  expect(screen.getByRole('button', { name: 'Registrar prospecto en esta sesión' })).toBeEnabled();
 });
 
 it.each(['information', 'review'])('canceling valid intake in %s keeps draft null and creates no lead', async step => {

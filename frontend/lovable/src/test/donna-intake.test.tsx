@@ -3,12 +3,31 @@ import { render, act, screen, cleanup } from '@testing-library/react';
 import { afterEach } from 'vitest';
 import { renderToString } from 'react-dom/server';
 import { initialWorkspace } from '@/lib/donna-workspace';
-import { freshSession, makeDraft, intakeReducer, initialIntakeSession, validEmail, validPhone, DESTINATION, LEAD_STATUS } from '@/lib/donna-intake';
+import { freshSession, makeDraft, makeExampleDraft, intakeErrors, intakeReducer, initialIntakeSession, validEmail, validPhone, DESTINATION, LEAD_STATUS } from '@/lib/donna-intake';
 import { SessionProvider, useDonnaSession } from '@/components/workspace/SessionProvider';
 const workspace=()=>({...initialWorkspace(),profile:{name:'Circuito',description:'Software para equipos',stage:'No estoy seguro' as const,topics:'Cobros'},context:['¿Qué documentos llevo?'],attachments:[{id:'1',name:'contrato.pdf',size:12,type:'application/pdf'}]});
 const draft=()=>({...makeDraft(workspace(),'id-1'),person:'Ana',email:'ana@example.com',step:'review' as const,authorized:true});
 const at='2026-10-28T22:32:00.000Z';
 describe('Donna local intake',()=>{
+ it('central example is valid, complete and independent from workspace and other drafts',()=>{
+  const w=workspace(); const before=structuredClone(w);
+  const s=intakeReducer(initialIntakeSession(),{type:'open-example',id:'example'});
+  const d=s.draft; if(!d) throw new Error('Expected example');
+  expect(intakeErrors(d)).toEqual([]);
+  expect(d).toMatchObject({isExample:true,person:'Ana Torres',role:'CEO',email:'ana@circuito.example',phone:'',need:'Fiscal',urgency:'Próximamente',authorized:false,step:'information'});
+  expect(d.context).toMatchObject({startup:'Circuito',description:'SaaS mexicano que vende herramientas de gestión a pymes por suscripción.',stage:'Ya tengo clientes',topics:'Cobros en MXN/USD y clientes en México/EEUU.',documents:[]});
+  expect(d.goal).toBe('Preparar preguntas sobre facturación internacional y estructura de la empresa para revisar con un profesional');
+  d.context.notes.push('Edited'); expect(makeExampleDraft('other').context.notes).not.toContain('Edited');
+  expect(w).toEqual(before);
+  expect(intakeReducer(s,{type:'open-example',id:'reopen'})).toBe(s);
+ });
+ it('example requires final review and consent and retains example marker in immutable lead',()=>{
+  const d=makeExampleDraft('example');
+  expect(intakeReducer({draft:d,leads:[]},{type:'register',at}).leads).toHaveLength(0);
+  expect(intakeReducer({draft:{...d,step:'review'},leads:[]},{type:'register',at}).leads).toHaveLength(0);
+  const s=intakeReducer({draft:{...d,step:'review',authorized:true},leads:[]},{type:'register',at});
+  expect(s.leads[0]?.isExample).toBe(true); expect(Object.isFrozen(s.leads[0])).toBe(true);
+ });
  it('copies every supplied context field and document names only',()=>{const d=makeDraft(workspace(),'x');expect(d.context).toEqual({startup:'Circuito',description:'Software para equipos',stage:'No estoy seguro',topics:'Cobros',notes:['¿Qué documentos llevo?'],documents:['contrato.pdf']});expect(d.need).toBe('');expect(d.urgency).toBe('');});
  it('never registers without explicit consent',()=>{const s={...initialIntakeSession(),draft:{...draft(),authorized:false}};expect(intakeReducer(s,{type:'register',at}).leads).toHaveLength(0);});
  it('requires a valid contact channel',()=>{for(const contact of [{email:'',phone:''},{email:'wrong',phone:''},{email:'',phone:'123'}]){const s={...initialIntakeSession(),draft:{...draft(),...contact}};expect(intakeReducer(s,{type:'register',at}).leads).toHaveLength(0);}});

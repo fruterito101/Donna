@@ -1,10 +1,8 @@
-import { createContext, useContext, useReducer, useEffect, useRef, type ReactNode } from 'react';
-import { initialWorkspace, workspaceReducer, hasWork, type WorkspaceState, type Action } from '@/lib/donna-workspace';
-import { initialIntakeSession, intakeReducer, type IntakeSession, type IntakeAction } from '@/lib/donna-intake';
-import type { Dispatch } from 'react';
-import { useDonnaChat, type DonnaChat } from './useDonnaChat';
-interface Session { workspace:WorkspaceState; dispatch:Dispatch<Action>; intake:IntakeSession; intakeDispatch:Dispatch<IntakeAction>; mainChat:DonnaChat; admissionChat:DonnaChat }
-const SessionContext=createContext<Session | null>(null);
+import { useContext, useReducer, useEffect, useRef, type ReactNode } from 'react';
+import { initialWorkspace, workspaceReducer, hasWork } from '@/lib/donna-workspace';
+import { initialIntakeSession, intakeReducer } from '@/lib/donna-intake';
+import { useDonnaChat } from './useDonnaChat';
+import { SessionContext } from './session-context';
 export function SessionProvider({children}:{children:ReactNode}) {
  const [workspace,dispatch]=useReducer(workspaceReducer,undefined,initialWorkspace);
  const [intake,intakeDispatch]=useReducer(intakeReducer,undefined,initialIntakeSession);

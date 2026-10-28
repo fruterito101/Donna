@@ -22,7 +22,7 @@ export function Workspace() {
   const files = useRef<HTMLInputElement>(null);
   const newButton = useRef<HTMLButtonElement>(null);
   const blocker = useBlocker({ shouldBlockFn: ({next}) => next.pathname === '/operaciones' ? false : hasWork(state)||mainChat.state.messages.length>0, withResolver:true, enableBeforeUnload:false });
-  function openIntake() { if(!intake.draft||intake.draft.step==='registered') admissionChat.reset(); intakeDispatch({type:'open',workspace:state,id:crypto.randomUUID()}); setView('Admisión'); setNavigation(false); setDossier(false); }
+  function openIntake() { if(!intake.draft||intake.draft.step==='registered') admissionChat.reset(); intakeDispatch({type:'open-example',id:crypto.randomUUID()}); setView('Admisión'); setNavigation(false); setDossier(false); }
   function navigate(v: View) { setView(v); setNavigation(false); }
   function attach() { files.current?.click(); }
   function edit() { setDossier(false); setView('Mi negocio'); }
