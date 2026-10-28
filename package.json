@@ -9,12 +9,14 @@
   ],
   "scripts": {
     "identity": "node packages/agent-client/scripts/build-identity.mjs",
-    "dev": "npm run identity && npm run dev -w web",
+    "dev": "npm run identity && npm run rules && npm run dev -w web",
     "build": "npm run identity && npm run build -w web",
     "start": "npm run start -w web",
     "lint": "npm run lint -w web",
     "test": "node --test packages/*/test/*.test.ts",
-    "mock": "node mock/agent-mock.mjs"
+    "mock": "node mock/agent-mock.mjs",
+    "rules": "node packages/rules-engine/scripts/build-rules.ts",
+    "rules:import": "node packages/rules-engine/scripts/import-rules.ts"
   },
   "engines": {
     "node": ">=22.18"

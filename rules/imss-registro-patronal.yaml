@@ -1,0 +1,25 @@
+id: imss-registro-patronal
+authority: IMSS
+kind: obligation
+title: Registrarte como patrón e inscribir a tu equipo en el IMSS
+requires: >-
+  Si contratas personas, debes registrarte ante el IMSS, inscribir a tus trabajadores y avisar sus altas, bajas y
+  cambios de salario en un plazo no mayor a cinco días hábiles. También debes llevar nóminas con días trabajados y
+  salarios, y conservarlas cinco años.
+applies_if:
+  - tiene_empleados
+evidence:
+  - registro patronal
+  - avisos de alta, baja y modificación de salario
+  - nóminas de los últimos cinco años
+law: Ley del Seguro Social, art. 15 fr. I y II
+source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LSS.pdf
+source_quote: >-
+  I. Registrarse e inscribir a sus trabajadores en el Instituto, comunicar sus altas y bajas, las modificaciones de
+  su salario y los demás datos, dentro de plazos no mayores de cinco días hábiles;
+valid_from: 2001-12-20
+verified_by: ""
+frequency: per_event
+x_nota: >-
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de la reforma de la fr. I. No se investigó la multa (falta revisar los arts. 304-A y 304-B
+  de la LSS). Para Valeria: ¿cómo cuentan los colaboradores por honorarios o los que trabajan desde otro país?

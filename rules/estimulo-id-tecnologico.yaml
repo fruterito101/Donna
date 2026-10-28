@@ -1,0 +1,31 @@
+id: estimulo-id-tecnologico
+authority: ESTIMULO
+kind: benefit
+title: Estímulo fiscal a la investigación y desarrollo de tecnología
+requires: >-
+  Un crédito fiscal del 30% de lo que gastes o inviertas en proyectos propios de investigación o desarrollo
+  tecnológico hechos en México, aplicable contra tu ISR. Solo cuenta lo que gastes por encima del promedio de tus
+  tres años anteriores, tiene un tope de 50 millones de pesos por contribuyente y hay que cumplir las reglas del
+  Comité Interinstitucional, que pide prototipos o entregables y patentes registradas en México. No se combina con
+  otros estímulos o beneficios fiscales.
+applies_if:
+  - hace_id_tecnologico
+evidence:
+  - descripción de cada proyecto de I+D y su avance tecnológico
+  - registro de gastos e inversiones por proyecto
+  - prototipos, entregables y solicitudes de patente
+law: Ley del Impuesto sobre la Renta, art. 202
+source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf
+source_quote: >-
+  Artículo 202. Se otorga un estímulo fiscal a los contribuyentes del impuesto sobre la renta que efectúen
+  proyectos de investigación y desarrollo tecnológico, consistente en aplicar un crédito fiscal equivalente al
+  30% de los gastos e inversiones realizados en el ejercicio en investigación o desarrollo de tecnología, contra
+  el impuesto sobre la renta causado en el ejercicio en que se determine dicho crédito.
+valid_from: 2016-11-30
+verified_by: ""
+frequency: annual
+x_nota: >-
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF en que se adicionó el artículo (la fr. I se reformó el 09-12-2019); la entrada en vigor
+  no se revisó. El PDF de la LISR dice «Última reforma DOF 01-04-2024»: confirmar que no hay una más reciente.
+  Para Valeria: ¿el régimen RESICO cuenta como «otro tratamiento fiscal» incompatible? ¿Las reglas del Comité
+  y la convocatoria de este año siguen abiertas? Ojo: el agente citó antes el art. 189, que es el estímulo al cine.

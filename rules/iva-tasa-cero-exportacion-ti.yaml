@@ -1,0 +1,28 @@
+id: iva-tasa-cero-exportacion-ti
+authority: SAT
+kind: benefit
+title: IVA al 0% al exportar servicios de tecnologías de la información
+requires: >-
+  Si das servicios de tecnologías de la información (desarrollo de software, alojamiento de aplicaciones,
+  procesamiento o almacenamiento de datos) que se aprovechan en el extranjero, el IVA se calcula al 0%. Condición:
+  usar en su totalidad infraestructura tecnológica, personas y materiales ubicados en México, y que la dirección IP
+  desde la que das el servicio esté en México y la de tu cliente en el extranjero.
+applies_if:
+  - cobra_al_extranjero
+  - desarrolla_software
+  - infraestructura_en_mexico
+evidence:
+  - contratos con clientes en el extranjero
+  - prueba de que tus servidores y tu equipo están en México
+  - registros de las direcciones IP de prestación y de recepción del servicio
+law: Ley del Impuesto al Valor Agregado, art. 29 fr. IV inciso i)
+source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf
+source_quote: >-
+  1. Utilicen en su totalidad infraestructura tecnológica, recursos humanos y materiales, ubicados en territorio
+  nacional.
+valid_from: 2016-11-30
+verified_by: ""
+x_nota: >-
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF en que se adicionó el inciso i). El artículo empieza «Las empresas residentes en el país»:
+  para Valeria, ¿aplica también a un freelance persona física? El PDF dice «Última reforma DOF 12-11-2021»:
+  confirmar que no hay una más reciente.

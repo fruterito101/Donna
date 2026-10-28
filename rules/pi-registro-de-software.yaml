@@ -1,0 +1,24 @@
+id: pi-registro-de-software
+authority: PI
+kind: benefit
+title: Registrar tu software ante el Registro Público del Derecho de Autor
+requires: >-
+  Tu software, incluido el de inteligencia artificial, está protegido como obra literaria, en código fuente y en
+  código objeto. Inscribirlo en el Registro Público del Derecho de Autor da seguridad jurídica y publicidad a quién
+  es su autor y titular.
+applies_if:
+  - desarrolla_software
+evidence:
+  - certificado de registro de la obra (software)
+  - contratos de cesión de derechos con quienes programan
+law: Ley Federal del Derecho de Autor, arts. 102 y 162
+source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LFDA.pdf
+source_quote: >-
+  Artículo 102.- Los programas de computación, incluidos los de inteligencia artificial, se protegen en los mismos
+  términos que las obras literarias.
+valid_from: 2026-05-14
+verified_by: ""
+frequency: once
+x_nota: >-
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de la reforma del art. 102 que agregó «incluidos los de inteligencia artificial». La
+  evidencia «contratos de cesión» es una propuesta: falta el artículo que la respalde.

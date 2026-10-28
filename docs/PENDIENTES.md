@@ -5,7 +5,7 @@ está pendiente. Las preguntas completas, con su porqué y su propuesta, viven e
 [`PREGUNTAS.md`](PREGUNTAS.md): aquí solo va una línea y el enlace, para no tener dos copias que digan
 cosas distintas.
 
-**Actualizado:** 2026-10-28, madrugada · **Demo:** 2026-10-28, 17:00 · congelar a las 15:00
+**Actualizado:** 2026-10-28, 12:30 · **Demo:** 2026-10-28, 17:00 · congelar a las 15:00
 
 **Prioridad:** 🔴 sin esto no se puede construir o presentar · 🟡 antes de la demo · 🟢 después.
 
@@ -16,9 +16,10 @@ cosas distintas.
 | # | Pendiente | Qué frena | Lo destraba |
 |---|---|---|---|
 | D2 | ¿Quién verifica cada regla de ley, y contra qué fuente? | **todo**: sin reglas verificadas el motor no tiene qué cruzar y la demo no tiene contenido | Valeria |
-| — | Escribir las reglas: 10 hoy, 25-40 para la demo (hay **0**) | el motor, el entrenamiento del agente, la demo | Valeria |
-| — | Aprobar los contratos v0 ([`CONTRATOS.md`](CONTRATOS.md)) | trabajar en paralelo sin romper la parte del otro | los tres |
-| — | Confirmar la lista de hechos del perfil ([`CONTRATOS.md`](CONTRATOS.md) §2) | el paso PERFIL | Valeria |
+| — | **Verificar y firmar los 9 borradores** de `rules/` (hay 0 firmados; sin firma no se muestran). Cada uno trae sus dudas en `x_nota` | la demo: el informe sale vacío en producción | Valeria (o quien compare con la fuente) |
+| — | Faltan reglas para llegar a 25-40 (hay 9) | el alcance de los 6 temas | Valeria |
+| — | Aprobar los contratos ([`CONTRATOS.md`](CONTRATOS.md)); la regla ya es v1 (28-oct) | trabajar en paralelo sin romper la parte del otro | los tres |
+| — | Confirmar el catálogo de hechos ([`rules/_hechos.yaml`](../rules/_hechos.yaml)): cada regla solo puede usar hechos de ahí | el paso PERFIL y las reglas | Valeria |
 | — | Aprobar el [`README.md`](../README.md) como la definición de Donna | que los tres construyan la misma idea | los tres |
 | D1 | ¿Qué aviso legal exacto lleva cada informe, y quién lo redacta? | el informe: es lo que separa «herramienta» de «asesoría sin cédula» | Valeria |
 | D4 | ¿Qué significaba «lineamientos/prompts/policies»? ¿Quién lo dijo? | qué es el `COMPLIANCE.md` | quien lo dijo |
@@ -46,6 +47,7 @@ cosas distintas.
 | G2 | ¿Cuál es el momento «wow»? (propuesta: pegar una página y oír en voz el estímulo y la UIF) | los tres |
 | G3 | ¿Qué número mostramos? Solo con fuente | Valeria |
 | — | ¿Sumamos algún reto opcional (Gemma 4, n8n, MojoAuth, Lovable)? | los tres |
+| — | ¿Qué cuenta como **fuente oficial** en una regla? Hoy el motor acepta cualquier `https://`. Se decide junto con la lectura de Artur, que lee las páginas oficiales con Firecrawl para fechar cada regla ([`DEFINICION.md`](DEFINICION.md)) | Brian y Artur |
 
 ## 3 · 🟢 Después del hackathon
 
@@ -59,7 +61,7 @@ cosas distintas.
 
 | Qué | Cómo está hoy | Lo confirma |
 |---|---|---|
-| E2 · formato de las reglas y lenguaje del motor | reglas en YAML (las puede llenar alguien que no programa) y motor en TypeScript, el mismo lenguaje del backend | Brian y Artur |
+| E2 · formato de las reglas y lenguaje del motor | reglas en YAML, escritas desde una hoja de cálculo (`npm run rules:import`), y motor en TypeScript, el mismo lenguaje del backend | Brian y Artur |
 | Formato del `COMPLIANCE.md` y del pitch corregido | sin proponer | Artur |
 | El artículo del estímulo a I+D | el agente lo citó de memoria en una prueba: **sin verificar**, no se usa hasta que haya regla | Valeria |
 

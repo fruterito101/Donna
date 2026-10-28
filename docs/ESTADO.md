@@ -4,7 +4,7 @@
 decidir, en `docs/PENDIENTES.md`. Si eres una persona o un agente de IA que llega al
 proyecto, después del README lee esto. Si trabajaste, **actualízalo antes de irte** (sección 7).
 
-**Actualizado:** 2026-10-28, 02:00 · **Demo:** 2026-10-28, 17:00 · Sandbox Hub, Polanco
+**Actualizado:** 2026-10-28, 12:30 · **Demo:** 2026-10-28, 17:00 · Sandbox Hub, Polanco
 
 ---
 
@@ -22,9 +22,9 @@ existe**: faltan las reglas, la lectura, el perfil, la web real, la voz y los en
 | 3 | Backend `/api/chat` | 🟢 funciona (probado con el simulado) | Brian | `apps/web/src/app/api/chat/` |
 | 4 | Bot de Telegram @Dona101Bot | 🟢 funciona | Brian | `bots/telegram/` |
 | 5 | Agente simulado para desarrollar | 🟢 funciona | Brian | `mock/` |
-| 6 | Motor de reglas | 🟡 v0: lógica + 7 pruebas; falta leer `rules/` | Brian | `packages/rules-engine/` |
-| 7 | Reglas de ley verificadas | 🔴 0 de 25-40 | Valeria | `rules/` |
-| 8 | Lista de hechos del perfil | 🟡 propuesta en `CONTRATOS.md` §2 | Valeria | `docs/CONTRATOS.md` |
+| 6 | Motor de reglas | 🟢 contrato v1: carga y valida `rules/` al compilar, importa la hoja de Valeria, oculta lo no verificado (38 pruebas) | Brian | `packages/rules-engine/` |
+| 7 | Reglas de ley verificadas | 🟡 9 borradores con cita literal de la ley; 0 verificadas (no se muestran) | Valeria | `rules/` |
+| 8 | Lista de hechos del perfil | 🟡 propuesta v0 en el catálogo `rules/_hechos.yaml` | Valeria | `rules/_hechos.yaml` |
 | 9 | Perfil (código que saca los hechos) | 🔴 no existe | Brian | backend |
 | 10 | Lectura: Firecrawl + PDF | 🔴 no existe | Artur | `packages/reader/` |
 | 11 | Web del producto | 🟡 base Next + página de prueba | Artur | `apps/web/` |
@@ -32,7 +32,7 @@ existe**: faltan las reglas, la lectura, el perfil, la web real, la voz y los en
 | 13 | Entregables: informe, COMPLIANCE.md, pitch corregido | 🔴 no existe | Artur | — |
 | 14 | Pitch, guion, aviso legal | 🔴 no existe | Valeria | — |
 
-`██████░░░░░░░░` **5 de 14 en verde, 3 a medias.** Lo verde es la infraestructura; lo que el jurado
+`███████░░░░░░░` **6 de 14 en verde, 3 a medias.** Lo verde es la infraestructura; lo que el jurado
 evalúa es lo rojo.
 
 ## 3 · Tareas por persona
@@ -41,7 +41,7 @@ evalúa es lo rojo.
 - [x] Agente con identidad propia y API con llave
 - [x] `@donna/agent-client` + `/api/chat` + simulado
 - [x] Motor de reglas v0 con pruebas
-- [ ] Motor: cargar las reglas de `rules/*.yaml` (saltar los que empiezan con `_`)
+- [x] Motor: cargar las reglas de `rules/*.yaml`, validarlas al compilar e importar la hoja de reglas
 - [ ] Perfil: convertir `ReadResult` en `Profile` con la lista de hechos de Valeria
 - [ ] `/api/report`: URL + PDF → lectura → perfil → motor → explicación → `Report`
 - [ ] Entrenar al agente con las reglas verificadas y los 3 casos
@@ -57,9 +57,10 @@ evalúa es lo rojo.
 - [ ] Video de respaldo de la demo completa
 
 ### Valeria — idea, legal, reglas y perfil
+- [ ] **Verificar los 9 borradores de `rules/`**: abrir la fuente, comparar la `source_quote`, corregir `requires` y `applies_if`, firmar `verified_by` + `verified_on`; cada uno trae sus dudas en `x_nota`
 - [ ] Llevar el debate de las 23 preguntas 🔴 (`docs/PREGUNTAS.md`)
-- [ ] Ajustar la lista de hechos del perfil (`CONTRATOS.md` §2)
-- [ ] 10 reglas hoy, 25-40 mañana, con fuente oficial y fecha (tabla → un dev las convierte)
+- [ ] Ajustar el catálogo de hechos `rules/_hechos.yaml` (`CONTRATOS.md` §2)
+- [ ] 10 reglas hoy, 25-40 mañana, con fuente oficial y fecha, en la hoja `rules/_plantilla.csv` (`npm run rules:import` las convierte)
 - [ ] Verificar el estímulo a I+D: artículo correcto, porcentaje, años de antecedentes
 - [ ] Los 3 casos ficticios (startup de IA, fintech cripto, freelance que exporta)
 - [ ] Aviso legal del informe · pitch y guion de 3 min · 3 entrevistas en la sede
@@ -96,6 +97,15 @@ evalúa es lo rojo.
 | 27-oct | Personaje de la demo: founder de SaaS/IA que cobra en cripto (B1) | toca SAT, UIF e I+D a la vez | Valeria |
 | 27-oct | Demo segura: informe + voz + COMPLIANCE.md · los 6 temas · 3 casos ficticios (C1-C3) | 4 horas de construcción | Valeria |
 | 28-oct | Todo PR lleva `## Por qué` y un solo propósito; se sube poco a poco | Donna va a ser un producto | Brian |
+| 28-oct | Una regla mal escrita **rompe el build** de la web | producción se queda con la última versión buena en vez de callar una obligación | Brian |
+| 28-oct | Catálogo de hechos `rules/_hechos.yaml`: una regla solo usa hechos de ahí | un nombre mal escrito se volvería una pregunta que nadie contesta | Brian |
+| 28-oct | La regla suma `verified_on`, `valid_until`, `frequency`, `consequence` (con su propia fuente) y `!hecho` | «cada punto con su fuente y su fecha»; una multa es un número y necesita fuente; la ley tiene excepciones | Brian |
+| 28-oct | Una regla sin verificar o vencida se carga pero **no se muestra en producción** | Valeria sube borradores sin bloquear a nadie, y el jurado nunca ve ley sin verificar | Brian |
+| 28-oct | Las reglas llegan desde una **hoja de cálculo** con `npm run rules:import` | quien escribe la ley no tiene que saber YAML | Brian |
+| 28-oct | Lo que llega de afuera (perfil, hoja) se acepta flexible; el centro (reglas guardadas, motor) sigue estricto | la lectura, la extracción y las llaves no dependen de nosotros | Brian |
+| 28-oct | Las reglas se adelantan investigando la ley oficial y entran **sin verificar**; Valeria corrige y firma | no esperar a que ella escriba desde cero; nada sin firma llega a producción | Brian |
+| 28-oct | Las reglas son **genéricas**: no hay personaje fijo; donde la ley distingue, Donna pregunta | el founder llega sin saber nada y hay que guiarlo | Brian |
+| 28-oct | Si Valeria no alcanza, firma quien compare la regla con su fuente | `verified_by` es quien la comparó, no un abogado; el aviso legal dice que no es opinión legal | Brian |
 
 ## 6 · Bitácora
 
@@ -115,6 +125,18 @@ evalúa es lo rojo.
   exponer nada, con instrucciones para el agente de IA de quien programa. `currentVisitor()` es el único
   lugar que dice quién es el visitante. Cada dev tiene su propia llave de desarrollo (la de Artur, creada
   y probada desde internet: es su propio cliente y no puede hacerse pasar por un visitante).
+
+- **2026-10-28 mediodía** — El motor carga `rules/`: contrato de la regla v1, catálogo de hechos, importador
+  de la hoja de cálculo y validación dentro del build de la web. Probado: 38/38 pruebas, 8 sabotajes
+  cazados, una regla rota detiene `npm run build` de `apps/web` antes de compilar, y una hoja exportada
+  de Excel en español se importa entera (y no escribe nada si una fila está mal). `rules/` sigue con **0
+  reglas**: son de Valeria.
+- **2026-10-28 tarde** — 9 reglas borrador (UIF, estímulo a I+D, RFC, CFDI, IVA 0% de exportación de TI, IMSS,
+  aviso de privacidad, marca, software) investigadas en los PDF oficiales de la Cámara de Diputados; las 9
+  citas comprobadas palabra por palabra contra el texto de la ley. Hallazgos: el estímulo a I+D es el **art. 202
+  LISR** (el 189 que el agente citó es el del cine); **recibir** cripto como pago no aparece en la fracción de la
+  UIF, solo **ofrecer** servicios con cripto a clientes; el IVA 0% de TI exige infraestructura y personal en México.
+  El motor ya acepta perfiles y hojas flexibles (49 pruebas).
 
 ## 7 · Cómo actualizar este archivo (personas y agentes de IA)
 

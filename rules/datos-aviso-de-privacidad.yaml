@@ -1,0 +1,30 @@
+id: datos-aviso-de-privacidad
+authority: DATOS
+kind: obligation
+title: Publicar un aviso de privacidad completo
+requires: >-
+  Si guardas o usas datos de personas, debes informarles en un aviso de privacidad qué datos tratas y para qué. Debe
+  decir al menos quién eres y tu domicilio, qué datos usas (señalando los sensibles), para qué los usas, cómo pueden
+  limitar su uso, cómo ejercer sus derechos ARCO (acceso, rectificación, cancelación y oposición) y cómo les
+  avisarás de cambios.
+applies_if:
+  - guarda_datos_personales
+evidence:
+  - aviso de privacidad publicado y fechado
+  - registro de dónde y cuándo se muestra a cada persona
+law: Ley Federal de Protección de Datos Personales en Posesión de los Particulares, arts. 14 y 15
+source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+source_quote: >-
+  Artículo 14. El responsable tendrá la obligación de informar a la persona titular, a través del aviso de
+  privacidad, la existencia y características principales del tratamiento al que serán sometidos sus datos
+  personales, a fin de que pueda tomar decisiones informadas al respecto.
+valid_from: 2025-03-21
+verified_by: ""
+frequency: once
+consequence:
+  description: Omitir en el aviso de privacidad alguno de los elementos del art. 15 es infracción, con multa de 100 a 160,000 veces la UMA.
+  law: LFPDPPP art. 58 fr. V y art. 59 fr. II
+  source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+x_nota: >-
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. Es la NUEVA ley publicada en el DOF el 20-03-2025 (última reforma 14-11-2025); valid_from = día siguiente,
+  según su transitorio Primero, salvo lo del transitorio Tercero, que no se revisó.

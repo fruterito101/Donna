@@ -46,7 +46,7 @@ academia queda para una fase 2.
 
 **El personaje de la demo:** el founder de una startup de software con inteligencia artificial que
 además cobra en cripto. Lo elegimos porque una sola persona toca tres temas a la vez: **SAT**
-(impuestos), **UIF** (la Unidad de Inteligencia Financiera, que vigila las operaciones con cripto) y el
+(impuestos), **UIF** (la Unidad de Inteligencia Financiera, que vigila a quien ofrece servicios con cripto) y el
 **estímulo a I+D**.
 
 ## 3 · Qué te dice primero
@@ -54,7 +54,10 @@ además cobra en cripto. Lo elegimos porque una sola persona toca tres temas a l
 **Abre con el dinero y cierra con el riesgo.**
 
 1. *«Estás dejando ir un estímulo fiscal por investigación y desarrollo»* — lo que puedes ganar.
-2. *«Te falta avisar a la UIF por recibir cripto»* · *«esto le debes al SAT»* — lo que te puede meter en problemas.
+2. *«Esto le debes al SAT»* · *«si además ofreces servicios con cripto a tus clientes, te falta avisar a la UIF»* —
+   lo que te puede meter en problemas. Ojo: la ley de la UIF alcanza a quien **ofrece** comprar, vender, guardar o
+   enviar cripto de sus clientes; solo **recibir** cripto como pago no aparece en esa fracción. Donna lo distingue
+   y, si no sabe cuál es tu caso, te pregunta.
 
 Por qué en ese orden: «recupera dinero» engancha más que «evita multas», aunque las multas sean lo más
 frecuente. El informe guarda los dos por separado (`benefits` y `obligations`); la web y la voz muestran

@@ -1,0 +1,30 @@
+id: sat-inscripcion-rfc
+authority: SAT
+kind: obligation
+title: Inscribirte en el RFC
+requires: >-
+  Si debes presentar declaraciones o emitir facturas electrónicas (CFDI) por lo que cobras, tienes que inscribirte
+  en el Registro Federal de Contribuyentes y mantener actualizados tu domicilio, tu situación fiscal, un correo y
+  un teléfono. Si tu negocio es una sociedad, además tiene obligaciones sobre sus socios y accionistas.
+applies_if:
+  - tiene_ingresos
+evidence:
+  - constancia de situación fiscal
+  - acuses de los avisos de actualización
+law: Código Fiscal de la Federación, art. 27, apartados A y B
+source: https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf
+source_quote: >-
+  I. Las personas físicas y personas morales están obligadas a dar cumplimiento a las fracciones I, II, III y IV
+  del apartado B del presente artículo, siempre que: a) Deban presentar declaraciones periódicas, o b) Estén
+  obligadas a expedir comprobantes fiscales digitales por Internet por los actos o actividades que realicen o por
+  los ingresos que perciban.
+valid_from: 2021-11-12
+verified_by: ""
+frequency: once
+consequence:
+  description: Multa de $5,070 a $15,200 por no inscribirte cuando estás obligado o hacerlo tarde (salvo si lo haces de manera espontánea).
+  law: CFF art. 79 fr. I y art. 80 fr. I
+  source: https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf
+x_nota: >-
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de la reforma del apartado (12-11-2021). Los montos de la multa son los actualizados en el
+  DOF 28-12-2025 según la nota del PDF; cambian cada año.
