@@ -1,0 +1,23 @@
+id: pi-registro-de-marca
+authority: PI
+kind: benefit
+title: Registrar tu marca en el IMPI
+requires: >-
+  Puedes usar tu nombre o logo comercial sin registrarlo, pero el derecho a usarlo de forma exclusiva (que nadie
+  más lo use para lo mismo) solo se obtiene registrándolo en el Instituto Mexicano de la Propiedad Industrial.
+applies_if:
+  - tiene_marca_propia
+evidence:
+  - solicitud y título de registro de marca
+law: Ley Federal de Protección a la Propiedad Industrial, art. 170
+source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPPI.pdf
+source_quote: >-
+  Artículo 170.- Cualquier persona, física o moral, podrá hacer uso de marcas en la industria, en el comercio o en
+  los servicios que presten. Sin embargo, el derecho a su uso exclusivo se obtiene mediante su registro en el
+  Instituto.
+valid_from: 2020-07-01
+verified_by: ""
+frequency: once
+x_nota: >-
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de publicación de la ley; su transitorio PRIMERO dice que entró en vigor a los noventa días
+  hábiles siguientes (fecha exacta sin calcular).

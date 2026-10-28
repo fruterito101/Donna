@@ -20,11 +20,20 @@ guarda_datos_personales:
     - perfiles
     - correos
 
-opera_activos_virtuales:
-  question: ¿Recibes, guardas o transfieres criptomonedas?
+ofrece_servicios_de_activos_virtuales:
+  question: ¿Tu plataforma compra, vende, guarda o envía criptomonedas que son de tus clientes (por ejemplo, un exchange, una wallet o un servicio de pagos con cripto para otros)?
   signals:
-    - pagos en cripto
-    - wallet
+    - exchange
+    - wallet para tus usuarios
+    - custodia
+    - compra y venta de cripto
+    - on-ramp / off-ramp
+
+recibe_pagos_en_cripto:
+  question: ¿Tus clientes te pagan con criptomonedas por lo que tú vendes?
+  signals:
+    - aceptamos cripto
+    - pagos en USDT / BTC
     - stablecoins
 
 hace_id_tecnologico:
@@ -50,3 +59,25 @@ tiene_marca_propia:
   question: ¿Usas un nombre o logo comercial?
   signals:
     - nombre del producto
+
+tiene_ingresos:
+  question: ¿Tu negocio ya cobra por lo que vende (en México o fuera), aunque sea poco?
+  signals:
+    - precios
+    - planes de pago
+    - clientes que pagan
+
+infraestructura_en_mexico:
+  question: ¿Todo lo que usas para dar tu servicio está en México (servidores, equipo y personas)?
+  signals:
+    - hosting en México
+    - centro de datos en México
+    - equipo en México
+
+desarrolla_software:
+  question: ¿Tu negocio crea su propio software (una app, una plataforma o un modelo de IA)?
+  signals:
+    - app
+    - plataforma
+    - SaaS
+    - modelo propio

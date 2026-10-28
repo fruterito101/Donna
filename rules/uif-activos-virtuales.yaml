@@ -1,0 +1,37 @@
+id: uif-activos-virtuales
+authority: UIF
+kind: obligation
+title: Avisos a la UIF por servicios con activos virtuales
+requires: >-
+  Si tu plataforma compra, vende, custodia o transfiere activos virtuales que son de tus clientes, haces una
+  Actividad Vulnerable: debes identificar a cada cliente con documentos oficiales, conservar la información de
+  sus operaciones y presentar un Aviso a Hacienda cuando la operación de un cliente llegue a 210 veces la UMA
+  diaria o tu comisión llegue a 4 veces la UMA diaria. Solo recibir cripto como pago por tu propio producto no
+  aparece en esta fracción.
+applies_if:
+  - ofrece_servicios_de_activos_virtuales
+evidence:
+  - expediente de identificación de cada cliente
+  - registro de las operaciones con activos virtuales
+  - acuses de los Avisos presentados
+law: Ley Federal para la Prevención e Identificación de Operaciones con Recursos de Procedencia Ilícita, art. 17 fr. XVI y art. 18
+source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPIORPI.pdf
+source_quote: >-
+  XVI. El ofrecimiento habitual y profesional de intercambio de activos virtuales por parte de sujetos
+  distintos a las Entidades Financieras, que se lleven a cabo a través de plataformas electrónicas, digitales o
+  similares, que administren u operen, facilitando o realizando operaciones de compra o venta de dichos activos
+  propiedad de sus clientes o bien, provean medios para custodiar, almacenar, o transferir activos virtuales
+  distintos a los reconocidos por el Banco de México en términos de la Ley para Regular las Instituciones de
+  Tecnología Financiera, incluidas las operaciones que se realicen con ciudadanos mexicanos desde otra
+  jurisdicción.
+valid_from: 2025-07-17
+verified_by: ""
+frequency: per_event
+consequence:
+  description: Multa de 200 a 2,000 veces el valor diario de la UMA por incumplir las obligaciones del art. 18 o no presentar a tiempo los Avisos.
+  law: LFPIORPI art. 53 fr. II y III, art. 54 fr. I
+  source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPIORPI.pdf
+x_nota: >-
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = día siguiente a la reforma del DOF 16-07-2025 (su transitorio Primero dice «al día siguiente
+  de su publicación, salvo las excepciones»); las excepciones no se revisaron. Para Valeria: ¿recibir cripto
+  como pago por un SaaS propio queda fuera de toda obligación ante la UIF, o hay otra fracción que lo alcance?

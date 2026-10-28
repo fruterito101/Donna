@@ -1,0 +1,29 @@
+id: sat-emitir-cfdi
+authority: SAT
+kind: obligation
+title: Emitir facturas electrónicas (CFDI)
+requires: >-
+  Cuando cobras por lo que vendes, debes emitir el comprobante fiscal digital (CFDI) a través del SAT y entregarlo
+  a tu cliente. Para hacerlo necesitas la firma electrónica (e.firma) vigente y estar inscrito en el RFC.
+applies_if:
+  - tiene_ingresos
+evidence:
+  - los CFDI emitidos por cada cobro
+  - e.firma vigente
+law: Código Fiscal de la Federación, art. 29
+source: https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf
+source_quote: >-
+  Artículo 29. Cuando las leyes fiscales establezcan la obligación de expedir comprobantes fiscales por los actos
+  o actividades que realicen, por los ingresos que se perciban o por las retenciones de contribuciones que
+  efectúen, los contribuyentes deberán emitirlos mediante documentos digitales a través de la página de Internet
+  del Servicio de Administración Tributaria.
+valid_from: 2021-11-12
+verified_by: ""
+frequency: per_event
+consequence:
+  description: Multa de $22,300 a $127,530 por no expedir o no entregar el CFDI; si reincides, pueden clausurar el establecimiento de 3 a 15 días.
+  law: CFF art. 83 fr. VII y art. 84 fr. IV inciso a)
+  source: https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf
+x_nota: >-
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de la reforma del primer párrafo (12-11-2021). Para Valeria: ¿cobrar al extranjero también
+  exige CFDI? (casi seguro sí, pero falta la fuente). Los montos de la multa se actualizan cada año.

@@ -16,7 +16,8 @@ cosas distintas.
 | # | Pendiente | Qué frena | Lo destraba |
 |---|---|---|---|
 | D2 | ¿Quién verifica cada regla de ley, y contra qué fuente? | **todo**: sin reglas verificadas el motor no tiene qué cruzar y la demo no tiene contenido | Valeria |
-| — | Escribir las reglas: 10 hoy, 25-40 para la demo (hay **0**) | el motor, el entrenamiento del agente, la demo | Valeria |
+| — | **Verificar y firmar los 9 borradores** de `rules/` (hay 0 firmados; sin firma no se muestran). Cada uno trae sus dudas en `x_nota` | la demo: el informe sale vacío en producción | Valeria (o quien compare con la fuente) |
+| — | Faltan reglas para llegar a 25-40 (hay 9) | el alcance de los 6 temas | Valeria |
 | — | Aprobar los contratos ([`CONTRATOS.md`](CONTRATOS.md)); la regla ya es v1 (28-oct) | trabajar en paralelo sin romper la parte del otro | los tres |
 | — | Confirmar el catálogo de hechos ([`rules/_hechos.yaml`](../rules/_hechos.yaml)): cada regla solo puede usar hechos de ahí | el paso PERFIL y las reglas | Valeria |
 | — | Aprobar el [`README.md`](../README.md) como la definición de Donna | que los tres construyan la misma idea | los tres |

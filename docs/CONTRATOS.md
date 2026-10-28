@@ -30,7 +30,7 @@ cálculo con estas columnas (`rules/_plantilla.csv`) y `npm run rules:import -- 
 | `kind` | `obligation` (obligación) o `benefit` (beneficio) | `obligation` |
 | `title` | título corto para la pantalla | |
 | `requires` | qué pide la ley, en español claro | |
-| `applies_if` | **hechos del catálogo** (§2) que deben cumplirse todos: `hecho` = sí, `!hecho` = no. Un «o» se escribe como dos reglas | `[opera_activos_virtuales, "!factura_en_mexico"]` |
+| `applies_if` | **hechos del catálogo** (§2) que deben cumplirse todos: `hecho` = sí, `!hecho` = no. Un «o» se escribe como dos reglas | `[ofrece_servicios_de_activos_virtuales, "!factura_en_mexico"]` |
 | `evidence` | qué guardar como prueba | `[...]` |
 | `law` | ley y artículo exactos | |
 | `source` | la página **oficial** exacta (empieza con `https://`) | |
@@ -62,7 +62,11 @@ ajusta en el catálogo):
 |---|---|---|
 | `cobra_al_extranjero` | ¿cobra a clientes fuera de México? | «clientes en EE. UU.», precios en USD |
 | `guarda_datos_personales` | ¿guarda datos de personas? | registro de usuarios, perfiles, correos |
-| `opera_activos_virtuales` | ¿recibe, guarda o transfiere cripto? | «pagos en cripto», wallet, stablecoins |
+| `ofrece_servicios_de_activos_virtuales` | ¿compra, vende, guarda o envía cripto **de sus clientes**? | exchange, wallet para usuarios, custodia |
+| `recibe_pagos_en_cripto` | ¿le pagan con cripto por lo que vende? | «aceptamos cripto», USDT, stablecoins |
+| `tiene_ingresos` | ¿ya cobra por lo que vende? | precios, planes de pago |
+| `infraestructura_en_mexico` | ¿servidores, equipo y personas están en México? | hosting en México |
+| `desarrolla_software` | ¿crea su propio software? | app, plataforma, SaaS, modelo propio |
 | `hace_id_tecnologico` | ¿desarrolla tecnología nueva con incertidumbre técnica? | modelo propio, algoritmo nuevo, I+D |
 | `tiene_empleados` | ¿contrata personas? | «equipo de N», vacantes |
 | `factura_en_mexico` | ¿emite facturas en México? | precios en MXN, clientes mexicanos |
@@ -72,7 +76,7 @@ ajusta en el catálogo):
 
 ```ts
 type Profile = Record<string, boolean | undefined>;
-// { cobra_al_extranjero: true, opera_activos_virtuales: true, hace_id_tecnologico: undefined, ... }
+// { cobra_al_extranjero: true, recibe_pagos_en_cripto: true, hace_id_tecnologico: undefined, ... }
 ```
 
 `undefined` = no se sabe todavía. El motor **pregunta en vez de suponer**.
