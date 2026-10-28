@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 type Turn = { who: "tú" | "Donna"; text: string };
 
@@ -8,15 +8,12 @@ export function ChatTest() {
   const [turns, setTurns] = useState<Turn[]>([]);
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
-  // One thread per browser tab, so the conversation keeps its context. Created on the first send
-  // (in the browser), never during render: Next prerenders the page and random values there are refused.
-  const temaRef = useRef<string | null>(null);
+  // The browser does not pick a thread: the server ties this visitor to their own conversation
+  // with an httpOnly cookie (see api/chat/route.ts).
 
   async function send() {
     const message = text.trim();
     if (!message || busy) return;
-    temaRef.current ??= `web-${crypto.randomUUID().slice(0, 8)}`;
-    const tema = temaRef.current;
     setTurns((t) => [...t, { who: "tú", text: message }]);
     setText("");
     setBusy(true);
@@ -24,7 +21,7 @@ export function ChatTest() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message, tema }),
+        body: JSON.stringify({ message }),
       });
       const data = (await res.json()) as { reply?: string; error?: string };
       setTurns((t) => [...t, { who: "Donna", text: data.reply ?? `⚠️ ${data.error ?? "sin respuesta"}` }]);

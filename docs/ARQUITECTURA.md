@@ -69,5 +69,9 @@ Los paquetes exportan TypeScript directo; Next los compila (`transpilePackages` 
 - Las llaves viven solo en variables de entorno del servidor (`apps/web/.env.local` en local, el
   panel de Vercel en producción). `.gitignore` excluye todo `.env*`.
 - El navegador nunca habla con el agente: habla con `/api/chat`.
+- **Cada visitante tiene su propia conversación.** Su llave es una cookie `HttpOnly` firmada que solo
+  crea el servidor; ante el agente es un cliente aparte con identidad firmada. El navegador no elige
+  el hilo (antes sí, y se podía leer una conversación ajena — medido el 2026-10-28). Detalle:
+  `docs/AGENTE.md` §5.
 - **Datos del usuario (propuesta para la demo):** no guardar los pitches ni las landings que suba, y
   decirlo en pantalla. Pendiente de decisión del equipo (`docs/PREGUNTAS.md` D6).

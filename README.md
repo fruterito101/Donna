@@ -194,9 +194,10 @@ Crea `apps/web/.env.local` con estas variables. Con el simulado, estos valores f
 ```bash
 AGENT_URL=http://127.0.0.1:8787
 AGENT_TOKEN=dev-mock-key
+AGENT_SIGNING_SECRET=dev-signing-secret
 ```
 
-Para hablar con **el agente real**, Brian te pasa en privado `AGENT_URL` y `AGENT_TOKEN`. Nunca se
+Para hablar con **el agente real**, Brian te pasa en privado `AGENT_URL`, `AGENT_TOKEN` y `AGENT_SIGNING_SECRET`. Nunca se
 suben al repo. Todas las variables están en [`docs/AGENTE.md`](docs/AGENTE.md#variables-de-entorno).
 
 ```bash

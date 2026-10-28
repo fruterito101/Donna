@@ -27,6 +27,7 @@ Van en `apps/web/.env.local` (ignorado por git). **Nunca** en el repo, en un com
 |---|---|---|---|
 | `AGENT_URL` | dirección del agente | Brian, en privado | `http://127.0.0.1:8787` |
 | `AGENT_TOKEN` | llave del agente | Brian, en privado | `dev-mock-key` |
+| `AGENT_SIGNING_SECRET` | firma la cookie de cada visitante y su identidad ante el agente (§5) | Brian, en privado | cualquier texto, ej. `dev-signing-secret` |
 | `FIRECRAWL_API_KEY` | lectura de páginas | cada dev, con su cuenta del evento | — |
 | `ELEVENLABS_API_KEY` | la voz | cada dev, con su cuenta del evento | — |
 
@@ -39,25 +40,28 @@ Usa **siempre** `@donna/agent-client`, en una ruta de servidor (`apps/web/src/ap
 ```ts
 import { askDonna, AgentError } from "@donna/agent-client";
 
-const { reply, thread } = await askDonna(
+const { reply } = await askDonna(
   "¿Qué obligaciones tiene una fintech que cobra en cripto?",
-  "web-a1b2c3d4", // tema: el hilo de la conversación (ver §5)
+  "web", // tema: el hilo DENTRO del espacio de ese visitante (ver §5)
+  { visitorId }, // de la cookie del visitante — nunca del cuerpo de la petición
 );
 ```
 
 `askDonna` se encarga de: leer `AGENT_URL`/`AGENT_TOKEN`, **meter la identidad de Donna en el mensaje**
-(sin ella el agente no responde como Donna), el tiempo máximo (150 s) y los errores. Lanza `AgentError`
-con `status` (0 = no se pudo conectar). El texto del error **nunca** incluye la dirección ni la llave.
+(sin ella el agente no responde como Donna), **firmar la identidad del visitante** con
+`AGENT_SIGNING_SECRET`, el tiempo máximo (150 s) y los errores. Lanza `AgentError` con `status`
+(0 = no se pudo conectar). El texto del error **nunca** incluye la dirección ni la llave.
 
-Desde el navegador se usa la ruta propia, nunca el agente directo:
+Desde el navegador se usa la ruta propia, nunca el agente directo. **El navegador no elige hilo**:
+solo manda el mensaje.
 
 ```ts
 const res = await fetch("/api/chat", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ message: "Hola", tema: "web-a1b2c3d4" }),
+  body: JSON.stringify({ message: "Hola" }),
 });
-const { reply } = await res.json(); // o { error } con 400 / 413 / 502
+const { reply } = await res.json(); // o { error } con 400 / 413 / 502 / 503
 ```
 
 ## 4 · La API del agente (referencia)
@@ -71,6 +75,8 @@ Solo para escribir o depurar `@donna/agent-client`. Todo lo demás pasa por el p
 ```http
 Content-Type: application/json
 X-API-Key: <AGENT_TOKEN>
+X-Client-Id: <v + 24 hex del sha256 del visitante>
+X-Client-Sig: <HMAC-SHA256(AGENT_SIGNING_SECRET, X-Client-Id) en hex>
 
 { "message": "<texto, con la identidad de Donna al inicio>", "tema": "<hilo>" }
 ```
@@ -81,19 +87,26 @@ X-API-Key: <AGENT_TOKEN>
 |---|---|
 | 200 | respuesta lista |
 | 400 | JSON inválido o falta `message` |
-| 401 | sin llave o llave inválida |
+| 401 | sin llave, llave inválida o firma del visitante inválida |
 | 403 | llave bloqueada o sin permiso |
 | 5xx / sin respuesta | el agente no está disponible → usa el simulado (§8) |
 
 ⚠️ El campo del hilo se llama **`tema`** (no `thread`). Si mandas `thread`, el agente lo ignora y usa
 un hilo por defecto.
 
-## 5 · `tema`: los hilos y la memoria
+## 5 · Cada visitante, su conversación
 
-- `tema` separa **conversaciones**: usa uno estable por sesión de usuario (`web-<id>`, `tg-<id>`).
-- **Todos los hilos comparten la memoria de Donna**: lo que un usuario le cuenta puede influir en lo
-  que responde a otro. No mandes datos personales sensibles en los mensajes de prueba.
-- `/nuevo` en Telegram o un `tema` nuevo en la web = conversación desde cero.
+- **La llave de cada visitante es una cookie**: la primera vez, `/api/chat` crea un id aleatorio de
+  128 bits y lo guarda en la cookie `donna_visitor` (`HttpOnly`, `Secure`, `SameSite=lax`, 30 días),
+  firmada con `AGENT_SIGNING_SECRET`. Ningún script del navegador la puede leer, y una cookie
+  alterada o inventada no pasa: ese visitante empieza una conversación nueva.
+- **Ante el agente, cada visitante es un cliente aparte** (`X-Client-Id` firmado): su propio hilo y
+  su propia memoria. Nadie puede leer ni continuar la conversación de otro, aunque adivine nombres.
+- **El navegador no elige el hilo.** Antes lo elegía, y mandando el nombre de un hilo ajeno se podía
+  leer esa conversación (medido el 2026-10-28). Por eso `tema` ya no se acepta desde el navegador.
+- **No usamos la IP como llave**: en un evento todos salen por la misma IP del wifi y caerían en la
+  misma conversación; en el celular la IP cambia y se perdería el hilo.
+- Borrar la cookie = conversación desde cero. `/nuevo` hace lo mismo en Telegram.
 
 ## 6 · Cómo usarlo en el sistema — el patrón de los dos papeles
 
@@ -109,8 +122,8 @@ const { reply } = await askDonna(
 );
 ```
 
-**Papel 2 · Atención al cliente.** Las preguntas del usuario van tal cual por `/api/chat`, con el
-mismo `tema` de su sesión para que recuerde la conversación.
+**Papel 2 · Atención al cliente.** Las preguntas del usuario van tal cual por `/api/chat`; su cookie
+hace que Donna recuerde su conversación.
 
 **Para la voz:** el texto de `reply` es Markdown; quita `**`, `#` y listas antes de mandarlo a
 ElevenLabs.
@@ -118,10 +131,11 @@ ElevenLabs.
 ## 7 · Reglas de seguridad
 
 1. Solo desde el servidor, siempre con `@donna/agent-client`.
-2. Nunca imprimas, loguees ni devuelvas al navegador `AGENT_URL` o `AGENT_TOKEN`.
-3. Nunca le preguntes al agente por su plataforma, su proveedor o su infraestructura, ni lo pongas en
+2. Nunca imprimas, loguees ni devuelvas al navegador `AGENT_URL`, `AGENT_TOKEN` ni `AGENT_SIGNING_SECRET`.
+3. La identidad del visitante sale **solo** de su cookie, nunca del cuerpo de la petición.
+4. Nunca le preguntes al agente por su plataforma, su proveedor o su infraestructura, ni lo pongas en
    la demo: está entrenado para no responder, y no es parte del producto.
-4. Si una llave se filtra (commit, captura, chat): **avisa a Brian de inmediato** para rotarla.
+5. Si una llave se filtra (commit, captura, chat): **avisa a Brian de inmediato** para rotarla.
 
 ## 8 · Desarrollar sin el agente real — el simulado
 
