@@ -11,13 +11,14 @@ contador o abogado. Proyecto del Hacktoberfest México 2026; demo el **28 de oct
 
 ## 2 · Orden de lectura (antes de escribir código)
 
-1. `README.md` — qué es, cómo arrancar, mapa del repo.
+1. `README.md` — ⭐ **la fuente de verdad de qué es Donna y cómo funciona**: el paso a paso, el mapa, cómo arrancar.
 2. **`docs/ESTADO.md`** — ⭐ dónde vamos: tareas por persona, bloqueos, decisiones, bitácora. **Es la fuente de verdad del avance.**
-3. `docs/ARQUITECTURA.md` — las capas, el flujo de la información, qué vive en cada carpeta.
-4. `docs/CONTRATOS.md` — los formatos que conectan las piezas (regla, perfil, informe).
-5. `docs/AGENTE.md` — **solo si tu tarea toca al agente**: cómo conectarse, pedirle cosas y usarlo.
-6. `docs/DEFINICION.md` — el producto completo (alcance, mercado, patrocinadores).
-7. `apps/web/AGENTS.md` — ⚠️ esta versión de Next.js (16.4) cambia APIs: lee su documentación local en `node_modules/next/dist/docs/` antes de escribir código de Next.
+3. `docs/PENDIENTES.md` — lo que falta decidir o revisar. Si tu tarea depende de algo que está ahí, **detente y avisa**: no lo decidas tú.
+4. `docs/ARQUITECTURA.md` — las capas, el flujo de la información, qué vive en cada carpeta.
+5. `docs/CONTRATOS.md` — los formatos que conectan las piezas (regla, perfil, informe).
+6. `docs/AGENTE.md` — **solo si tu tarea toca al agente**: cómo conectarse, pedirle cosas y usarlo.
+7. `docs/DEFINICION.md` — el producto completo (alcance, mercado, patrocinadores).
+8. `apps/web/AGENTS.md` — ⚠️ esta versión de Next.js (16.4) cambia APIs: lee su documentación local en `node_modules/next/dist/docs/` antes de escribir código de Next.
 
 ## 3 · Reglas que no se rompen
 
@@ -60,5 +61,15 @@ npm run build        # compila todo; debe quedar en verde antes de un PR
 
 ## 7 · Flujo de cambios
 
-Rama por tarea (`feat/<área>-<qué>`) → PR a `main` → otra persona revisa → merge. Nunca empujes
-directo a `main`. Un PR lleva: qué cambia, cómo se probó y qué actualizaste en `docs/ESTADO.md`.
+Rama por tarea (`feat/<área>-<qué>`, `docs/<qué>`) → PR a `main` → otra persona revisa → merge. Nunca
+empujes directo a `main`.
+
+Donna va a ser un producto, así que un PR entra limpio:
+
+1. **Un PR, un propósito.** Todo lo que trae sirve a ese propósito. Lo que no, va en otro PR o se anota
+   en `docs/PENDIENTES.md`. Si mientras trabajas encuentras otra cosa que arreglar, no la metas: anótala.
+2. **Empieza con `## Por qué`**: qué problema resuelve y por qué ahora. Luego qué cambia, cómo se probó
+   y qué documentación actualizaste. La plantilla `.github/pull_request_template.md` trae las secciones.
+3. **Poco a poco:** PRs chicos que se pueden revisar.
+4. **La documentación viaja con el cambio:** si cambia qué es Donna, el `README.md`; si avanza el
+   trabajo, `docs/ESTADO.md`; si se abre o cierra algo, `docs/PENDIENTES.md`.

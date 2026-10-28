@@ -6,6 +6,9 @@ partir — se vale cambiarla. Las respuestas se escriben aquí mismo, debajo de 
 
 **Prioridad:** 🔴 hoy en la noche (sin esto no se puede construir) · 🟡 antes de la demo · 🟢 después.
 
+⭐ **Lo que sigue abierto se lista en [`PENDIENTES.md`](PENDIENTES.md).** Este archivo guarda cada
+pregunta con su porqué y su respuesta: es el historial de cómo se decidió Donna.
+
 ---
 
 ## Las 4 del documento de definición
@@ -25,18 +28,22 @@ partir — se vale cambiarla. Las respuestas se escriben aquí mismo, debajo de 
 Por qué: la propuesta de Artur es educativa («aprender, simular, documentar»); la libreta es un
 diagnóstico con entregables. Cambia la pantalla principal y el pitch.
 Propuesta: diagnostica primero y enseña al explicar cada punto — la academia es fase 2.
+**✅ Respuesta (Valeria, 27-oct):** diagnostica, y enseña al explicar; la academia queda para la fase 2.
 
 **A2 🔴 ¿Qué vendemos primero: no meterte en problemas, o dinero que estás dejando ir?**
 Por qué: «evita multas» y «recupera estímulos» son dos pitches distintos; el segundo vende mejor, el
 primero es más frecuente.
 Propuesta: abrir con el dinero (estímulo a I+D) y cerrar con el riesgo (UIF/SAT).
+**✅ Respuesta (Valeria, 27-oct):** abrir con el dinero (I+D) y cerrar con el riesgo (UIF/SAT).
 
 **A3 🔴 ¿Quién es el usuario y quién es el cliente que paga?**
 Por qué: puede usarlo el founder y pagarlo la consultora o el contador aliado.
 Propuesta: usa y paga el founder técnico; el contador es aliado, no cliente, en esta etapa.
+**✅ Respuesta (Valeria, 27-oct):** usa y paga el founder; el contador es aliado.
 
 **A4 🟡 ¿Qué palabra describe a Donna en una línea: asesora, copiloto, auditora, traductora de la ley?**
 Por qué: «asesora» roza la asesoría regulada; la palabra define la expectativa del jurado.
+**⬜ Sin decidir (Valeria, 27-oct):** anotó «"asesora" roza la asesoría regulada»; falta elegir la palabra.
 
 ---
 
@@ -45,18 +52,23 @@ Por qué: «asesora» roza la asesoría regulada; la palabra define la expectati
 **B1 🔴 ¿Cuál es EL perfil de la demo?** — dev freelance que cobra fuera · founder de SaaS/IA ·
 fintech/cripto. Por qué: una demo con un solo personaje se entiende; con tres, se diluye.
 Propuesta: founder de SaaS/IA que además recibe pagos en cripto — toca SAT, UIF e I+D a la vez.
+**✅ Respuesta (Valeria, 27-oct):** founder de SaaS/IA que cobra en cripto: toca SAT, UIF e I+D a la vez.
 
 **B2 🟡 ¿En qué etapa está ese usuario: idea, MVP o ya factura?** Por qué: las obligaciones cambian
 mucho (sin facturar casi no hay IMSS).
+**⬜ Sin decidir (Valeria, 27-oct):** anotó que «cambia qué obligaciones aplican»; falta elegir la etapa.
 
 **B3 🟢 ¿Solo México?** Propuesta: sí; otros países son fase 3.
+**✅ Respuesta (Valeria, 27-oct):** sí.
 
 **B4 🟡 ¿Cuánto pagaría y por qué?** Por qué: el jurado evalúa «aplicación práctica»; un precio con
 razón suena a producto. Partida de Artur: gratis · $299 · $1,499 MXN/mes · cotización.
+**✅ Respuesta (Valeria, 27-oct):** partir de $0 / $299 / $1,499 MXN al mes.
 
 **B5 🔴 ¿Qué preguntamos en las 3 entrevistas de mañana en la sede?** Por qué: es la validación
 (Fase 0 de Artur) y un dato real para el pitch. Propuesta: «¿sabes qué régimen fiscal te toca?» ·
 «¿has oído del estímulo a I+D?» · «¿pagarías $299 al mes por esto?».
+**✅ Respuesta (Valeria, 27-oct):** régimen fiscal · si conoce el estímulo a I+D · si pagaría $299.
 
 ---
 
@@ -65,17 +77,22 @@ razón suena a producto. Partida de Artur: gratis · $299 · $1,499 MXN/mes · c
 **C1 🔴 ¿Las 5 salidas o menos?** (informe · voz · COMPLIANCE.md · pitch corregido · revisión
 profesional). Por qué: son 4 horas de construcción. Propuesta: informe + voz + COMPLIANCE.md seguras;
 pitch corregido y revisión si da tiempo.
+**✅ Respuesta (Valeria, 27-oct):** seguras: informe + voz + COMPLIANCE.md; el resto si da tiempo.
 
 **C2 🔴 ¿Qué temas de ley entran?** SAT · IMSS · UIF/GAFI · datos personales · propiedad intelectual ·
 estímulo a I+D. Propuesta: los 6, pocas tarjetas de cada uno, mejor que muchas de uno solo.
+**✅ Respuesta (Valeria, 27-oct):** los 6 (SAT, IMSS, UIF, datos, PI, I+D), con pocas tarjetas cada uno.
 
 **C3 🔴 ¿Cuáles son los 3 casos ficticios?** Propuesta: ① SaaS de IA que hace I+D ② fintech con pagos
 en cripto ③ dev freelance que exporta servicios.
+**✅ Respuesta (Valeria, 27-oct):** SaaS de IA con I+D · fintech cripto · freelance que exporta.
 
 **C4 🟡 ¿La entrada es solo landing + pitch, o también su repositorio de GitHub?** Por qué: el repo es
 evidencia de I+D (commits, pruebas); suma valor y tiempo.
+**⬜ Sin decidir (Valeria, 27-oct):** anotó «es evidencia de I+D, pero cuesta tiempo»; falta decidir si entra.
 
 **C5 🔴 ¿Confirmamos fuera: estrategia financiera, pipeline de ventas, leads/CRM?**
+**✅ Respuesta (Valeria, 27-oct):** sí.
 
 ---
 
