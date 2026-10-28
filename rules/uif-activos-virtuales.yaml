@@ -25,13 +25,14 @@ source_quote: >-
   Tecnología Financiera, incluidas las operaciones que se realicen con ciudadanos mexicanos desde otra
   jurisdicción.
 valid_from: 2025-07-17
-verified_by: ""
+verified_by: Brian López
+verified_on: 2026-10-28
 frequency: per_event
 consequence:
   description: Multa de 200 a 2,000 veces el valor diario de la UMA por incumplir las obligaciones del art. 18 o no presentar a tiempo los Avisos.
   law: LFPIORPI art. 53 fr. II y III, art. 54 fr. I
   source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPIORPI.pdf
 x_nota: >-
-  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = día siguiente a la reforma del DOF 16-07-2025 (su transitorio Primero dice «al día siguiente
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = día siguiente a la reforma del DOF 16-07-2025 (su transitorio Primero dice «al día siguiente
   de su publicación, salvo las excepciones»); las excepciones no se revisaron. Para Valeria: ¿recibir cripto
   como pago por un SaaS propio queda fuera de toda obligación ante la UIF, o hay otra fracción que lo alcance?

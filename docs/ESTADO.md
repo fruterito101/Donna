@@ -23,7 +23,7 @@ existe**: faltan las reglas, la lectura, el perfil, la web real, la voz y los en
 | 4 | Bot de Telegram @Dona101Bot | 🟢 funciona | Brian | `bots/telegram/` |
 | 5 | Agente simulado para desarrollar | 🟢 funciona | Brian | `mock/` |
 | 6 | Motor de reglas | 🟢 contrato v1: carga y valida `rules/` al compilar, importa la hoja de Valeria, oculta lo no verificado (38 pruebas) | Brian | `packages/rules-engine/` |
-| 7 | Reglas de ley verificadas | 🟡 9 borradores con cita literal de la ley; 0 verificadas (no se muestran) | Valeria | `rules/` |
+| 7 | Reglas de ley verificadas | 🟡 9 con cita literal de la ley; **4 firmadas** (I+D, UIF, RFC, aviso de privacidad), 5 en revisión | Valeria | `rules/` |
 | 8 | Lista de hechos del perfil | 🟡 propuesta v0 en el catálogo `rules/_hechos.yaml` | Valeria | `rules/_hechos.yaml` |
 | 9 | Perfil (código que saca los hechos) | 🟡 `buildProfile` + `/api/report` listos; falta sacar los hechos del texto leído | Brian | `packages/rules-engine/` · `apps/web/src/app/api/report/` |
 | 10 | Lectura: Firecrawl + PDF | 🔴 no existe | Artur | `packages/reader/` |
@@ -144,6 +144,8 @@ evalúa es lo rojo.
   llama a Donna si no hay nada que explicar, y responde 400/413 a entradas malas. Con `next dev` y
   `DONNA_SHOW_DRAFTS=1`: el personaje de la demo da 4 beneficios, 4 obligaciones y 2 preguntas en español,
   y la explicación llega al agente con la instrucción de usar solo esas reglas. 54 pruebas.
+- **2026-10-28 tarde** — Brian firma las 4 reglas de la demo (estímulo a I+D, UIF, RFC, aviso de privacidad) tras
+  comparar cada cita con su fuente: son las primeras que el informe muestra en producción. Las otras 5 siguen en revisión.
 
 ## 7 · Cómo actualizar este archivo (personas y agentes de IA)
 
