@@ -26,3 +26,7 @@
 # Error de sesión en actualización en vivo
 - [x] Estabilizar identidad de contexto sin mover datos fuera del provider.
 - [x] Verificar recarga, actualización en vivo, navegación e aislamiento de sesiones.
+
+# Popup de llamada simulada
+- [x] Implementar modal y continuidad por texto sin efectos externos.
+- [x] Probar reloj, reinicio, limpieza y escritorio/móvil; documentar límite.

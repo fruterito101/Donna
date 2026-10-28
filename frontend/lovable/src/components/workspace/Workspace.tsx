@@ -4,6 +4,7 @@ import { BriefcaseBusiness, FileText, FolderOpen, Menu, MessageSquare, Plus, Pho
 import { hasWork, validateAttachment } from '@/lib/donna-workspace';
 import { useDonnaSession } from './SessionProvider';
 import { IntakeView } from '@/components/intake/IntakeView';
+import { SimulatedCall } from '@/components/intake/SimulatedCall';
 import { AppButton, Confirmation, Panel } from './primitives';
 import { Conversation } from './Conversation';
 import { ProfileView } from './ProfileView';
@@ -17,6 +18,8 @@ export function Workspace() {
   const [chatReset,setChatReset]=useState(false);
   const [view, setView] = useState<View>('Conversación');
   const [navigation, setNavigation] = useState(false);
+  const [callOpen, setCallOpen] = useState(false);
+  const callTrigger = useRef<HTMLButtonElement>(null);
   const [dossier, setDossier] = useState(false);
   const [fileError, setFileError] = useState('');
   const files = useRef<HTMLInputElement>(null);
@@ -28,7 +31,7 @@ export function Workspace() {
   function edit() { setDossier(false); setView('Mi negocio'); }
   function newQuery() { newButton.current = document.activeElement instanceof HTMLButtonElement ? document.activeElement : null; if(mainChat.state.messages.length) setChatReset(true); else dispatch({ type:'requestReset' }); }
   function reset() { mainChat.reset(); setChatReset(false); dispatch({ type:'confirmReset' }); setView('Conversación'); setFileError(''); setNavigation(false); setDossier(false); }
-  function sidebar(mobile = false) { return <div className="flex h-full flex-col bg-muted px-4 py-5"><Link to="/" className="mb-7 flex min-h-11 w-fit items-center px-2 font-serif text-[30px] text-foreground">Donna<span className="sr-only"> · Volver al inicio</span></Link><AppButton ref={undefined} variant="outline" onClick={newQuery} className="w-full justify-start bg-card"><Plus aria-hidden />Nueva consulta</AppButton><nav aria-label="Vistas de Donna" className="mt-7 space-y-1">{views.map(v => <AppButton key={v.name} variant="ghost" aria-current={view === v.name ? 'page' : undefined} className={cn('w-full justify-start px-3 text-base', view === v.name ? 'bg-accent text-primary' : 'text-muted-foreground')} onClick={() => navigate(v.name)}><v.icon aria-hidden />{v.name}</AppButton>)}</nav>{hasWork(state) && <div className="mt-8 border-t border-border px-2 pt-5"><p className="text-xs font-semibold text-muted-foreground">Esta consulta</p><AppButton variant="ghost" className="mt-2 h-auto w-full justify-start break-words px-0 py-2 text-left" onClick={() => navigate('Conversación')}>{state.profile.name || state.topic || 'Mi consulta'}</AppButton></div>}<div className="mt-auto space-y-2 pt-8"><AppButton onClick={openIntake} className="w-full justify-start"><Phone aria-hidden className="shrink-0"/><span>Contactar a un Profesional</span></AppButton><AppButton asChild variant="ghost" className="w-full justify-start text-muted-foreground"><Link to="/operaciones" onClick={() => setNavigation(false)}><Users aria-hidden/>Vista operativa</Link></AppButton></div><p className="px-2 pt-4 text-xs text-muted-foreground">Preparar con claridad.<br />Decidir con tu profesional.</p>{mobile && <span className="sr-only">Navegación móvil</span>}</div>; }
+  function sidebar(mobile = false) { return <div className="flex h-full flex-col bg-muted px-4 py-5"><Link to="/" className="mb-7 flex min-h-11 w-fit items-center px-2 font-serif text-[30px] text-foreground">Donna<span className="sr-only"> · Volver al inicio</span></Link><AppButton ref={undefined} variant="outline" onClick={newQuery} className="w-full justify-start bg-card"><Plus aria-hidden />Nueva consulta</AppButton><nav aria-label="Vistas de Donna" className="mt-7 space-y-1">{views.map(v => <AppButton key={v.name} variant="ghost" aria-current={view === v.name ? 'page' : undefined} className={cn('w-full justify-start px-3 text-base', view === v.name ? 'bg-accent text-primary' : 'text-muted-foreground')} onClick={() => navigate(v.name)}><v.icon aria-hidden />{v.name}</AppButton>)}</nav>{hasWork(state) && <div className="mt-8 border-t border-border px-2 pt-5"><p className="text-xs font-semibold text-muted-foreground">Esta consulta</p><AppButton variant="ghost" className="mt-2 h-auto w-full justify-start break-words px-0 py-2 text-left" onClick={() => navigate('Conversación')}>{state.profile.name || state.topic || 'Mi consulta'}</AppButton></div>}<div className="mt-auto space-y-2 pt-8"><AppButton type="button" onClick={e=>{callTrigger.current=e.currentTarget;setCallOpen(true);}} className="w-full justify-start"><Phone aria-hidden className="shrink-0"/><span>Contactar a un Profesional</span></AppButton><AppButton asChild variant="ghost" className="w-full justify-start text-muted-foreground"><Link to="/operaciones" onClick={() => setNavigation(false)}><Users aria-hidden/>Vista operativa</Link></AppButton></div><p className="px-2 pt-4 text-xs text-muted-foreground">Preparar con claridad.<br />Decidir con tu profesional.</p>{mobile && <span className="sr-only">Navegación móvil</span>}</div>; }
   const expediente = <Dossier state={state} dispatch={dispatch} onEdit={edit} />;
   return <div className="flex h-dvh min-h-0 w-full overflow-hidden bg-background text-foreground">
     <aside className="hidden w-[232px] shrink-0 border-r border-border md:block" aria-label="Navegación de Donna">{sidebar()}</aside>
@@ -40,6 +43,7 @@ export function Workspace() {
     <div className={cn('min-h-0 flex-1 overflow-y-auto', view !== 'Documentos' && 'hidden')}><DocumentsView key={state.messages.length === 0 && !hasWork(state) ? 'empty' : 'working'} state={state} onAttach={attach} onRemove={id => dispatch({ type:'remove', id })} /></div>
     {view === 'Admisión' && <div className="min-h-0 flex-1 overflow-y-auto"><IntakeView onReturn={() => setView('Conversación')} /></div>}
     </main>{view !== 'Admisión' && <aside id="desktop-expediente" tabIndex={-1} className="hidden h-full w-[360px] shrink-0 border-l border-border bg-card min-[1200px]:block" aria-label="Expediente de la consulta">{expediente}</aside>}
+    <SimulatedCall open={callOpen} onOpenChange={setCallOpen} onContinue={openIntake} returnFocus={()=>{callTrigger.current?.focus();}} />
     <Confirmation open={state.resetRequested||chatReset} onCancel={() => {setChatReset(false);dispatch({ type:'cancelReset' });}} onConfirm={reset} title="¿Empezar una nueva consulta?" confirm="Descartar y empezar" returnFocus={() => { newButton.current?.focus(); }} />
     <Confirmation open={blocker.status === 'blocked'} onCancel={() => blocker.reset?.()} onConfirm={() => blocker.proceed?.()} title="¿Salir de esta consulta?" confirm="Descartar y salir" />
   </div>;

@@ -167,6 +167,8 @@ evalúa es lo rojo.
 
 - **2026-10-28 · Artur / contexto de ejemplo** — Admisión precarga una startup SaaS y contacto de ejemplo válidos, separados de Mi negocio. «Comenzar conversación» inicia Donna por texto con una acción; conserva ediciones al reabrir y exige consentimiento final para registrar. Prospectos de ejemplo identificados en operaciones. Voz ElevenLabs pendiente.
 
+- **2026-10-28 · Artur / llamada visual** — El CTA de contacto abre popup accesible con estados de marcado/conexión, contador y colgar. Es una simulación identificada, sin audio, micrófono, solicitud al agente ni entrega al despacho. «Continuar por texto» conserva acceso a la admisión con contexto de ejemplo.
+
 ## 7 · Cómo actualizar este archivo (personas y agentes de IA)
 
 Al terminar una sesión de trabajo:

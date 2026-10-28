@@ -31,7 +31,7 @@ El build mantiene la configuración original de Lovable y genera `.output/` para
 
 - La landing conserva la comparación, los temas y el recorrido automático.
 - La app tiene conversación con Donna, perfil editable, expediente, adjuntos locales y resumen copiable/descargable.
-- «Contactar a un Profesional» abre admisión con una ficha de ejemplo válida y editable; «Comenzar conversación» inicia Donna por texto; `/operaciones` muestra los prospectos registrados en esta sesión.
+- «Contactar a un Profesional» abre una simulación visual de llamada. «Continuar por texto» abre la admisión con ficha de ejemplo válida y editable; «Comenzar conversación» inicia Donna por texto; `/operaciones` muestra los prospectos registrados en esta sesión.
 - Los datos viven en memoria durante la sesión. Los archivos solo aportan metadatos; no se analizan ni se suben.
 - El chat y la admisión llaman al backend existente mediante `/api/donna/chat`, un proxy del servidor con identidad por cookie. `DONNA_BACKEND_ORIGIN` es opcional y solo de servidor; su valor por defecto es `https://donna-mx.vercel.app`. No se necesitan claves del agente en esta carpeta.
 - ElevenLabs, autenticación de operadores, almacenamiento compartido y entrega al despacho siguen pendientes. No se procesan documentos ni se decide qué ley aplica desde el chat. Ver `INTAKE_INTEGRATION.md`.
@@ -41,9 +41,9 @@ El build mantiene la configuración original de Lovable y genera `.output/` para
 ## Procedencia
 
 Proyecto Lovable: `e0566eea-0cd2-4aa7-a2dc-78ffb4b922c8`.
-Commit fuente: `724720a07196bccaf21d3ac746a28bc2fbe381ad`.
+Commit fuente: `6e96d3afbbd3764e6249276a7c0d27f600fa26a5`.
 Fecha de exportación: 2026-10-28.
 
-Se importaron los 120 archivos de texto expuestos por el conector. El único binario, el favicon genérico, se devuelve como texto con pérdida de bytes y no puede recuperarse fielmente mediante ese conector: se sustituyó por `public/favicon.svg`, con el monograma de Donna, y se actualizó su referencia. Este README adapta las instrucciones a la ubicación del repositorio. No se importan secretos, dependencias instaladas ni artefactos de build.
+Se importaron los 122 archivos de texto expuestos por el conector. El único binario, el favicon genérico, se devuelve como texto con pérdida de bytes y no puede recuperarse fielmente mediante ese conector: se sustituyó por `public/favicon.svg`, con el monograma de Donna, y se actualizó su referencia. Este README adapta las instrucciones a la ubicación del repositorio. No se importan secretos, dependencias instaladas ni artefactos de build.
 
 El resto del código y el lockfile se conservan desde el commit fuente, incluidos los componentes que entrega el scaffold de Lovable. `.lovable/project.json` registra la plantilla de origen; por sí solo no vincula esta carpeta a una sincronización. `IMPORT.json` registra el proyecto, el commit y los hashes de los archivos originales.

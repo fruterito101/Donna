@@ -22,3 +22,4 @@
 - Root-owned chat hooks share a per-provider pending-request lock; explicit retries reuse the user turn without a scripted assistant fallback or duplicate lead.
 - Admission chat and intake information use sibling forms with explicit button types so chat actions and cancellation cannot submit or restore the intake draft.
 - New CTA admission drafts come from the central example factory and retain their example provenance through immutable registration; reopening never replaces an active draft or reads workspace data.
+- The call simulation owns only modal-local timers; the sidebar CTA never opens intake until the explicit text handoff, so visual calls cannot send chat or mutate session records.

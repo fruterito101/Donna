@@ -19,6 +19,9 @@ La nueva admisión usa una ficha central de ejemplo independiente (Circuito / An
 5. Acordar autorización de compartir, destinatario real y aviso de tratamiento con revisión legal; la etiqueta Galicia no verifica alianza ni permiso de representación.
 6. Entrega auditable: validación del destinatario, registro fechado de consentimiento/versiones/contexto enviado, idempotencia servidor, errores y acuse. «Enviado» solo tras confirmación real, no por click. Definir canales reales sin inventar contactos.
 
+## Simulación visual de llamada
+El CTA abre un Dialog Radix centrado identificado «Simulación de llamada», destino Galicia y subtítulo Admisión fiscal. Estados 2 s marcando + 3 s conectando, luego contador de llamada simulada; no profesional conectado, recepción real ni alianza afirmada. Sin fetch, audio, recursos externos, permisos, micrófono, TTS o telefonía. Cualquier cierre limpia timers y reabrir reinicia; «Continuar por texto» es la única transición al perfilado existente, sin autoenvío ni registro. Voz ElevenLabs sigue pendiente e independiente de este popup.
+
 ## Límites presentes
 Sin Cloud, DB, AI gateway, claves del agente, conectores de voz, TTS ni auth operadores. /operaciones es vista de la misma visita, no sistema compartido por operadores. No datos reales precargados ni scoring. La autorización local no sustituye una política legal ni una entrega efectiva. Cookie firmada/almacenamiento del Next dependen de su contrato, no de la memoria de esta UI; reiniciar consulta local no borra ni rota identidad upstream.
 
