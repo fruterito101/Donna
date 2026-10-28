@@ -19,6 +19,7 @@ try {
   const facts = parseFacts(readFileSync(join(rulesDir, CATALOG_FILE), "utf8"), CATALOG_FILE);
   const r = importSheet(readFileSync(resolve(process.env.INIT_CWD ?? process.cwd(), file), "utf8"), rulesDir, facts);
   console.log(`import: ${r.created.length} new · ${r.updated.length} updated · ${r.unchanged.length} unchanged`);
+  for (const w of r.warnings) console.warn(`import: ⚠ ${w}`);
   if (r.notInSheet.length) console.warn(`import: ⚠ in rules/ but not in the sheet (kept): ${r.notInSheet.join(", ")}`);
   writeFileSync(join(here, "..", "src", "rules.generated.ts"), renderRulesModule(loadRules(rulesDir)));
   console.log("import: src/rules.generated.ts regenerated");

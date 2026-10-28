@@ -2,6 +2,8 @@
 // never from the model (docs/ARQUITECTURA.md, principle 1). Contracts: docs/CONTRATOS.md.
 import { parse } from "yaml";
 
+export { buildProfile, type BuiltProfile, type FactInput, type ProfileNote, type RawProfile } from "./profile.ts";
+
 /** The yes/no facts about a startup (the PERFIL layer). `undefined` = not known yet. */
 export type Profile = Record<string, boolean | undefined>;
 
@@ -36,6 +38,8 @@ export type RuleCard = {
   valid_until?: string; // YYYY-MM-DD, after this day the rule is expired
   consequence?: Consequence;
   frequency?: (typeof FREQUENCIES)[number];
+  /** extension fields: anyone (the source reader, a later tool) may add x_* data without changing the contract */
+  [extension: `x_${string}`]: unknown;
 };
 
 export type ReportItem = {
@@ -102,7 +106,7 @@ export function validateRule(data: unknown, origin = "rule", facts?: FactCatalog
     throw new Error(`${origin}: ${msg}`);
   };
 
-  for (const key of Object.keys(card)) if (!KNOWN.has(key)) fail(`unknown field '${key}'`);
+  for (const key of Object.keys(card)) if (!KNOWN.has(key) && !/^x_[a-z0-9_]+$/.test(key)) fail(`unknown field '${key}' (extensions start with x_)`);
   for (const field of REQUIRED) if (card[field] === undefined || card[field] === null) fail(`missing field '${field}'`);
 
   if (!ID.test(String(card.id))) fail("id must be lowercase words joined by -");

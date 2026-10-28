@@ -42,6 +42,10 @@ cálculo con estas columnas (`rules/_plantilla.csv`) y `npm run rules:import -- 
 | `frequency` | *opcional* · `once` · `monthly` · `bimonthly` · `annual` · `per_event` | `monthly` |
 | `consequence` | *opcional* · qué pasa si no se cumple: `description`, `law` y `source` propios (una multa es un número, y un número necesita fuente) | |
 
+**Campos de extensión:** cualquier campo que empiece con `x_` (por ejemplo `x_consultada_el`) se acepta y se
+conserva sin tocar este contrato: así otra pieza puede anotar datos en una regla. Otro campo desconocido sí
+rompe el build (una errata como `verifed_by` borraría el dato en silencio).
+
 **Una regla mal escrita rompe el build** (`npm run build` de `apps/web`, el que corre Vercel): falta un
 campo, un campo desconocido, una fecha que no existe, un hecho fuera del catálogo o un `id` distinto al
 nombre del archivo. El error nombra el archivo y el campo, y producción se queda con el último despliegue
@@ -72,6 +76,22 @@ type Profile = Record<string, boolean | undefined>;
 ```
 
 `undefined` = no se sabe todavía. El motor **pregunta en vez de suponer**.
+
+**Lo que llega de afuera es flexible** (28-oct, Brian): el perfil lo arman la lectura, un modelo que
+extrae o el usuario contestando, y nadie controla esa forma. `buildProfile({ detected, answered }, FACTS)`
+la convierte en el `Profile` estricto y **nunca truena**:
+
+| Llega | Se entiende como |
+|---|---|
+| `true` · `"sí"` · `"Si"` · `"yes"` · `1` · `"x"` | sí |
+| `false` · `"no"` · `"falso"` · `0` | no |
+| `undefined` · `null` · `""` · `"no sé"` · `"?"` · `"N/A"` | no se sabe → Donna pregunta |
+| `{ value, source?, confidence?, evidence? }` | el valor, con su origen; con `confidence` menor a 0.5 (ajustable) → no se sabe |
+| `"Tiene Empleados"`, `"cobra-al-extranjero"` | el hecho del catálogo, sin importar mayúsculas, acentos ni separadores |
+
+La respuesta del usuario (`answered`) **manda** sobre lo detectado (`detected`), y un «no sé» del usuario no
+borra lo detectado. Lo que no se puede usar (un hecho fuera del catálogo, un valor ilegible, una detección
+con poca confianza) sale en `notes`: se reporta, nunca se adivina.
 
 ## 4 · El texto leído — sale de Artur (lector), entra a PERFIL
 
@@ -107,6 +127,13 @@ las preguntas que solo ellas pedían. La web obtiene el texto de cada pregunta d
 
 La web muestra cada `ReportItem` con `rule.title`, `rule.requires`, `rule.law`, `rule.source` y
 `rule.valid_from`. La explicación en lenguaje claro la pide el backend al agente (`docs/AGENTE.md` §6).
+
+## 5-bis · La comprobación de fuentes nunca bloquea
+
+Cuando la lectura de fuentes compruebe una regla contra su página oficial (con Firecrawl y su llave), el
+resultado es un **estado**, nunca un error: `comprobada` (la cita sigue en la página) · `no_encontrada` (la
+página cambió: la regla se marca para revisión) · `sin_comprobar` (no hay llave, Firecrawl no respondió o no
+se ha corrido). Ningún estado detiene el informe ni el build; se guarda en la regla como campo `x_`.
 
 ## 6 · Pendiente de fijar
 

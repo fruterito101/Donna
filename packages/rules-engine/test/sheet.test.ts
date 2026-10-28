@@ -68,8 +68,34 @@ test("a repeated id across rows is rejected", () => {
   assert.throws(() => importSheet([HEADER, row({}), row({})].join("\n"), rulesDir(), facts), /row 3: id 'uno' already used in row 2/);
 });
 
-test("an unknown or missing column is rejected before reading rows", () => {
-  assert.throws(() => importSheet("id;autoridad\nx;SAT\n", rulesDir(), facts), /unknown column\(s\) autoridad/);
+test("a missing required column is rejected; an unknown one is ignored with a warning", () => {
+  assert.throws(() => importSheet("id;title\nx;t\n", rulesDir(), facts), /missing column\(s\) authority/);
+  const r = importSheet([HEADER + ";Notas de Valeria", row({}) + ";revisar"].join("\n"), rulesDir(), facts);
+  assert.deepEqual(r.created, ["uno"]);
+  assert.match(r.warnings.join(), /«Notas de Valeria» is not part of the contract: ignored/);
+});
+
+test("a sheet written in Spanish, as a person would, imports to the strict form", () => {
+  const dir = rulesDir();
+  const header = "Título;Autoridad;Tipo;Qué pide;Aplica si;Evidencia;Ley;Fuente;Cita;Vigente desde;Verificado por;Fecha de verificación;Frecuencia;Multa;Ley de la multa;Fuente de la multa;x_consultada_el";
+  const line = 'Aviso de Privacidad;sat;Obligación;Pide algo;"Fact A\nno fact_b";acta;Ley X;https://example.test/ley;Artículo 1;1/1/2026;Valeria;28/10/2026;Mensual;multa;art. 2;https://example.test/multa;2026-10-28';
+  const r = importSheet(`${header}\n${line}\n`, dir, facts);
+  assert.deepEqual(r.created, ["aviso-de-privacidad"]);
+  assert.match(r.warnings.join(), /no id, using «aviso-de-privacidad» from the title/);
+  const rule = loadRules(dir).rules[0];
+  assert.equal(rule.authority, "SAT");
+  assert.equal(rule.kind, "obligation");
+  assert.deepEqual(rule.applies_if, ["fact_a", "!fact_b"]);
+  assert.equal(rule.valid_from, "2026-01-01");
+  assert.equal(rule.verified_on, "2026-10-28");
+  assert.equal(rule.frequency, "monthly");
+  assert.equal(rule.source_quote, "Artículo 1");
+  assert.equal(rule.x_consultada_el, "2026-10-28");
+  assert.deepEqual(rule.consequence, { description: "multa", law: "art. 2", source: "https://example.test/multa" });
+});
+
+test("a value the importer cannot map still fails, named by the strict validator", () => {
+  assert.throws(() => importSheet([HEADER, row({ authority: "Hacienda" })].join("\n"), rulesDir(), facts), /row 2 \(uno\): authority must be one of/);
 });
 
 test("rules in the folder but not in the sheet are reported, never deleted", () => {

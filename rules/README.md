@@ -25,6 +25,10 @@ explica.
    (`docs/CONTRATOS.md` §1). Las listas (`applies_if`, `evidence`) van en una celda, separadas por `|`
    o en líneas distintas dentro de la celda.
 2. Exporta como CSV (Excel en español usa `;`, Google Sheets usa `,`: los dos sirven).
+   **La hoja puede estar en español:** encabezados como `Título`, `Autoridad`, `Tipo`, `Aplica si`,
+   `Fuente`, `Cita`, `Verificado por`; valores como `obligación`, `beneficio`, `sat`, `mensual`; fechas
+   `28/10/2026`; hechos como `tiene empleados` o `no factura en méxico`. Si no pones `id`, sale del título.
+   Una columna que no es del contrato (tus notas) se ignora con un aviso; una que empieza con `x_` se guarda.
 3. `npm run rules:import -- ruta/a/la-hoja.csv`. Crea un `<id>.yaml` por fila y regenera lo que usa
    la web. **Si una sola fila está mal, no escribe nada** y dice qué fila (como la numera la hoja) y qué
    campo. Corrige y vuelve a correrlo: importar la misma hoja dos veces no cambia nada.
