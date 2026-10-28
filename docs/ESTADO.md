@@ -27,7 +27,7 @@ existe**: faltan las reglas, la lectura, el perfil, la web real, la voz y los en
 | 8 | Lista de hechos del perfil | 🟡 propuesta v0 en el catálogo `rules/_hechos.yaml` | Valeria | `rules/_hechos.yaml` |
 | 9 | Perfil (código que saca los hechos) | 🟡 `buildProfile` + `/api/report` listos; falta sacar los hechos del texto leído | Brian | `packages/rules-engine/` · `apps/web/src/app/api/report/` |
 | 10 | Lectura: Firecrawl + PDF | 🔴 no existe | Artur | `packages/reader/` |
-| 11 | Web del producto | 🟡 base Next + página de prueba | Artur | `apps/web/` |
+| 11 | Web del producto | 🟡 landing, app y contacto Lovable integrados en rama; pendiente revisión, merge y despliegue | Artur | `apps/web/` · `frontend/lovable/` |
 | 12 | Voz con ElevenLabs | 🔴 no existe | Artur | — |
 | 13 | Entregables: informe, COMPLIANCE.md, pitch corregido | 🔴 no existe | Artur | — |
 | 14 | Pitch, guion, aviso legal | 🔴 no existe | Valeria | — |
@@ -114,7 +114,7 @@ evalúa es lo rojo.
 
 ## 6 · Bitácora
 
-- **2026-10-28** — Artur aprueba reutilizar `donna-mx.vercel.app` con landing `/`, app `/app` y contacto `/professional-contact`, conservando `/operaciones`. Integración en rama `feat/domain-routing`: prerender controlado de la interfaz Lovable durante el build Next y alias de chat local que conserva la identidad/cookie y las APIs existentes. No requiere cambiar DNS ni trasladar claves al frontend. Verificación: instalación limpia con npm, 65 pruebas de paquetes, 63 de frontend, tipos, build completo y 8 pruebas HTTP del build con agente local correctos. El cambio público queda pendiente de revisión, merge y despliegue. Ver `DOMINIO.md` y el plan en `docs/superpowers/plans/2026-10-28-domain-routing.md`.
+- **2026-10-28** — Artur aprueba reutilizar `donna-mx.vercel.app` con landing `/`, app `/app` y contacto `/professional-contact`, conservando `/operaciones`. Integración en rama `feat/domain-routing`: prerender controlado de la interfaz Lovable durante el build Next y alias de chat local que conserva la identidad/cookie y las APIs existentes. No requiere cambiar DNS ni trasladar claves al frontend. Verificación: instalación limpia con npm, 65 pruebas de paquetes, 63 de frontend, tipos, build completo y 8 pruebas HTTP del build con agente local correctos. Navegación en navegador comprobada con agente simulado: landing → app → contacto → app conserva conversación. Revisión independiente sin hallazgos accionables. El cambio público queda pendiente de revisión humana, merge y despliegue. Ver `DOMINIO.md` y el plan en `docs/superpowers/plans/2026-10-28-domain-routing.md`.
 
 - **2026-10-28** — Publicado el informe de pruebas exploratorias con cuatro perfiles ficticios en [`PRUEBAS-PERFILES.md`](PRUEBAS-PERFILES.md), con respuestas y captura de evidencia. Tres casos probaron chat e informe por HTTP y uno el chat en navegador; respuestas de chat HTTP 200 entre 25 y 66 s. Hallazgos: chat e informe desconectados, afirmaciones sin trazabilidad, datos desconocidos convertidos en hechos y Markdown sin renderizar. La prueba usa llave de desarrollo compartida; no valida aislamiento de producción ni corrección jurídica. Solo documentación y evidencias; JSON, enlaces locales y ausencia de credenciales comprobados. No se ejecutaron pruebas automatizadas ni build para este cambio documental.
 

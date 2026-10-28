@@ -31,12 +31,12 @@
 
 **Interfaces:** `npm run build:next -w @donna/frontend` produces prerendered HTML/client assets. The build script validates required outputs then installs them under `apps/web/public/donna` (ignored). Next rewrites only the four approved paths and the matching asset prefix.
 
-- [ ] Add a route regression asserting professional-contact resolves to its own route and operations remains compatible; observe the new case fail.
-- [ ] Register the route and update operational links/blocker exemptions.
-- [ ] Add a controlled frontend export mode with explicit page allowlist and fail-on-error prerendering.
-- [ ] Add frontend to npm workspaces and build it from the Next dev/build scripts; copy validated client files only.
-- [ ] Configure explicit Next rewrites; remove the obsolete test homepage.
-- [ ] Verify frontend tests, types and generated HTML/assets. Commit the tested task.
+- [x] Add a route regression asserting professional-contact resolves to its own route and operations remains compatible; observe the new case fail.
+- [x] Register the route and update operational links/blocker exemptions.
+- [x] Add a controlled frontend export mode with explicit page allowlist and fail-on-error prerendering.
+- [x] Add frontend to npm workspaces and build it from the Next dev/build scripts; copy validated client files only.
+- [x] Configure explicit Next rewrites; remove the obsolete test homepage.
+- [x] Verify frontend tests, types and generated HTML/assets. Commit the tested task.
 
 ### Task 2: Same-origin chat alias
 
@@ -44,10 +44,10 @@
 
 **Interfaces:** `readDonnaMessage(Request): Promise<string | Response>` validates origin, content type, streamed body size and message shape. Both standalone proxy and Next alias use it. The alias passes a clean message to existing `POST /api/chat` inside the original request context, so signing and cookies remain local to the visitor.
 
-- [ ] Add validator tests for foreign origin, oversized streamed body and trimmed valid message; observe missing-validator failures.
-- [ ] Extract validation without relaxing existing behavior and reuse it in both handlers.
-- [ ] Preserve no-store and existing API error behavior; no self-fetch or replacement of the agent client.
-- [ ] Verify request and proxy tests, frontend types and Next build. Commit the tested task.
+- [x] Add validator tests for foreign origin, oversized streamed body and trimmed valid message; observe missing-validator failures.
+- [x] Extract validation without relaxing existing behavior and reuse it in both handlers.
+- [x] Preserve no-store and existing API error behavior; no self-fetch or replacement of the agent client.
+- [x] Verify request and proxy tests, frontend types and Next build. Commit the tested task.
 
 ### Task 3: Deployment integration proof and handoff
 
@@ -55,8 +55,9 @@
 
 **Interfaces:** `npm run test:domain` runs against an already-built Next app and local mock agent only. It starts and stops its own processes; verifies page bodies/assets, malformed and cross-origin requests, and valid chat/cookie continuity.
 
-- [ ] Run built-artifact checks against the previous build to observe missing routes/landing or alias failure before the integrated build is produced.
-- [ ] Run all package/frontend tests, types, production build and the deployed-shape checks.
-- [ ] Check the resulting pages and navigation in the browser with the mock backend; capture evidence.
-- [ ] Document exact routing/build commands and prototype limitations; update the state log.
-- [ ] Request a fresh whole-branch review, resolve important findings, then push a feature branch and create a PR. Do not claim the public domain changed until its deployment is confirmed.
+- [x] Run built-artifact checks against the previous build to observe missing routes/landing or alias failure before the integrated build is produced.
+- [x] Run all package/frontend tests, types, production build and the deployed-shape checks.
+- [x] Check the resulting pages and navigation in the browser with the mock backend; capture evidence.
+- [x] Document exact routing/build commands and prototype limitations; update the state log.
+- [x] Request a fresh whole-branch review and resolve important findings: independent review completed without actionable findings.
+- [ ] Push a feature branch and create a PR. Do not claim the public domain changed until its deployment is confirmed.
