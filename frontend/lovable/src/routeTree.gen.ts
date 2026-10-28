@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppRouteImport } from './routes/app'
+import { Route as OperacionesRouteImport } from './routes/operaciones'
+import { Route as ApiDonnaChatRouteImport } from './routes/api/donna/chat'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +24,49 @@ const AppRoute = AppRouteImport.update({
   path: '/app',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OperacionesRoute = OperacionesRouteImport.update({
+  id: '/operaciones',
+  path: '/operaciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDonnaChatRoute = ApiDonnaChatRouteImport.update({
+  id: '/api/donna/chat',
+  path: '/api/donna/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRoute
+  '/operaciones': typeof OperacionesRoute
+  '/api/donna/chat': typeof ApiDonnaChatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/app': typeof AppRoute
+  '/operaciones': typeof OperacionesRoute
+  '/api/donna/chat': typeof ApiDonnaChatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/app': typeof AppRoute
+  '/operaciones': typeof OperacionesRoute
+  '/api/donna/chat': typeof ApiDonnaChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app'
+  fullPaths: '/' | '/app' | '/operaciones' | '/api/donna/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/app'
-  id: '__root__' | '/' | '/app'
+  to: '/' | '/app' | '/operaciones' | '/api/donna/chat'
+  id: '__root__' | '/' | '/app' | '/operaciones' | '/api/donna/chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRoute
+  OperacionesRoute: typeof OperacionesRoute
+  ApiDonnaChatRoute: typeof ApiDonnaChatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +85,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/operaciones': {
+      id: '/operaciones'
+      path: '/operaciones'
+      fullPath: '/operaciones'
+      preLoaderRoute: typeof OperacionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/donna/chat': {
+      id: '/api/donna/chat'
+      path: '/api/donna/chat'
+      fullPath: '/api/donna/chat'
+      preLoaderRoute: typeof ApiDonnaChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRoute,
+  OperacionesRoute: OperacionesRoute,
+  ApiDonnaChatRoute: ApiDonnaChatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
