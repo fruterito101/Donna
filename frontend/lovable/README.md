@@ -1,31 +1,41 @@
 <!-- Cómo ejecutar y verificar el frontend de Donna importado de Lovable. -->
 # Donna — frontend de Lovable
 
-Landing en `/`, espacio de trabajo en `/app` y tablero en `/operaciones`, exportados del proyecto [Donna en Lovable](https://lovable.dev/projects/e0566eea-0cd2-4aa7-a2dc-78ffb4b922c8).
+Landing en `/`, espacio de trabajo en `/app` y tablero en `/professional-contact` (también disponible en `/operaciones`), exportados del proyecto [Donna en Lovable](https://lovable.dev/projects/e0566eea-0cd2-4aa7-a2dc-78ffb4b922c8).
 
-Esta carpeta es un proyecto independiente con TanStack Start, React, TypeScript y Tailwind. Está fuera de los workspaces npm del monorepo para conservar intactos `apps/web`, su backend y su instalación.
+El código visual conserva TanStack Start, React, TypeScript y Tailwind. Ahora forma parte del workspace npm como `@donna/frontend`: una instalación en la raíz fija también sus dependencias en `package-lock.json`.
 
 ## Ejecutar
 
-Requiere Node.js 22.23 o superior y Bun 1.3.9 o compatible con el lockfile incluido.
+Requiere Node.js 22.18 o superior y npm. Desde la raíz:
 
 ```sh
-cd frontend/lovable
-bun install --frozen-lockfile
-bun run dev --host 127.0.0.1 --port 5173
+npm ci
+npm run dev
 ```
 
-Abrir [la landing](http://localhost:5173/) o [la app](http://localhost:5173/app). No se necesitan llaves para esta interfaz. El archivo `bun.lock` fija las dependencias exportadas; no es necesario reinstalar las dependencias del monorepo para usarla.
+Next construye las páginas públicas y las sirve en `http://localhost:3000`, junto con las APIs. Para iterar solo la interfaz con recarga automática:
+
+```sh
+npm run dev -w @donna/frontend -- --host 127.0.0.1 --port 5173
+```
+
+Ese modo independiente conserva su proxy al backend existente. No se necesitan llaves del agente en esta carpeta. El `bun.lock` se conserva como parte de la exportación de origen; el lockfile reproducible del despliegue unificado es el de npm en la raíz.
 
 ## Verificar
 
+Desde la raíz:
+
 ```sh
-bun run test
-bun x tsc --noEmit
-bun run build
+npm run test:frontend
+npx tsc --noEmit -p frontend/lovable/tsconfig.json
+npm run build
+npm run test:domain
 ```
 
-El build mantiene la configuración original de Lovable y genera `.output/` para Cloudflare/Nitro. `bun run preview` permite revisar el resultado. Estos comandos no publican ni modifican el despliegue Next.js del repositorio.
+`npm run build` genera HTML de `/`, `/app`, `/professional-contact` y `/operaciones` con `DONNA_BUILD_TARGET=next`; copia únicamente documentos, favicon y recursos cliente a `apps/web/public/donna` (ignorado por Git). Next los publica mediante rewrites explícitos. La landing llega con HTML completo; las transiciones internas conservan la sesión TanStack.
+
+`npm run build -w @donna/frontend` conserva el build independiente original con Nitro. No modifica el despliegue público por sí solo.
 
 ## Alcance
 
@@ -33,7 +43,7 @@ El build mantiene la configuración original de Lovable y genera `.output/` para
 - La app tiene conversación con Donna, perfil editable, expediente, adjuntos locales y resumen copiable/descargable.
 - «Contactar a un Profesional» abre una simulación visual de llamada. «Continuar por texto» abre la admisión con ficha de ejemplo válida y editable; «Comenzar conversación» inicia Donna por texto; `/operaciones` muestra los prospectos registrados en esta sesión.
 - Los datos viven en memoria durante la sesión. Los archivos solo aportan metadatos; no se analizan ni se suben.
-- El chat y la admisión llaman al backend existente mediante `/api/donna/chat`, un proxy del servidor con identidad por cookie. `DONNA_BACKEND_ORIGIN` es opcional y solo de servidor; su valor por defecto es `https://donna-mx.vercel.app`. No se necesitan claves del agente en esta carpeta.
+- En Next, chat y admisión llaman a `/api/donna/chat`, que valida la petición y ejecuta el handler existente de `/api/chat` en el mismo contexto de visitante. En el modo independiente, esa ruta usa el proxy del servidor con identidad por cookie. `DONNA_BACKEND_ORIGIN` es opcional y solo de servidor; su valor por defecto es `https://donna-mx.vercel.app`. No se necesitan claves del agente en esta carpeta.
 - ElevenLabs, autenticación de operadores, almacenamiento compartido y entrega al despacho siguen pendientes. No se procesan documentos ni se decide qué ley aplica desde el chat. Ver `INTAKE_INTEGRATION.md`.
 - `PRODUCT.md`, `DESIGN.md`, `LANDING_BRIEF.md` y `APP_BRIEF.md` documentan la experiencia exportada.
 - Esta es una importación puntual; no establece sincronización automática GitHub–Lovable.
@@ -47,3 +57,7 @@ Fecha de exportación: 2026-10-28.
 Se importaron los 122 archivos de texto expuestos por el conector. El único binario, el favicon genérico, se devuelve como texto con pérdida de bytes y no puede recuperarse fielmente mediante ese conector: se sustituyó por `public/favicon.svg`, con el monograma de Donna, y se actualizó su referencia. Este README adapta las instrucciones a la ubicación del repositorio. No se importan secretos, dependencias instaladas ni artefactos de build.
 
 El resto del código y el lockfile se conservan desde el commit fuente, incluidos los componentes que entrega el scaffold de Lovable. `.lovable/project.json` registra la plantilla de origen; por sí solo no vincula esta carpeta a una sincronización. `IMPORT.json` registra el proyecto, el commit y los hashes de los archivos originales.
+
+## Adaptación del despliegue
+
+La integración Next añade prerender controlado, una ruta de contacto profesional y validación compartida. Los hashes de `IMPORT.json` describen los archivos originales exportados; no certifican estas adaptaciones locales. El backend y las claves de servidor siguen en `apps/web`.

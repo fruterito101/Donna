@@ -185,8 +185,16 @@ están en [`docs/PREGUNTAS.md`](docs/PREGUNTAS.md); este README las toma como pu
 El avance real vive en [`docs/ESTADO.md`](docs/ESTADO.md) y lo que falta decidir en
 [`docs/PENDIENTES.md`](docs/PENDIENTES.md). No se copian aquí: un número copiado envejece.
 
-**Pruébala:** https://donna-mx.vercel.app — hoy es una página de prueba para conversar con Donna; el
-informe todavía no existe.
+**Dominio del despliegue:** https://donna-mx.vercel.app. Esta integración sirve la interfaz importada de Lovable con las APIs de Next en un mismo origen; las URLs cambian al publicar este cambio en `main`.
+
+| Ruta | Superficie |
+|---|---|
+| `/` | Landing |
+| `/app` | Conversación, contexto y expediente |
+| `/professional-contact` | Centro operativo de contacto profesional |
+| `/operaciones` | Acceso compatible a la misma vista operativa |
+
+`/api/chat` y `/api/report` se conservan. La interfaz llama a `/api/donna/chat`, un alias local con validación de origen y cuerpo; no hace una petición de vuelta al dominio público. La vista operativa conserva sus límites de prototipo: registros en memoria, sin operadores conectados ni entrega real.
 
 ## 8 · Arrancar en 3 minutos
 
@@ -212,8 +220,10 @@ Para hablar con **el agente real**, Brian te pasa en privado `AGENT_URL`, `AGENT
 suben al repo. Todas las variables están en [`docs/AGENTE.md`](docs/AGENTE.md#variables-de-entorno).
 
 ```bash
-npm test              # pruebas
-npm run build         # compila todo (debe pasar antes de un PR)
+npm test              # pruebas del motor y paquetes
+npm run test:frontend # pruebas de la interfaz
+npm run build         # prerender de Lovable + build de Next
+npm run test:domain   # prueba el build con un agente local, sin usar la llave real
 ```
 
 ## 9 · Cómo se sube un cambio

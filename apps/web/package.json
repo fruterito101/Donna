@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "node ../../packages/rules-engine/scripts/build-rules.ts && next build",
+    "dev": "node ../../scripts/build-frontend.mjs && next dev",
+    "build": "node ../../scripts/build-frontend.mjs && node ../../packages/rules-engine/scripts/build-rules.ts && next build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -13,7 +13,8 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "@donna/agent-client": "*",
-    "@donna/rules-engine": "*"
+    "@donna/rules-engine": "*",
+    "@donna/frontend": "*"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
