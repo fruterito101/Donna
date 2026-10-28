@@ -43,6 +43,8 @@ explica.
   (`docs/PENDIENTES.md`).
 - **`verified_by` lleva el nombre de quien la comprobó contra esa fuente, y `verified_on` la fecha.**
   Vacío = no verificada: se carga, pero **no se muestra en producción**.
+- **`source_quote` lleva el texto exacto de la fuente** que respalda la regla. Verificar es comparar:
+  ¿la página dice esto?, ¿la regla dice lo mismo que la cita?
 - `applies_if` solo usa hechos de `_hechos.yaml`: `hecho` = la respuesta es sí, `!hecho` = es no.
   ¿Necesitas un hecho nuevo? Agrégalo primero al catálogo.
 - **Una regla mal escrita rompe el build**: Vercel no despliega y producción se queda con la versión

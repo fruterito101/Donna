@@ -41,7 +41,7 @@ test("a sheet becomes rule files the loader accepts, lists split by «|» or lin
   const dir = rulesDir();
   const csv = [HEADER,
     row({ applies_if: "fact_a | !fact_b", evidence: "acta\ncontrato" }),
-    row({ id: "dos", verified_by: "Valeria", verified_on: "2026-10-28", frequency: "monthly",
+    row({ id: "dos", verified_by: "Valeria", verified_on: "2026-10-28", frequency: "monthly", source_quote: "Artículo 2; texto",
       consequence_description: "multa", consequence_law: "art. 2", consequence_source: "https://example.test/multa" }),
   ].join("\n");
   const r = importSheet(csv, dir, facts);
@@ -51,6 +51,7 @@ test("a sheet becomes rule files the loader accepts, lists split by «|» or lin
   assert.deepEqual(uno.applies_if, ["fact_a", "!fact_b"]);
   assert.deepEqual(uno.evidence, ["acta", "contrato"]);
   assert.equal("verified_on" in uno, false, "empty optional cells are left out");
+  assert.equal(rules.find((x) => x.id === "dos")!.source_quote, "Artículo 2; texto");
   assert.deepEqual(rules.find((x) => x.id === "dos")!.consequence, { description: "multa", law: "art. 2", source: "https://example.test/multa" });
   assert.deepEqual(importSheet(csv, dir, facts).unchanged.sort(), ["dos", "uno"], "re-importing the same sheet changes nothing");
 });

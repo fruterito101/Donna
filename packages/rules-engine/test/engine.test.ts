@@ -129,3 +129,8 @@ test("publicReport hides unverified and expired rules and the questions only the
 test("parseFacts needs a question for every fact", () => {
   assert.throws(() => parseFacts("fact_a:\n  signals: [x]\n"), /fact 'fact_a' needs a 'question'/);
 });
+
+test("source_quote is optional text", () => {
+  assert.doesNotThrow(() => validateRule({ ...valid(), source_quote: "Artículo 1. …" }, "x"));
+  assert.throws(() => validateRule({ ...valid(), source_quote: "" }, "x"), /source_quote must be text/);
+});

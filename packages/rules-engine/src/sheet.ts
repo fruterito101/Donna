@@ -8,7 +8,7 @@ import { validateRule, type FactCatalog, type RuleCard } from "./index.ts";
 /** Columns of the sheet, in the contract's order (docs/CONTRATOS.md §1). */
 export const COLUMNS = [
   "id", "authority", "kind", "title", "requires", "applies_if", "evidence", "law", "source", "valid_from",
-  "verified_by", "verified_on", "valid_until", "frequency", "consequence_description", "consequence_law", "consequence_source",
+  "verified_by", "source_quote", "verified_on", "valid_until", "frequency", "consequence_description", "consequence_law", "consequence_source",
 ] as const;
 const REQUIRED_COLUMNS = COLUMNS.slice(0, 11);
 const LISTS = new Set(["applies_if", "evidence"]);

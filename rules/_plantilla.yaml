@@ -15,6 +15,8 @@ evidence:                             # qué guardar como prueba
   - documento o registro
 law: Ley y artículo exactos
 source: https://enlace-oficial         # la página oficial exacta, no la portada
+source_quote: >-                      # opcional · el texto EXACTO de la fuente que respalda la regla
+  Artículo N. Texto copiado tal cual de la página oficial.
 valid_from: AAAA-MM-DD                # desde cuándo está vigente la ley
 verified_by: ""                       # quién la comprobó contra la fuente; vacío = no verificada (no se muestra)
 # verified_on: AAAA-MM-DD             # cuándo la comprobó — obligatorio en cuanto verified_by tiene nombre

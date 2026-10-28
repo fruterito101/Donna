@@ -29,6 +29,7 @@ export type RuleCard = {
   evidence: string[]; // what to keep as proof
   law: string; // law and article
   source: string; // official URL
+  source_quote?: string; // the exact words of the source that back the rule: verified by comparing, re-checked by the reader
   valid_from: string; // YYYY-MM-DD, when the law took effect
   verified_by: string; // who on the team checked it against the source; "" = not verified
   verified_on?: string; // YYYY-MM-DD, when they checked it; required once verified_by has a name
@@ -58,7 +59,7 @@ export type Report = {
 const REQUIRED = [
   "id", "authority", "kind", "title", "requires", "applies_if", "evidence", "law", "source", "valid_from", "verified_by",
 ] as const;
-const OPTIONAL = ["verified_on", "valid_until", "consequence", "frequency"] as const;
+const OPTIONAL = ["source_quote", "verified_on", "valid_until", "consequence", "frequency"] as const;
 const KNOWN = new Set<string>([...REQUIRED, ...OPTIONAL]);
 
 const ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -122,6 +123,7 @@ export function validateRule(data: unknown, origin = "rule", facts?: FactCatalog
 
   if (!isTextList(card.evidence)) fail("evidence must be a list of text");
   if (!URL_RE.test(String(card.source))) fail("source must be an official URL");
+  if (card.source_quote !== undefined && !isText(card.source_quote)) fail("source_quote must be text");
   if (!isDate(card.valid_from)) fail("valid_from must be a date YYYY-MM-DD");
 
   if (typeof card.verified_by !== "string") fail("verified_by must be text (\"\" = not verified)");

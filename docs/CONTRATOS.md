@@ -21,7 +21,7 @@ este documento se corrige.
 Una regla = un archivo, y **el nombre del archivo es su `id`**. Valeria las llena en una hoja de
 cálculo con estas columnas (`rules/_plantilla.csv`) y `npm run rules:import -- hoja.csv` las convierte
 (`rules/README.md`). **v1 · 28-oct** (Brian): se agregan `verified_on`, `valid_until`, `frequency`,
-`consequence` y la negación `!hecho`.
+`consequence`, `source_quote` y la negación `!hecho`.
 
 | Campo | Qué es | Ejemplo de forma |
 |---|---|---|
@@ -34,6 +34,7 @@ cálculo con estas columnas (`rules/_plantilla.csv`) y `npm run rules:import -- 
 | `evidence` | qué guardar como prueba | `[...]` |
 | `law` | ley y artículo exactos | |
 | `source` | la página **oficial** exacta (empieza con `https://`) | |
+| `source_quote` | *opcional* · el texto **exacto** de la fuente que respalda la regla: quien verifica compara la cita con la página, la lectura de fuentes puede comprobar que sigue ahí, y el agente explica citándola | `Artículo 17. …` |
 | `valid_from` | desde cuándo está vigente la ley, `AAAA-MM-DD` | |
 | `verified_by` | quién la comprobó contra la fuente; vacío = no verificada | |
 | `verified_on` | cuándo la comprobó, `AAAA-MM-DD` — **obligatorio** en cuanto `verified_by` tiene nombre | |
