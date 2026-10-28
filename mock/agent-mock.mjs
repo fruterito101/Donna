@@ -1,4 +1,4 @@
-// A local stand-in for Dona's agent: same endpoints, same shapes, no key, no cost.
+// A local stand-in for Donna's agent: same endpoints, same shapes, no key, no cost.
 // Use it to build without the real agent:  npm run mock   →  AGENT_URL=http://127.0.0.1:8787  AGENT_TOKEN=dev-mock-key
 import { createServer } from "node:http";
 
@@ -27,10 +27,10 @@ createServer((req, res) => {
     const message = String(body.message || "");
     if (!message.trim()) return send(res, 400, { error: "falta message" });
     const user = message.split("[MENSAJE DEL USUARIO]\n").pop().trim();
-    const hasIdentity = message.includes("[IDENTIDAD DE DONA");
+    const hasIdentity = message.includes("[IDENTIDAD DE DONNA");
     const reply = hasIdentity
-      ? `(simulado) Soy Dona, tu asesora de cumplimiento. Recibí: «${user.slice(0, 160)}»`
-      : "(simulado) ⚠️ Llegó un mensaje SIN la identidad de Dona: usa @dona/agent-client.";
+      ? `(simulado) Soy Donna, tu asesora de cumplimiento. Recibí: «${user.slice(0, 160)}»`
+      : "(simulado) ⚠️ Llegó un mensaje SIN la identidad de Donna: usa @donna/agent-client.";
     setTimeout(() => send(res, 200, { reply, thread: body.tema || "sin-tema", client: "mock" }), 400);
   });
 }).listen(PORT, "127.0.0.1", () => console.log(`agent mock on http://127.0.0.1:${PORT} · key: ${KEY}`));

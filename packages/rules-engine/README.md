@@ -1,4 +1,4 @@
-# @dona/rules-engine
+# @donna/rules-engine
 
 El motor de reglas: **perfil (hechos sí/no) + reglas verificadas → informe**. Dueño: Brian.
 

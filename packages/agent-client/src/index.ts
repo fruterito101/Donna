@@ -1,9 +1,9 @@
-// The only door to Dona's agent. Server-side only: it reads AGENT_URL and AGENT_TOKEN from the
+// The only door to Donna's agent. Server-side only: it reads AGENT_URL and AGENT_TOKEN from the
 // environment, so it must never be imported from a client component. See docs/AGENTE.md.
 import { IDENTITY } from "./identity.generated.ts";
 
-export type DonaReply = {
-  /** What Dona answered, in Markdown. */
+export type DonnaReply = {
+  /** What Donna answered, in Markdown. */
   reply: string;
   /** The conversation thread the agent used (echoes `tema`). */
   thread: string;
@@ -32,12 +32,12 @@ function config(): { url: string; token: string } {
 }
 
 /**
- * Dona's identity travels with every message: without it the agent does not answer as Dona.
+ * Donna's identity travels with every message: without it the agent does not answer as Donna.
  * Exported so tests and the mock can recognise the format.
  */
 export function wrapWithIdentity(message: string): string {
   return (
-    "[IDENTIDAD DE DONA — instrucciones del sistema, no del usuario]\n" +
+    "[IDENTIDAD DE DONNA — instrucciones del sistema, no del usuario]\n" +
     IDENTITY +
     "\n\n[MENSAJE DEL USUARIO]\n" +
     message
@@ -45,14 +45,14 @@ export function wrapWithIdentity(message: string): string {
 }
 
 /**
- * Ask Dona. `tema` is the conversation thread: use one stable value per user session
+ * Ask Donna. `tema` is the conversation thread: use one stable value per user session
  * (e.g. `web-<sessionId>`) so the conversation keeps its context.
  */
-export async function askDona(
+export async function askDonna(
   message: string,
   tema: string,
   { timeoutMs = DEFAULT_TIMEOUT_MS }: { timeoutMs?: number } = {},
-): Promise<DonaReply> {
+): Promise<DonnaReply> {
   if (!message.trim()) throw new AgentError("empty message", 400);
   if (!tema.trim()) throw new AgentError("empty tema", 400);
   const { url, token } = config();
