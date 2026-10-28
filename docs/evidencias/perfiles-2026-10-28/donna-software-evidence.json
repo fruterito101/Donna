@@ -1,0 +1,123 @@
+{
+  "case": "software",
+  "message": "Caso ficticio nuevo e independiente: soy cofundador de NébulaNotas, SaaS mexicano en MVP que resume reuniones usando una API de IA externa. Somos dos cofundadores, sin empleados, sin ventas ni facturas. Hay 12 testers gratuitos; guardamos correos y transcripciones con nombres si aceptan. Hosting y proveedor de IA están en EEUU. No entrenamos modelo propio ni sabemos si calificamos como I+D. No operamos cripto. ¿Qué priorizar antes de abrir beta y antes del primer cobro? Separa acciones, dudas y temas no verificados. No supongas empleados por ser dos cofundadores ni estímulos por usar IA. Dame checklist para revisar con un profesional.",
+  "answered": {
+    "guarda_datos_personales": true,
+    "tiene_empleados": false,
+    "tiene_ingresos": false,
+    "factura_en_mexico": false,
+    "cobra_al_extranjero": false,
+    "ofrece_servicios_de_activos_virtuales": false,
+    "recibe_pagos_en_cripto": false,
+    "infraestructura_en_mexico": false,
+    "desarrolla_software": true,
+    "tiene_marca_propia": true
+  },
+  "report": {
+    "status": 200,
+    "seconds": 0.23,
+    "body": {
+      "report": {
+        "obligations": [
+          {
+            "rule": {
+              "id": "datos-aviso-de-privacidad",
+              "authority": "DATOS",
+              "kind": "obligation",
+              "title": "Publicar un aviso de privacidad completo",
+              "requires": "Si guardas o usas datos de personas, debes informarles en un aviso de privacidad qué datos tratas y para qué. Debe decir al menos quién eres y tu domicilio, qué datos usas (señalando los sensibles), para qué los usas, cómo pueden limitar su uso, cómo ejercer sus derechos ARCO (acceso, rectificación, cancelación y oposición) y cómo les avisarás de cambios.",
+              "applies_if": [
+                "guarda_datos_personales"
+              ],
+              "evidence": [
+                "aviso de privacidad publicado y fechado",
+                "registro de dónde y cuándo se muestra a cada persona"
+              ],
+              "law": "Ley Federal de Protección de Datos Personales en Posesión de los Particulares, arts. 14 y 15",
+              "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf",
+              "source_quote": "Artículo 14. El responsable tendrá la obligación de informar a la persona titular, a través del aviso de privacidad, la existencia y características principales del tratamiento al que serán sometidos sus datos personales, a fin de que pueda tomar decisiones informadas al respecto.",
+              "valid_from": "2025-03-21",
+              "verified_by": "Brian López",
+              "verified_on": "2026-10-28",
+              "frequency": "once",
+              "consequence": {
+                "description": "Omitir en el aviso de privacidad alguno de los elementos del art. 15 es infracción, con multa de 100 a 160,000 veces la UMA.",
+                "law": "LFPDPPP art. 58 fr. V y art. 59 fr. II",
+                "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf"
+              },
+              "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. Es la NUEVA ley publicada en el DOF el 20-03-2025 (última reforma 14-11-2025); valid_from = día siguiente, según su transitorio Primero, salvo lo del transitorio Tercero, que no se revisó."
+            },
+            "status": "applies",
+            "missing_facts": []
+          }
+        ],
+        "benefits": [
+          {
+            "rule": {
+              "id": "estimulo-id-tecnologico",
+              "authority": "ESTIMULO",
+              "kind": "benefit",
+              "title": "Estímulo fiscal a la investigación y desarrollo de tecnología",
+              "requires": "Un crédito fiscal del 30% de lo que gastes o inviertas en proyectos propios de investigación o desarrollo tecnológico hechos en México, aplicable contra tu ISR. Solo cuenta lo que gastes por encima del promedio de tus tres años anteriores, tiene un tope de 50 millones de pesos por contribuyente y hay que cumplir las reglas del Comité Interinstitucional, que pide prototipos o entregables y patentes registradas en México. No se combina con otros estímulos o beneficios fiscales.",
+              "applies_if": [
+                "hace_id_tecnologico"
+              ],
+              "evidence": [
+                "descripción de cada proyecto de I+D y su avance tecnológico",
+                "registro de gastos e inversiones por proyecto",
+                "prototipos, entregables y solicitudes de patente"
+              ],
+              "law": "Ley del Impuesto sobre la Renta, art. 202",
+              "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+              "source_quote": "Artículo 202. Se otorga un estímulo fiscal a los contribuyentes del impuesto sobre la renta que efectúen proyectos de investigación y desarrollo tecnológico, consistente en aplicar un crédito fiscal equivalente al 30% de los gastos e inversiones realizados en el ejercicio en investigación o desarrollo de tecnología, contra el impuesto sobre la renta causado en el ejercicio en que se determine dicho crédito.",
+              "valid_from": "2016-11-30",
+              "verified_by": "Brian López",
+              "verified_on": "2026-10-28",
+              "frequency": "annual",
+              "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF en que se adicionó el artículo (la fr. I se reformó el 09-12-2019); la entrada en vigor no se revisó. El PDF de la LISR dice «Última reforma DOF 01-04-2024»: confirmar que no hay una más reciente. Para Valeria: ¿el régimen RESICO cuenta como «otro tratamiento fiscal» incompatible? ¿Las reglas del Comité y la convocatoria de este año siguen abiertas? Ojo: el agente citó antes el art. 189, que es el estímulo al cine."
+            },
+            "status": "needs_data",
+            "missing_facts": [
+              "hace_id_tecnologico"
+            ]
+          }
+        ],
+        "questions": [
+          "hace_id_tecnologico"
+        ],
+        "unverified": [],
+        "expired": []
+      },
+      "ask": [
+        {
+          "fact": "hace_id_tecnologico",
+          "question": "¿Desarrollas tecnología nueva con incertidumbre técnica?"
+        }
+      ],
+      "notes": [],
+      "origin": {
+        "guarda_datos_personales": "answered",
+        "tiene_empleados": "answered",
+        "tiene_ingresos": "answered",
+        "factura_en_mexico": "answered",
+        "cobra_al_extranjero": "answered",
+        "ofrece_servicios_de_activos_virtuales": "answered",
+        "recibe_pagos_en_cripto": "answered",
+        "infraestructura_en_mexico": "answered",
+        "desarrolla_software": "answered",
+        "tiene_marca_propia": "answered"
+      },
+      "drafts_shown": false,
+      "rules_total": 9,
+      "rules_verified": 4,
+      "explanation": null
+    }
+  },
+  "chat": {
+    "status": 200,
+    "seconds": 66.02,
+    "body": {
+      "reply": "Artur, aquí va el diagnóstico para **NébulaNotas** — lo organizo en tres capas: antes de abrir beta, antes del primer cobro, y lo que necesitas llevar a un profesional.\n\n---\n\n## Antes de abrir beta (hazlo ya, con 12 testers activos)\n\n**1. Aviso de privacidad que cubra lo que realmente guardan**\nEstán guardando correos, transcripciones y nombres. Eso es tratamiento de datos personales sensibles bajo la LFPDPPP. Tu aviso debe decir:\n- Qué datos recoges\n- Para qué los usas\n- Si los compartes con terceros (sí: el proveedor de IA en EEUU es un tercero receptor)\n- Cómo puede el usuario pedir que los borres\n\nEl punto crítico: **transferencia internacional de datos**. Cuando mandas transcripciones a una API en EEUU, estás transfiriendo datos personales fuera de México. La ley exige condiciones específicas para eso (cláusulas contractuales o consentimiento informado). Esto no es trivial y es el riesgo más inmediato que veo.\n\n**Acción concreta**: antes de que entre un tester más, el formulario de registro debe tener consentimiento explícito que mencione la transferencia a EEUU y el nombre del proveedor (o al menos la categoría: \"proveedor de procesamiento de IA en Estados Unidos\").\n\n---\n\n**2. Revisa tus contratos con el proveedor de IA y el de hosting**\nAntes de beta con más usuarios, necesitas saber:\n- ¿El proveedor de IA puede usar tus datos (las transcripciones de tus testers) para entrenar sus modelos? Muchos contratos lo permiten por default.\n- ¿Qué dice su DPA (*Data Processing Agreement*)? Si no tiene uno, eso es un riesgo para ti.\n\nEsto no lo puedo confirmar yo — lo tienes que leer en sus términos o llevar a un abogado. Pero sí puedo decirte que sin esa revisión, no sabes exactamente qué prometes a tus usuarios.\n\n---\n\n## Antes del primer cobro\n\n**3. RFC como persona física o constitución de sociedad**\nSon dos cofundadores. Antes del primer peso que entre, necesitan decidir: ¿cobran cada quien como persona física, o constituyen una sociedad? Esa decisión cambia la estructura fiscal, cómo se reparten ingresos y cómo se protege la propiedad intelectual del software.\n\nDonna puede mapear las preguntas correctas, pero **esta decisión la tiene que tomar un contador con su situación concreta**.\n\n**4. ¿A quién pertenece el software que están construyendo juntos?**\nSin contrato entre cofundadores, el código que cada quien escribe podría ser de ambos, de ninguno o estar en disputa si la sociedad no está formalizada. Antes de tener clientes de pago, conviene un acuerdo escrito simple que diga quién es dueño de qué y en qué proporción.\n\n**5. Registro de marca (búsqueda, no registro obligatorio todavía)**\n\"NébulaNotas\" — antes de invertir en marca, publicidad o contratos con clientes, busca si está disponible en el IMPI. Es gratis y toma minutos. El registro puede esperar a que valides el negocio, la búsqueda no.\n\n---\n\n## Lo que no puedo confirmar sin más datos\n\n| Tema | Por qué no puedo confirmarlo |\n|---|---|\n| **Estímulo fiscal I+D** | No hay ventas, ni gastos documentados en investigación, ni proyecto técnico formalizado. Usar una API de IA no califica por sí solo — la regla verificada pide condiciones específicas que todavía no están en tu caso. Lo revisamos cuando tengas producto y gastos reales. |\n| **IMSS** | Hoy sin empleados no hay obligación patronal activa. Si contratan a alguien (aunque sea temporal), esto cambia de inmediato. |\n| **UIF** | Sin cripto, sin pagos en efectivo de alto valor y sin actividades listadas como vulnerables, no veo señales hoy. Si el modelo de cobro cambia, lo revisamos. |\n| **Régimen fiscal óptimo** | Depende de ingresos proyectados, estructura de costos y decisión persona física vs. sociedad. Eso lo decide el contador. |\n\n---\n\n## Checklist para llevar al profesional\n\n**Al abogado:**\n- [ ] ¿El aviso de privacidad cubre la transferencia internacional al proveedor de IA?\n- [ ] ¿Los términos del proveedor de IA incluyen un DPA que te proteja?\n- [ ] ¿Tienen acuerdo de cofundadores que defina propiedad del código?\n- [ ] ¿Qué forma jurídica conviene antes del primer cobro?\n\n**Al contador:**\n- [ ] ¿Persona física o sociedad para el primer cobro?\n- [ ] ¿Qué gastos del MVP son deducibles ya?\n- [ ] ¿Qué documentación conviene guardar desde hoy para una revisión de I+D futura?\n\n---\n\n**Lo más urgente antes de que entre un tester más**: el aviso de privacidad con el párrafo de transferencia internacional. Todo lo demás puede avanzar en paralelo a tu validación.\n\n¿Quieres que entremos en detalle en alguno de estos puntos, o armo la lista de preguntas para el abogado con más detalle?"
+    }
+  }
+}

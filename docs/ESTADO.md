@@ -111,6 +111,8 @@ evalúa es lo rojo.
 
 ## 6 · Bitácora
 
+- **2026-10-28** — Publicado el informe de pruebas exploratorias con cuatro perfiles ficticios en [`PRUEBAS-PERFILES.md`](PRUEBAS-PERFILES.md), con respuestas y captura de evidencia. Tres casos probaron chat e informe por HTTP y uno el chat en navegador; respuestas de chat HTTP 200 entre 25 y 66 s. Hallazgos: chat e informe desconectados, afirmaciones sin trazabilidad, datos desconocidos convertidos en hechos y Markdown sin renderizar. La prueba usa llave de desarrollo compartida; no valida aislamiento de producción ni corrección jurídica. Solo documentación y evidencias; JSON, enlaces locales y ausencia de credenciales comprobados. No se ejecutaron pruebas automatizadas ni build para este cambio documental.
+
 - **2026-10-28** — Código de la landing y /app exportado de Lovable (`2027a0089c331844df2e1b7214f99ae380472db8`) a `frontend/lovable/`, como frontend independiente del monorepo. Incluye código, lockfile, pruebas, diseño, instrucciones de ejecución y manifiesto de procedencia. Se conserva el backend Next y su despliegue. Verificado localmente: 24 pruebas del frontend, tipos, build y HTTP 200 de / y /app; 57 pruebas del monorepo y build Next con Webpack. Turbopack no pudo abrir un puerto auxiliar en este entorno. Importación en rama `feat/import-lovable-ui`, pendiente de revisión; sin conexión nueva del frontend al agente ni despliegue.
 
 - **2026-10-27 noche** — Se definió la idea (documento de Artur + libreta + retroalimentación). Se creó

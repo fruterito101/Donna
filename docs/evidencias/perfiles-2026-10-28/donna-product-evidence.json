@@ -1,0 +1,152 @@
+{
+  "case": "product",
+  "message": "Caso ficticio nuevo e independiente: soy PM de NubeTurno, SaaS B2B mexicano lanzado con 20 clientes de pago en México, facturas mexicanas, cuatro empleados, nombres y correos de contactos, software y marca propios. No operamos ni recibimos cripto. Planeamos expansión internacional pero hoy no cobramos fuera. No sé si toda la infraestructura está en México ni si calificamos como I+D. Necesito tres prioridades para esta semana, evidencia que guardar y qué llevar a contador o abogado; distingue operación de hoy de expansión futura y pregunta lo mínimo que falta. Si no tienes un informe verificado, dilo y no inventes reglas.",
+  "answered": {
+    "cobra_al_extranjero": false,
+    "guarda_datos_personales": true,
+    "ofrece_servicios_de_activos_virtuales": false,
+    "recibe_pagos_en_cripto": false,
+    "tiene_ingresos": true,
+    "desarrolla_software": true,
+    "tiene_empleados": true,
+    "factura_en_mexico": true,
+    "tiene_marca_propia": true
+  },
+  "report": {
+    "status": 200,
+    "seconds": 0.23,
+    "body": {
+      "report": {
+        "obligations": [
+          {
+            "rule": {
+              "id": "datos-aviso-de-privacidad",
+              "authority": "DATOS",
+              "kind": "obligation",
+              "title": "Publicar un aviso de privacidad completo",
+              "requires": "Si guardas o usas datos de personas, debes informarles en un aviso de privacidad qué datos tratas y para qué. Debe decir al menos quién eres y tu domicilio, qué datos usas (señalando los sensibles), para qué los usas, cómo pueden limitar su uso, cómo ejercer sus derechos ARCO (acceso, rectificación, cancelación y oposición) y cómo les avisarás de cambios.",
+              "applies_if": [
+                "guarda_datos_personales"
+              ],
+              "evidence": [
+                "aviso de privacidad publicado y fechado",
+                "registro de dónde y cuándo se muestra a cada persona"
+              ],
+              "law": "Ley Federal de Protección de Datos Personales en Posesión de los Particulares, arts. 14 y 15",
+              "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf",
+              "source_quote": "Artículo 14. El responsable tendrá la obligación de informar a la persona titular, a través del aviso de privacidad, la existencia y características principales del tratamiento al que serán sometidos sus datos personales, a fin de que pueda tomar decisiones informadas al respecto.",
+              "valid_from": "2025-03-21",
+              "verified_by": "Brian López",
+              "verified_on": "2026-10-28",
+              "frequency": "once",
+              "consequence": {
+                "description": "Omitir en el aviso de privacidad alguno de los elementos del art. 15 es infracción, con multa de 100 a 160,000 veces la UMA.",
+                "law": "LFPDPPP art. 58 fr. V y art. 59 fr. II",
+                "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf"
+              },
+              "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. Es la NUEVA ley publicada en el DOF el 20-03-2025 (última reforma 14-11-2025); valid_from = día siguiente, según su transitorio Primero, salvo lo del transitorio Tercero, que no se revisó."
+            },
+            "status": "applies",
+            "missing_facts": []
+          },
+          {
+            "rule": {
+              "id": "sat-inscripcion-rfc",
+              "authority": "SAT",
+              "kind": "obligation",
+              "title": "Inscribirte en el RFC",
+              "requires": "Si debes presentar declaraciones o emitir facturas electrónicas (CFDI) por lo que cobras, tienes que inscribirte en el Registro Federal de Contribuyentes y mantener actualizados tu domicilio, tu situación fiscal, un correo y un teléfono. Si tu negocio es una sociedad, además tiene obligaciones sobre sus socios y accionistas.",
+              "applies_if": [
+                "tiene_ingresos"
+              ],
+              "evidence": [
+                "constancia de situación fiscal",
+                "acuses de los avisos de actualización"
+              ],
+              "law": "Código Fiscal de la Federación, art. 27, apartados A y B",
+              "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf",
+              "source_quote": "I. Las personas físicas y personas morales están obligadas a dar cumplimiento a las fracciones I, II, III y IV del apartado B del presente artículo, siempre que: a) Deban presentar declaraciones periódicas, o b) Estén obligadas a expedir comprobantes fiscales digitales por Internet por los actos o actividades que realicen o por los ingresos que perciban.",
+              "valid_from": "2021-11-12",
+              "verified_by": "Brian López",
+              "verified_on": "2026-10-28",
+              "frequency": "once",
+              "consequence": {
+                "description": "Multa de $5,070 a $15,200 por no inscribirte cuando estás obligado o hacerlo tarde (salvo si lo haces de manera espontánea).",
+                "law": "CFF art. 79 fr. I y art. 80 fr. I",
+                "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
+              },
+              "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de la reforma del apartado (12-11-2021). Los montos de la multa son los actualizados en el DOF 28-12-2025 según la nota del PDF; cambian cada año."
+            },
+            "status": "applies",
+            "missing_facts": []
+          }
+        ],
+        "benefits": [
+          {
+            "rule": {
+              "id": "estimulo-id-tecnologico",
+              "authority": "ESTIMULO",
+              "kind": "benefit",
+              "title": "Estímulo fiscal a la investigación y desarrollo de tecnología",
+              "requires": "Un crédito fiscal del 30% de lo que gastes o inviertas en proyectos propios de investigación o desarrollo tecnológico hechos en México, aplicable contra tu ISR. Solo cuenta lo que gastes por encima del promedio de tus tres años anteriores, tiene un tope de 50 millones de pesos por contribuyente y hay que cumplir las reglas del Comité Interinstitucional, que pide prototipos o entregables y patentes registradas en México. No se combina con otros estímulos o beneficios fiscales.",
+              "applies_if": [
+                "hace_id_tecnologico"
+              ],
+              "evidence": [
+                "descripción de cada proyecto de I+D y su avance tecnológico",
+                "registro de gastos e inversiones por proyecto",
+                "prototipos, entregables y solicitudes de patente"
+              ],
+              "law": "Ley del Impuesto sobre la Renta, art. 202",
+              "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+              "source_quote": "Artículo 202. Se otorga un estímulo fiscal a los contribuyentes del impuesto sobre la renta que efectúen proyectos de investigación y desarrollo tecnológico, consistente en aplicar un crédito fiscal equivalente al 30% de los gastos e inversiones realizados en el ejercicio en investigación o desarrollo de tecnología, contra el impuesto sobre la renta causado en el ejercicio en que se determine dicho crédito.",
+              "valid_from": "2016-11-30",
+              "verified_by": "Brian López",
+              "verified_on": "2026-10-28",
+              "frequency": "annual",
+              "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF en que se adicionó el artículo (la fr. I se reformó el 09-12-2019); la entrada en vigor no se revisó. El PDF de la LISR dice «Última reforma DOF 01-04-2024»: confirmar que no hay una más reciente. Para Valeria: ¿el régimen RESICO cuenta como «otro tratamiento fiscal» incompatible? ¿Las reglas del Comité y la convocatoria de este año siguen abiertas? Ojo: el agente citó antes el art. 189, que es el estímulo al cine."
+            },
+            "status": "needs_data",
+            "missing_facts": [
+              "hace_id_tecnologico"
+            ]
+          }
+        ],
+        "questions": [
+          "hace_id_tecnologico"
+        ],
+        "unverified": [],
+        "expired": []
+      },
+      "ask": [
+        {
+          "fact": "hace_id_tecnologico",
+          "question": "¿Desarrollas tecnología nueva con incertidumbre técnica?"
+        }
+      ],
+      "notes": [],
+      "origin": {
+        "cobra_al_extranjero": "answered",
+        "guarda_datos_personales": "answered",
+        "ofrece_servicios_de_activos_virtuales": "answered",
+        "recibe_pagos_en_cripto": "answered",
+        "tiene_ingresos": "answered",
+        "desarrolla_software": "answered",
+        "tiene_empleados": "answered",
+        "factura_en_mexico": "answered",
+        "tiene_marca_propia": "answered"
+      },
+      "drafts_shown": false,
+      "rules_total": 9,
+      "rules_verified": 4,
+      "explanation": null
+    }
+  },
+  "chat": {
+    "status": 200,
+    "seconds": 42.52,
+    "body": {
+      "reply": "Perfecto. Para NubeTurbo —perdón, **NubeTurno**— este es el mapa de lo que Donna puede revisar contigo ahora mismo:\n\n---\n\n## Tres prioridades para esta semana\n\n### 🔴 1. Datos personales — ya tienes obligación activa\n\nTienes nombres y correos de contactos de 20 clientes. Eso es tratamiento de datos personales bajo la **LFPDPPP** (Ley Federal de Protección de Datos Personales en Posesión de los Particulares). Lo que necesitas revisar esta semana:\n\n- ¿Tienes aviso de privacidad publicado y accesible para tus clientes?\n- ¿Tienes un documento interno que describa qué datos recoges, para qué y quién tiene acceso?\n\n**Evidencia que guardar:** el aviso de privacidad con fecha de publicación, y cualquier consentimiento que hayas recabado (formularios, correos de aceptación).\n\n---\n\n### 🔴 2. Empleados — obligaciones IMSS y nómina en curso\n\nCon cuatro empleados ya tienes obligaciones ante el **IMSS** (altas patronales, cuotas mensuales) y ante el **SAT** (retención de ISR en nómina, timbrado de recibos de nómina como CFDI).\n\n**Evidencia que guardar:** comprobantes de pago de cuotas IMSS, CFDI de nómina timbrados, contratos individuales de trabajo firmados.\n\nEsto no es algo que Donna confirma como \"al corriente\" — tu contador lo tiene que verificar con los números reales.\n\n---\n\n### 🟡 3. Propiedad intelectual — marca y software\n\nDices que tienen marca y software propios. Dos preguntas concretas para esta semana:\n\n- **Marca:** ¿está registrada ante el **IMPI**? Si no, alguien más puede registrarla antes que ustedes, especialmente si piensan expandirse.\n- **Software:** ¿está registrado ante el **INDAUTOR** o al menos documentado con fecha cierta (commits, contratos de desarrollo)?\n\nEl registro no es urgente esta semana, pero *saber el estado actual* sí lo es antes de planear expansión internacional.\n\n**Evidencia que guardar:** número de expediente IMPI si existe, o resultados de la búsqueda de anterioridad si no han registrado.\n\n---\n\n## Lo que separo: operación de hoy vs. expansión futura\n\n| Tema | Hoy | Expansión futura |\n|---|---|---|\n| Datos personales | LFPDPPP aplica ya | Otros países tienen sus propias leyes (GDPR si hay europeos, etc.) |\n| Marca | Registro en México | Registro internacional (Madrid, EUIPO, USPTO) |\n| Facturación | CFDI mexicano | Requiere estructura legal diferente |\n| Contrato de software | Aplica hoy | Cláusulas de jurisdicción extranjera |\n\n---\n\n## Lo que **no puedo confirmar** sin más datos\n\n- **I+D:** no puedo decirte si califican para el estímulo fiscal de investigación y desarrollo sin saber qué hace el producto técnicamente, si hay desarrollo original documentado y cuáles son los gastos del área. Esa regla todavía requiere revisar los supuestos con tu contador y la convocatoria del CONAHCyT vigente.\n- **Infraestructura fuera de México:** si sus servidores o proveedores cloud están en otro país, podría haber implicaciones en datos personales (transferencias internacionales bajo LFPDPPP). Necesito saber dónde está alojado el sistema para decirte si aplica.\n- **UIF:** con el modelo que describes hoy (SaaS B2B, factura en MXN, sin cripto) no veo señales obvias de obligación ante la UIF, pero esa conclusión la debe confirmar un abogado que conozca el giro exacto.\n\n---\n\n## Qué llevar al contador esta semana\n\n1. Estado de cuenta de IMSS (para verificar que las cuotas estén al corriente)\n2. XML de todos los CFDI de nómina del año\n3. Aviso de privacidad actual (o la ausencia de uno)\n4. Contrato(s) con los 20 clientes — para revisar cláusulas de datos y propiedad del software\n\n---\n\n**Una pregunta mínima que me falta:** ¿saben en qué país o proveedor está alojada la infraestructura del SaaS? Con eso puedo decirte si hay algo adicional en datos personales que revisar antes de la expansión."
+    }
+  }
+}

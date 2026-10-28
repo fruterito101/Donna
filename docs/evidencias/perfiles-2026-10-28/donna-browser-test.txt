@@ -1,0 +1,49 @@
+Browser tab: 1, Title: "Donna", URL: "http://localhost:3000/".
+0 AXWebArea Donna, URL: localhost:3000/
+	1 container
+		2 heading Donna, Value: 1
+			3 text Donna
+		4 text Tu asesora de cumplimiento para startups tecnológicas en México.
+		10 content list
+			11 text Caso ficticio nuevo: soy vibecoder y estoy validando MesaLista, una idea de app de reservas para restaurantes mexicanos. Solo tengo una landing hecha con IA y una lista de espera con 15 correos. Aún no cobro, no tengo empleados ni sociedad y no uso cripto. No sé qué significa cumplimiento ni si debo registrar la marca antes de validar. Dame tres siguientes pasos en palabras simples, separa lo urgente de lo que puede esperar y dime qué no puedes confirmar sin más datos.
+			12 text Artur, aquí va el diagnóstico rápido para **MesaLista** en este momento:
+
+---
+
+## Tres pasos, en orden real
+
+### 🔴 Urgente (hazlo ahora o en los próximos 30 días)
+
+**1. Aviso de privacidad en tu landing**
+Tienes 15 correos recolectados. Eso ya es tratamiento de datos personales bajo la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP). Necesitas un aviso de privacidad visible antes de que alguien deje su correo, no después. Es corto, pero es obligatorio desde el primer dato que recoges.
+
+---
+
+### 🟡 Importante, pero puede esperar un poco
+
+**2. RFC como persona física**
+Cuando empieces a cobrar —aunque sea un peso— el SAT te va a exigir facturar. Tramitar tu RFC de persona física es gratis, rápido y no te compromete a nada hoy. Tenerlo listo antes de tu primera venta te evita un problema mayor después.
+
+**3. Búsqueda de marca antes de invertir más**
+Antes de pagar diseño, dominio caro o publicidad con el nombre MesaLista, vale la pena buscar si ya existe en el IMPI (Instituto Mexicano de la Propiedad Industrial). No tienes que registrarla hoy —el registro puede esperar a que valides el negocio— pero *saber si está libre* cuesta solo tiempo y es gratis en la búsqueda básica del IMPI.
+
+---
+
+## Lo que no puedo confirmar sin más datos
+
+- **Si necesitas inscribirte en el SAT ya mismo**: depende de si ya recibes dinero o contraprestación de algún tipo. Si aún es cero ingresos, no hay obligación activa, pero esa regla la tendría que confirmar un contador con tu situación exacta.
+- **Si aplicas al estímulo fiscal de I+D**: con solo una landing y lista de espera, es muy pronto para saberlo. Cuando tengas producto y gastos documentados, lo revisamos.
+- **Obligaciones ante la UIF o IMSS**: hoy, sin empleados, sin cobros y sin cripto, no veo señales de que apliquen, pero si eso cambia me avisas y lo revisamos de nuevo.
+
+---
+
+**Resumen de una línea**: lo único que tienes que hacer *hoy* es el aviso de privacidad. Todo lo demás puede avanzar en paralelo a tu validación, no antes.
+
+¿Quieres que te ayude a armar el aviso de privacidad o que busquemos juntos MesaLista en el IMPI?
+		5 container
+			6 text field (settable)
+			7 button (disabled) Enviar
+	8 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand
+		9 image
+
+The focused UI element is 0 AXWebArea Donna, URL: localhost:3000/
