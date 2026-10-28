@@ -64,3 +64,11 @@ test("Donna gets a rule's whole text, conditions included, and is told not to ca
   assert.match(brief, /No hagas cálculos ni ejemplos con cifras/);
   assert.match(brief, /Di SIEMPRE las condiciones/);
 });
+
+test("Donna is told to frame every point for review, never as a verdict (the landing's voice)", () => {
+  const brief = explainBrief(buildReport({ answered: { fact_a: "sí", fact_b: "sí" } }, { rules: [signed], facts }))!;
+  assert.match(brief, /PARA REVISAR con su contador/);
+  assert.match(brief, /nunca digas «debes», «te obliga»/);
+  assert.match(brief, /PARA REVISIÓN PROFESIONAL \(1\)/);
+  assert.match(brief, /No es un dictamen/);
+});

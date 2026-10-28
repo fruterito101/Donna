@@ -41,8 +41,8 @@ const line = (item: ReportItem) => {
   const r = item.rule;
   // A benefit keeps its whole text: its conditions are what stops Donna from promising it.
   // An obligation keeps its essentials; its law and its fine travel with it.
-  let text = `- ${r.title} (${r.authority}): ${clip(r.requires, r.kind === "benefit" ? 600 : 200)} [${r.law}]`;
-  if (r.consequence) text += ` Si no se cumple: ${clip(r.consequence.description, 110)}`;
+  let text = `- ${r.title}: ${clip(r.requires, r.kind === "benefit" ? 600 : 130)} [${r.law}]`;
+  if (r.consequence) text += ` Riesgo a revisar: ${clip(r.consequence.description, 110)}`;
   if (item.status === "needs_data") text += ` (aplica solo si se confirma: ${item.missing_facts.join(", ")})`;
   return text;
 };
@@ -59,18 +59,19 @@ export function explainBrief(res: ReportResponse, maxChars: number = MAX_BRIEF):
   const { benefits, obligations } = res.report;
   if (!benefits.length && !obligations.length && !res.ask.length) return null;
   const blocks = [
-    "Explica este informe a un founder que no sabe de leyes. Usa SOLO las reglas de abajo: no agregues leyes,",
-    "artículos, cifras ni plazos. No hagas cálculos ni ejemplos con cifras. Di SIEMPRE las condiciones de cada",
-    "beneficio: no prometas que le toca. Primero beneficios, luego obligaciones, luego preguntas. Breve, en español.",
-    "No es opinión legal.",
+    "Ayuda a un founder a preparar su reunión con su contador. Usa SOLO los puntos de abajo: no agregues leyes,",
+    "cifras ni plazos. No hagas cálculos ni ejemplos con cifras.",
+    "Presenta cada punto como algo PARA REVISAR con su contador, citando su ley; nunca digas «debes», «te obliga»",
+    "ni «no es opcional». Di SIEMPRE las condiciones de cada oportunidad. Orden: oportunidades, revisión",
+    "profesional, preguntas. Breve, en español. No es un dictamen.",
     "",
-    `BENEFICIOS (${benefits.length}):`,
+    `OPORTUNIDADES POR EXPLORAR (${benefits.length}):`,
     ...(benefits.length ? benefits.map(line) : ["- ninguno con la información actual"]),
     "",
-    `OBLIGACIONES (${obligations.length}):`,
+    `PARA REVISIÓN PROFESIONAL (${obligations.length}):`,
     ...(obligations.length ? obligations.map(line) : ["- ninguna con la información actual"]),
     "",
-    `PREGUNTAS QUE FALTAN (${res.ask.length}):`,
+    `PREGUNTAS PENDIENTES (${res.ask.length}):`,
     ...(res.ask.length ? res.ask.map((a) => `- ${a.question}`) : ["- ninguna"]),
   ];
   if (res.drafts_shown) blocks.push("", "AVISO: estas reglas son BORRADORES sin verificar; dilo al explicar.");
