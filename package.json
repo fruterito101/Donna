@@ -16,7 +16,8 @@
     "test": "node --test packages/*/test/*.test.ts",
     "mock": "node mock/agent-mock.mjs",
     "rules": "node packages/rules-engine/scripts/build-rules.ts",
-    "rules:import": "node packages/rules-engine/scripts/import-rules.ts"
+    "rules:import": "node packages/rules-engine/scripts/import-rules.ts",
+    "dof:smoke": "node packages/dof/scripts/smoke.ts"
   },
   "engines": {
     "node": ">=22.18"

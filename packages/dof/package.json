@@ -1,0 +1,11 @@
+{
+  "name": "@donna/dof",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reads Mexico's Diario Oficial de la Federación through the official SIDOF API (Secretaría de Gobernación): a day's publications, one publication, its full text, and a gentle search by words over a date range.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
