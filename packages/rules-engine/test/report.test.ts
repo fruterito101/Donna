@@ -39,11 +39,20 @@ test("Donna's brief carries only the report's rules, money first, with law, sour
   const r = buildReport({ answered: { fact_a: "sí", fact_b: "sí" } }, { rules: [signed, benefit], facts });
   const brief = explainBrief(r)!;
   assert.ok(brief.indexOf("El beneficio") < brief.indexOf("Obligación firmada"), "benefits come first");
-  assert.match(brief, /Ley: Ley X art\. 1 · Fuente: https:\/\/example\.test\/ley/);
-  assert.match(brief, /Cita: «Artículo 1\. Texto\.»/);
+  assert.match(brief, /\[Ley X art\. 1\]/);
   assert.match(brief, /no agregues leyes/);
 });
 
 test("nothing to explain → no brief, so no call to the agent", () => {
   assert.equal(explainBrief(buildReport({ answered: { fact_a: "no" } }, { rules: [signed], facts })), null);
+});
+
+test("the brief stays under the cap however many rules apply, saying how many it left out", () => {
+  const many = Array.from({ length: 30 }, (_, i) =>
+    rule({ id: `r${i}`, title: `Regla número ${i}`, requires: "Pide algo bastante largo. ".repeat(10) }));
+  const r = buildReport({ answered: { fact_a: "sí", fact_b: "sí" } }, { rules: many, facts });
+  const brief = explainBrief(r)!;
+  assert.ok(brief.length <= 2000, `brief is ${brief.length} chars`);
+  assert.match(brief, /\(\+\d+ punto\(s\) más en el informe en pantalla\)/);
+  assert.match(brief, /no agregues leyes/, "the instruction is never cut");
 });

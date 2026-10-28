@@ -33,21 +33,29 @@ export function buildReport(
   return { report, ask, notes, origin, drafts_shown: showDrafts, rules_total: rules.length, rules_verified };
 }
 
+/** First sentence, at most `max` chars: Donna needs the gist, the screen shows the full text. */
+const gist = (text: string, max = 160) => {
+  const first = text.split(/(?<=\.)\s/)[0];
+  return first.length <= max ? first : `${first.slice(0, max - 1)}…`;
+};
+
 const line = (item: ReportItem) => {
   const r = item.rule;
-  const parts = [`- ${r.title} (${r.authority}) — ${r.requires}`, `  Ley: ${r.law} · Fuente: ${r.source}`];
-  if (r.source_quote) parts.push(`  Cita: «${r.source_quote}»`);
-  if (r.consequence) parts.push(`  Si no se cumple: ${r.consequence.description} (${r.consequence.law})`);
-  if (item.status === "needs_data") parts.push(`  Aplica solo si se confirma: ${item.missing_facts.join(", ")}`);
-  return parts.join("\n");
+  let text = `- ${r.title} (${r.authority}): ${gist(r.requires)} [${r.law}]`;
+  if (r.consequence) text += ` Si no se cumple: ${gist(r.consequence.description, 120)}`;
+  if (item.status === "needs_data") text += ` (aplica solo si se confirma: ${item.missing_facts.join(", ")})`;
+  return text;
 };
+
+/** Donna's whole message (identity + brief) must stay under the agent's 4,000 chars (docs/COMUNICACION.md). */
+export const MAX_BRIEF = 2_000;
 
 /**
  * What Donna receives to explain a report. She explains ONLY these rules, in this order — money
  * first, then risk — and never adds a law that is not here (README §3, the engine decides).
  * Returns null when there is nothing to explain, so no call to the agent is spent.
  */
-export function explainBrief(res: ReportResponse): string | null {
+export function explainBrief(res: ReportResponse, maxChars: number = MAX_BRIEF): string | null {
   const { benefits, obligations } = res.report;
   if (!benefits.length && !obligations.length && !res.ask.length) return null;
   const blocks = [
@@ -66,5 +74,18 @@ export function explainBrief(res: ReportResponse): string | null {
     ...(res.ask.length ? res.ask.map((a) => `- ${a.question}`) : ["- ninguna"]),
   ];
   if (res.drafts_shown) blocks.push("", "AVISO: estas reglas son BORRADORES sin verificar; dilo al explicar.");
+  // Over the cap, the last items give way to a count (the screen still shows them all).
+  // 60 chars stay free for that note, so the result never passes the cap.
+  const size = () => blocks.join("\n").length;
+  if (size() > maxChars) {
+    let left = 0;
+    while (size() > maxChars - 60) {
+      const i = blocks.findLastIndex((b) => b.startsWith("- ") && !b.startsWith("- ninguna") && !b.startsWith("- ninguno"));
+      if (i < 0) break;
+      blocks.splice(i, 1);
+      left++;
+    }
+    blocks.push(`(+${left} punto(s) más en el informe en pantalla)`);
+  }
   return blocks.join("\n");
 }
