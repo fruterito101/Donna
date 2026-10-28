@@ -166,7 +166,10 @@ en `packages/rules-engine/src/report.ts`.
   `explanation_error`. Si no hay nada que explicar, no se le llama (no se gasta la suscripción).
 - **Donna explica, no decide:** recibe solo las reglas del informe —cada **beneficio con su texto completo** (sus
   condiciones son lo que impide prometerlo), cada obligación con lo esencial, su ley y su multa— y la instrucción de
-  no agregar leyes, cifras ni plazos, **no hacer cálculos ni ejemplos con cifras** y decir siempre las condiciones. Abre con los beneficios y cierra con las obligaciones.
+  no agregar leyes, cifras ni plazos, **no hacer cálculos ni ejemplos con cifras** y decir siempre las condiciones.
+- **La voz de Donna es la de la landing:** presenta cada punto como algo **para revisar con su contador**, con su
+  ley; nunca «debes», «te obliga» ni «no es opcional». Ordena como el expediente: oportunidades por explorar ·
+  para revisión profesional · preguntas pendientes. No es un dictamen. Abre con los beneficios y cierra con las obligaciones.
   El resumen mide **como máximo 2,000 caracteres** (`MAX_BRIEF`): con la identidad de Donna el mensaje queda bajo
   los 4,000 que acepta el agente. Si no cabe todo, nombra cuántos puntos más hay en pantalla. La cita y el enlace
   no viajan a Donna: los muestra la pantalla.
