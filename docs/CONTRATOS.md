@@ -164,8 +164,11 @@ en `packages/rules-engine/src/report.ts`.
 
 - **La explicación nunca bloquea el informe:** si Donna no responde, `explanation` es `null` y llega
   `explanation_error`. Si no hay nada que explicar, no se le llama (no se gasta la suscripción).
-- **Donna explica, no decide:** recibe solo las reglas del informe, con su ley, su fuente y su cita, y la
+- **Donna explica, no decide:** recibe solo las reglas del informe —qué pide cada una, su ley y su multa— y la
   instrucción de no agregar leyes, cifras ni plazos. Abre con los beneficios y cierra con las obligaciones.
+  El resumen mide **como máximo 2,000 caracteres** (`MAX_BRIEF`): con la identidad de Donna el mensaje queda bajo
+  los 4,000 que acepta el agente. Si no cabe todo, nombra cuántos puntos más hay en pantalla. La cita y el enlace
+  no viajan a Donna: los muestra la pantalla.
 - **Borradores en desarrollo:** con `next dev` y `DONNA_SHOW_DRAFTS=1` el informe incluye las reglas sin
   firmar (`drafts_shown: true`). En producción eso no tiene efecto, aunque la variable exista.
 - **Límites:** cuerpo ≤ 20 KB (413), `detected` y `answered` deben ser objetos de ≤ 100 hechos (400).
