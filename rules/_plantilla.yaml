@@ -1,16 +1,28 @@
 # Plantilla de regla — cópiala con el nombre de la regla (sin el «_») y llena cada campo.
+# El nombre del archivo es el id: uif-activos-virtuales.yaml → id: uif-activos-virtuales.
 # Formato completo: docs/CONTRATOS.md §1. El motor salta los archivos que empiezan con «_».
+# ¿Prefieres una hoja de cálculo? Usa _plantilla.csv y `npm run rules:import` (rules/README.md).
 
-id: nombre-corto-de-la-regla          # minúsculas y guiones, único
+id: nombre-corto-de-la-regla          # minúsculas y guiones, igual al nombre del archivo
 authority: SAT                        # SAT · IMSS · UIF · DATOS · PI · ESTIMULO
 kind: obligation                      # obligation (obligación) · benefit (beneficio)
 title: Título corto para la pantalla
 requires: Qué pide la ley, en español claro, en una o dos frases.
-applies_if:                           # hechos del perfil que deben ser TODOS verdaderos
-  - nombre_del_hecho
+applies_if:                           # hechos de _hechos.yaml que deben cumplirse TODOS
+  - nombre_del_hecho                  #   «hecho»  = la respuesta es sí
+  - "!otro_hecho"                     #   «!hecho» = la respuesta es no (entre comillas)
 evidence:                             # qué guardar como prueba
   - documento o registro
 law: Ley y artículo exactos
-source: https://enlace-oficial         # solo fuentes oficiales
-valid_from: AAAA-MM-DD                # fecha de vigencia
-verified_by: ""                       # quién la comprobó contra la fuente; vacío = no verificada
+source: https://enlace-oficial         # la página oficial exacta, no la portada
+valid_from: AAAA-MM-DD                # desde cuándo está vigente la ley
+verified_by: ""                       # quién la comprobó contra la fuente; vacío = no verificada (no se muestra)
+# verified_on: AAAA-MM-DD             # cuándo la comprobó — obligatorio en cuanto verified_by tiene nombre
+
+# Opcionales — borra los que no uses:
+# valid_until: AAAA-MM-DD             # desde el día siguiente la regla está vencida (no se muestra)
+# frequency: monthly                  # once · monthly · bimonthly · annual · per_event
+# consequence:                        # qué pasa si no se cumple; una multa necesita su propia fuente
+#   description: Qué pasa, en español claro
+#   law: Ley y artículo de la sanción
+#   source: https://enlace-oficial

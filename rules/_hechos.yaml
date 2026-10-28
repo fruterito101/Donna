@@ -1,0 +1,52 @@
+# Catálogo de hechos — cada hecho es una pregunta de sí/no sobre la startup.
+# Una regla solo puede usar en `applies_if` los hechos que estén aquí: un nombre mal escrito
+# rompe el build en vez de convertirse en una pregunta que nadie puede contestar.
+# `question` es lo que Donna le pregunta al usuario cuando el hecho no se sabe.
+# `signals` son pistas para encontrarlo en una landing o un pitch (las usa el PERFIL).
+#
+# ⚠️ v0: la propuesta inicial de docs/CONTRATOS.md §2. Valeria la ajusta (docs/PENDIENTES.md).
+# Agregar un hecho = agregarlo aquí ANTES de usarlo en una regla.
+
+cobra_al_extranjero:
+  question: ¿Cobras a clientes fuera de México?
+  signals:
+    - clientes en EE. UU.
+    - precios en USD
+
+guarda_datos_personales:
+  question: ¿Guardas datos de personas (nombres, correos, perfiles)?
+  signals:
+    - registro de usuarios
+    - perfiles
+    - correos
+
+opera_activos_virtuales:
+  question: ¿Recibes, guardas o transfieres criptomonedas?
+  signals:
+    - pagos en cripto
+    - wallet
+    - stablecoins
+
+hace_id_tecnologico:
+  question: ¿Desarrollas tecnología nueva con incertidumbre técnica?
+  signals:
+    - modelo propio
+    - algoritmo nuevo
+    - I+D
+
+tiene_empleados:
+  question: ¿Contratas personas?
+  signals:
+    - equipo de N
+    - vacantes
+
+factura_en_mexico:
+  question: ¿Emites facturas en México?
+  signals:
+    - precios en MXN
+    - clientes mexicanos
+
+tiene_marca_propia:
+  question: ¿Usas un nombre o logo comercial?
+  signals:
+    - nombre del producto
