@@ -1,0 +1,14 @@
+{
+  "name": "@dona/rules-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Crosses a startup's yes/no facts with verified rule cards and returns the report. Deterministic: no AI decides what the law requires.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "yaml": "2.8.1"
+  }
+}

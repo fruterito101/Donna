@@ -1,0 +1,16 @@
+# Plantilla de regla — cópiala con el nombre de la regla (sin el «_») y llena cada campo.
+# Formato completo: docs/CONTRATOS.md §1. El motor salta los archivos que empiezan con «_».
+
+id: nombre-corto-de-la-regla          # minúsculas y guiones, único
+authority: SAT                        # SAT · IMSS · UIF · DATOS · PI · ESTIMULO
+kind: obligation                      # obligation (obligación) · benefit (beneficio)
+title: Título corto para la pantalla
+requires: Qué pide la ley, en español claro, en una o dos frases.
+applies_if:                           # hechos del perfil que deben ser TODOS verdaderos
+  - nombre_del_hecho
+evidence:                             # qué guardar como prueba
+  - documento o registro
+law: Ley y artículo exactos
+source: https://enlace-oficial         # solo fuentes oficiales
+valid_from: AAAA-MM-DD                # fecha de vigencia
+verified_by: ""                       # quién la comprobó contra la fuente; vacío = no verificada

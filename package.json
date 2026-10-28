@@ -1,0 +1,22 @@
+{
+  "name": "dona",
+  "private": true,
+  "description": "Dona: compliance advisor for people who build technology in Mexico (Hacktoberfest México 2026)",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "identity": "node packages/agent-client/scripts/build-identity.mjs",
+    "dev": "npm run identity && npm run dev -w web",
+    "build": "npm run identity && npm run build -w web",
+    "start": "npm run start -w web",
+    "lint": "npm run lint -w web",
+    "test": "node --test packages/*/test/*.test.ts",
+    "mock": "node mock/agent-mock.mjs"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}
