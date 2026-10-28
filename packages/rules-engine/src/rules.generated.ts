@@ -108,14 +108,15 @@ export const RULES: RuleCard[] = [
     "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf",
     "source_quote": "Artículo 14. El responsable tendrá la obligación de informar a la persona titular, a través del aviso de privacidad, la existencia y características principales del tratamiento al que serán sometidos sus datos personales, a fin de que pueda tomar decisiones informadas al respecto.",
     "valid_from": "2025-03-21",
-    "verified_by": "",
+    "verified_by": "Brian López",
+    "verified_on": "2026-10-28",
     "frequency": "once",
     "consequence": {
       "description": "Omitir en el aviso de privacidad alguno de los elementos del art. 15 es infracción, con multa de 100 a 160,000 veces la UMA.",
       "law": "LFPDPPP art. 58 fr. V y art. 59 fr. II",
       "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf"
     },
-    "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. Es la NUEVA ley publicada en el DOF el 20-03-2025 (última reforma 14-11-2025); valid_from = día siguiente, según su transitorio Primero, salvo lo del transitorio Tercero, que no se revisó."
+    "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. Es la NUEVA ley publicada en el DOF el 20-03-2025 (última reforma 14-11-2025); valid_from = día siguiente, según su transitorio Primero, salvo lo del transitorio Tercero, que no se revisó."
   },
   {
     "id": "estimulo-id-tecnologico",
@@ -135,9 +136,10 @@ export const RULES: RuleCard[] = [
     "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
     "source_quote": "Artículo 202. Se otorga un estímulo fiscal a los contribuyentes del impuesto sobre la renta que efectúen proyectos de investigación y desarrollo tecnológico, consistente en aplicar un crédito fiscal equivalente al 30% de los gastos e inversiones realizados en el ejercicio en investigación o desarrollo de tecnología, contra el impuesto sobre la renta causado en el ejercicio en que se determine dicho crédito.",
     "valid_from": "2016-11-30",
-    "verified_by": "",
+    "verified_by": "Brian López",
+    "verified_on": "2026-10-28",
     "frequency": "annual",
-    "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF en que se adicionó el artículo (la fr. I se reformó el 09-12-2019); la entrada en vigor no se revisó. El PDF de la LISR dice «Última reforma DOF 01-04-2024»: confirmar que no hay una más reciente. Para Valeria: ¿el régimen RESICO cuenta como «otro tratamiento fiscal» incompatible? ¿Las reglas del Comité y la convocatoria de este año siguen abiertas? Ojo: el agente citó antes el art. 189, que es el estímulo al cine."
+    "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF en que se adicionó el artículo (la fr. I se reformó el 09-12-2019); la entrada en vigor no se revisó. El PDF de la LISR dice «Última reforma DOF 01-04-2024»: confirmar que no hay una más reciente. Para Valeria: ¿el régimen RESICO cuenta como «otro tratamiento fiscal» incompatible? ¿Las reglas del Comité y la convocatoria de este año siguen abiertas? Ojo: el agente citó antes el art. 189, que es el estímulo al cine."
   },
   {
     "id": "imss-registro-patronal",
@@ -268,14 +270,15 @@ export const RULES: RuleCard[] = [
     "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf",
     "source_quote": "I. Las personas físicas y personas morales están obligadas a dar cumplimiento a las fracciones I, II, III y IV del apartado B del presente artículo, siempre que: a) Deban presentar declaraciones periódicas, o b) Estén obligadas a expedir comprobantes fiscales digitales por Internet por los actos o actividades que realicen o por los ingresos que perciban.",
     "valid_from": "2021-11-12",
-    "verified_by": "",
+    "verified_by": "Brian López",
+    "verified_on": "2026-10-28",
     "frequency": "once",
     "consequence": {
       "description": "Multa de $5,070 a $15,200 por no inscribirte cuando estás obligado o hacerlo tarde (salvo si lo haces de manera espontánea).",
       "law": "CFF art. 79 fr. I y art. 80 fr. I",
       "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
     },
-    "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de la reforma del apartado (12-11-2021). Los montos de la multa son los actualizados en el DOF 28-12-2025 según la nota del PDF; cambian cada año."
+    "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de la reforma del apartado (12-11-2021). Los montos de la multa son los actualizados en el DOF 28-12-2025 según la nota del PDF; cambian cada año."
   },
   {
     "id": "uif-activos-virtuales",
@@ -295,13 +298,14 @@ export const RULES: RuleCard[] = [
     "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPIORPI.pdf",
     "source_quote": "XVI. El ofrecimiento habitual y profesional de intercambio de activos virtuales por parte de sujetos distintos a las Entidades Financieras, que se lleven a cabo a través de plataformas electrónicas, digitales o similares, que administren u operen, facilitando o realizando operaciones de compra o venta de dichos activos propiedad de sus clientes o bien, provean medios para custodiar, almacenar, o transferir activos virtuales distintos a los reconocidos por el Banco de México en términos de la Ley para Regular las Instituciones de Tecnología Financiera, incluidas las operaciones que se realicen con ciudadanos mexicanos desde otra jurisdicción.",
     "valid_from": "2025-07-17",
-    "verified_by": "",
+    "verified_by": "Brian López",
+    "verified_on": "2026-10-28",
     "frequency": "per_event",
     "consequence": {
       "description": "Multa de 200 a 2,000 veces el valor diario de la UMA por incumplir las obligaciones del art. 18 o no presentar a tiempo los Avisos.",
       "law": "LFPIORPI art. 53 fr. II y III, art. 54 fr. I",
       "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPIORPI.pdf"
     },
-    "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = día siguiente a la reforma del DOF 16-07-2025 (su transitorio Primero dice «al día siguiente de su publicación, salvo las excepciones»); las excepciones no se revisaron. Para Valeria: ¿recibir cripto como pago por un SaaS propio queda fuera de toda obligación ante la UIF, o hay otra fracción que lo alcance?"
+    "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = día siguiente a la reforma del DOF 16-07-2025 (su transitorio Primero dice «al día siguiente de su publicación, salvo las excepciones»); las excepciones no se revisaron. Para Valeria: ¿recibir cripto como pago por un SaaS propio queda fuera de toda obligación ante la UIF, o hay otra fracción que lo alcance?"
   }
 ];

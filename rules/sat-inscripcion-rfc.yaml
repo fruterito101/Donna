@@ -19,12 +19,13 @@ source_quote: >-
   obligadas a expedir comprobantes fiscales digitales por Internet por los actos o actividades que realicen o por
   los ingresos que perciban.
 valid_from: 2021-11-12
-verified_by: ""
+verified_by: Brian López
+verified_on: 2026-10-28
 frequency: once
 consequence:
   description: Multa de $5,070 a $15,200 por no inscribirte cuando estás obligado o hacerlo tarde (salvo si lo haces de manera espontánea).
   law: CFF art. 79 fr. I y art. 80 fr. I
   source: https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf
 x_nota: >-
-  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; falta que una persona lo verifique. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de la reforma del apartado (12-11-2021). Los montos de la multa son los actualizados en el
+  Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de la reforma del apartado (12-11-2021). Los montos de la multa son los actualizados en el
   DOF 28-12-2025 según la nota del PDF; cambian cada año.
