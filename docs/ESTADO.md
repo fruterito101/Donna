@@ -1,9 +1,10 @@
 # ESTADO — dónde vamos
 
-⭐ **La fuente de verdad del avance de Donna.** Si eres una persona o un agente de IA que llega al
+⭐ **La fuente de verdad del avance de Donna.** Qué es Donna vive en el `README.md`; lo que falta
+decidir, en `docs/PENDIENTES.md`. Si eres una persona o un agente de IA que llega al
 proyecto, después del README lee esto. Si trabajaste, **actualízalo antes de irte** (sección 7).
 
-**Actualizado:** 2026-10-27, noche · **Demo:** 2026-10-28, 17:00 · Sandbox Hub, Polanco
+**Actualizado:** 2026-10-28, madrugada · **Demo:** 2026-10-28, 17:00 · Sandbox Hub, Polanco
 
 ---
 
@@ -89,6 +90,12 @@ evalúa es lo rojo.
 | 27-oct | Brian y Artur escriben **todo el código**; Valeria lleva idea, legal, reglas y perfil | cada quien en lo que sabe | Brian |
 | 27-oct | Fuera del hackathon: estrategia financiera, pipeline de ventas, leads, Monte Carlo | solo hay 4 h de construcción el 28 | equipo |
 | 27-oct | Donna en Telegram con su **propio bot**, acceso por enlace de invitación | probarla sin instalar nada | Brian |
+| 27-oct | Donna **diagnostica** y enseña al explicar; la academia es fase 2 (A1) | la demo muestra un diagnóstico con entregables | Valeria |
+| 27-oct | Abre con el **dinero** (estímulo a I+D) y cierra con el **riesgo** (UIF/SAT) (A2) | «recupera dinero» engancha más que «evita multas» | Valeria |
+| 27-oct | Usa y paga el **founder**; el contador es aliado (A3) | el founder carga el riesgo | Valeria |
+| 27-oct | Personaje de la demo: founder de SaaS/IA que cobra en cripto (B1) | toca SAT, UIF e I+D a la vez | Valeria |
+| 27-oct | Demo segura: informe + voz + COMPLIANCE.md · los 6 temas · 3 casos ficticios (C1-C3) | 4 horas de construcción | Valeria |
+| 28-oct | Todo PR lleva `## Por qué` y un solo propósito; se sube poco a poco | Donna va a ser un producto | Brian |
 
 ## 6 · Bitácora
 
@@ -96,6 +103,9 @@ evalúa es lo rojo.
   el agente de Donna con identidad propia, su API con llave y su bot de Telegram. Se armó el monorepo:
   Next.js + Tailwind, puerta al agente, motor de reglas v0 (7 pruebas en verde), simulado, `/api/chat`
   probado de punta a punta con el simulado, y esta documentación.
+- **2026-10-28 madrugada** — Valeria respondió A1-A3, B1-B5 y C1-C5 (`docs/PREGUNTAS.md`). El `README.md`
+  pasa a ser la fuente de verdad de qué es Donna (paso a paso y mapa) y nace `docs/PENDIENTES.md` con
+  todo lo que sigue abierto. Regla nueva: un PR, un propósito, con su porqué.
 
 ## 7 · Cómo actualizar este archivo (personas y agentes de IA)
 

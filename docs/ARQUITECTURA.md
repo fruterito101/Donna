@@ -60,7 +60,7 @@ Los paquetes exportan TypeScript directo; Next los compila (`transpilePackages` 
 
 | Pieza | Dónde |
 |---|---|
-| La web y su backend | Vercel (por configurar) — directorio raíz `apps/web` |
+| La web y su backend | Vercel — https://donna-mx.vercel.app, conectada a la rama `main`, directorio raíz `apps/web` |
 | El agente | servicio externo, privado; se llega por `AGENT_URL` |
 | El bot de Telegram | servidor privado del equipo (lo opera Brian) |
 
