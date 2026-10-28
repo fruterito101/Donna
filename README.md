@@ -146,6 +146,7 @@ Si dos archivos se contradicen: sobre **qué es Donna** manda este README; sobre
 ```
 Donna/
 ├── apps/web/                 la app — Next.js 16 + Tailwind 4: páginas y rutas /api/* (backend)
+├── frontend/lovable/         landing e interfaz /app exportadas de Lovable; ejecución independiente
 ├── packages/
 │   ├── agent-client/         la única puerta al agente (solo servidor)
 │   ├── rules-engine/         el motor: perfil + reglas → informe
@@ -156,6 +157,11 @@ Donna/
 ├── mock/                     agente simulado para desarrollar sin llaves
 └── docs/                     la documentación del proyecto (tabla de arriba)
 ```
+
+La landing y el espacio de trabajo diseñados en Lovable están en
+[`frontend/lovable/`](frontend/lovable/README.md). Su README explica cómo instalar, ejecutar y verificar
+el frontend. La interfaz usa un recorrido guiado local y todavía no consume el agente ni el lector de
+documentos del monorepo. No reemplaza `apps/web` ni cambia su despliegue.
 
 ## 6 · Qué entra en la demo del 28 de octubre
 
