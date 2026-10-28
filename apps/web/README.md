@@ -1,4 +1,4 @@
-# apps/web — la app de Dona
+# apps/web — la app de Donna
 
 Next.js 16.4 + React 19 + Tailwind 4. Frontend (páginas) y backend (rutas `src/app/api/*`).
 

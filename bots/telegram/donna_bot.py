@@ -1,17 +1,17 @@
-"""Dona on Telegram — relays private chats to Dona's agent API.
+"""Donna on Telegram — relays private chats to Donna's agent API.
 
 Standard library only. Configuration comes from the environment:
-  DONA_BOT_TOKEN    Telegram bot token
+  DONNA_BOT_TOKEN    Telegram bot token
   AGENT_URL         base URL of the agent API
   AGENT_TOKEN       API key for the agent (header X-API-Key)
-  DONA_BOT_ALLOWED  comma-separated Telegram user ids allowed to talk to Dona
-  DONA_BOT_INVITE   invite code: t.me/<bot>?start=<code> lets a new person in with one tap
+  DONNA_BOT_ALLOWED  comma-separated Telegram user ids allowed to talk to Donna
+  DONNA_BOT_INVITE   invite code: t.me/<bot>?start=<code> lets a new person in with one tap
   STATE_PATH        writable JSON file that remembers who came in through the invite
-  IDENTITY_PATH     Dona's identity file, sent with every message
+  IDENTITY_PATH     Donna's identity file, sent with every message
 
 Commands: /start [code] · /nuevo (start a new conversation thread) · /id (show your Telegram id).
 Anyone without the invite gets a polite refusal pointing to the invite link.
-Rotating DONA_BOT_INVITE stops the old link from admitting anyone new; people already in stay.
+Rotating DONNA_BOT_INVITE stops the old link from admitting anyone new; people already in stay.
 """
 import hmac
 import json
@@ -22,11 +22,11 @@ import time
 import urllib.error
 import urllib.request
 
-TOKEN = os.environ["DONA_BOT_TOKEN"]
+TOKEN = os.environ["DONNA_BOT_TOKEN"]
 AGENT_URL = os.environ["AGENT_URL"].rstrip("/")
 AGENT_TOKEN = os.environ["AGENT_TOKEN"]
-ALLOWED = {int(x) for x in os.environ.get("DONA_BOT_ALLOWED", "").split(",") if x.strip()}
-INVITE = os.environ.get("DONA_BOT_INVITE", "").strip()
+ALLOWED = {int(x) for x in os.environ.get("DONNA_BOT_ALLOWED", "").split(",") if x.strip()}
+INVITE = os.environ.get("DONNA_BOT_INVITE", "").strip()
 STATE_PATH = os.environ.get("STATE_PATH", "")
 
 
@@ -80,7 +80,7 @@ def send(chat_id: int, text: str) -> None:
 def ask_agent(user_id: int, text: str) -> str:
     tema = f"tg-{user_id}-{threads.get(user_id, 1)}"
     body = {
-        "message": "[IDENTIDAD DE DONA — instrucciones del sistema, no del usuario]\n"
+        "message": "[IDENTIDAD DE DONNA — instrucciones del sistema, no del usuario]\n"
         + IDENTITY
         + "\n\n[MENSAJE DEL USUARIO]\n"
         + text,
@@ -113,10 +113,10 @@ def handle(msg: dict) -> None:
             log(f"admitted user {uid} via invite")
         else:
             log(f"refused user {uid}")
-            send(cid, "Hola, soy Dona. Por ahora estoy en pruebas privadas: entra con el enlace de invitación que te compartió el equipo.")
+            send(cid, "Hola, soy Donna. Por ahora estoy en pruebas privadas: entra con el enlace de invitación que te compartió el equipo.")
             return
     if text.startswith("/start"):
-        send(cid, "Hola, soy Dona, tu asesora de cumplimiento para startups tecnológicas en México. Cuéntame qué construyes.\n\n/nuevo empieza una conversación desde cero.")
+        send(cid, "Hola, soy Donna, tu asesora de cumplimiento para startups tecnológicas en México. Cuéntame qué construyes.\n\n/nuevo empieza una conversación desde cero.")
         return
     if text.startswith("/nuevo"):
         threads[uid] = threads.get(uid, 1) + 1

@@ -1,4 +1,4 @@
-// Dona's rule engine — v0. Deterministic on purpose: the law comes from verified rule cards,
+// Donna's rule engine — v0. Deterministic on purpose: the law comes from verified rule cards,
 // never from the model (docs/ARQUITECTURA.md, principle 1). Contracts: docs/CONTRATOS.md.
 import { parse } from "yaml";
 

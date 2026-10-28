@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 
-type Turn = { who: "tú" | "Dona"; text: string };
+type Turn = { who: "tú" | "Donna"; text: string };
 
 export function ChatTest() {
   const [turns, setTurns] = useState<Turn[]>([]);
@@ -27,9 +27,9 @@ export function ChatTest() {
         body: JSON.stringify({ message, tema }),
       });
       const data = (await res.json()) as { reply?: string; error?: string };
-      setTurns((t) => [...t, { who: "Dona", text: data.reply ?? `⚠️ ${data.error ?? "sin respuesta"}` }]);
+      setTurns((t) => [...t, { who: "Donna", text: data.reply ?? `⚠️ ${data.error ?? "sin respuesta"}` }]);
     } catch {
-      setTurns((t) => [...t, { who: "Dona", text: "⚠️ No pude conectar con el servidor." }]);
+      setTurns((t) => [...t, { who: "Donna", text: "⚠️ No pude conectar con el servidor." }]);
     } finally {
       setBusy(false);
     }
@@ -48,7 +48,7 @@ export function ChatTest() {
             {turn.text}
           </li>
         ))}
-        {busy && <li className="self-start text-sm text-zinc-500">Dona está escribiendo…</li>}
+        {busy && <li className="self-start text-sm text-zinc-500">Donna está escribiendo…</li>}
       </ol>
       <form
         className="flex gap-2"
@@ -59,7 +59,7 @@ export function ChatTest() {
       >
         <input
           className="flex-1 rounded-xl border border-zinc-300 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900"
-          placeholder="Cuéntale a Dona qué construyes…"
+          placeholder="Cuéntale a Donna qué construyes…"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />

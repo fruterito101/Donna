@@ -12,8 +12,8 @@
     "next": "16.4.3",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "@dona/agent-client": "*",
-    "@dona/rules-engine": "*"
+    "@donna/agent-client": "*",
+    "@donna/rules-engine": "*"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",

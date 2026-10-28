@@ -1,11 +1,11 @@
-# Dona — definición del proyecto (Hacktoberfest México 2026)
+# Donna — definición del proyecto (Hacktoberfest México 2026)
 
 Borrador para que el equipo lo lea, lo discuta y diga «de acuerdo» o «cambia esto».
 Fecha: 2026-10-27 · demo: 2026-10-28 17:00, Sandbox Hub.
 
-## 1 · Qué es Dona
+## 1 · Qué es Donna
 
-> **Dona lee tu startup y te dice qué te exige la ley mexicana, qué beneficios estás dejando ir y
+> **Donna lee tu startup y te dice qué te exige la ley mexicana, qué beneficios estás dejando ir y
 > qué documentar — con la fuente oficial de cada cosa — y te lo deja listo para tu contador o abogado.**
 
 Es una asesora de cumplimiento para quien construye tecnología en México. No reemplaza al
@@ -13,7 +13,7 @@ profesional: hace el 80% previo para que el profesional trabaje rápido y el fou
 
 ## 2 · Qué puede y qué no puede
 
-| Dona SÍ | Dona NO |
+| Donna SÍ | Donna NO |
 |---|---|
 | Leer tu landing y tu pitch y entender qué haces, cómo cobras y a quién | Firmar una opinión fiscal o legal |
 | Mapear obligaciones: SAT · IMSS · UIF/GAFI · datos personales · propiedad intelectual | Decir que «tienes derecho» a un beneficio |
@@ -39,7 +39,7 @@ Team $1,499 MXN/mes · Enterprise a cotizar.
 ## 4 · El flujo del usuario
 
 ```
- FOUNDER                      DONA                                   SALIDA
+ FOUNDER                      DONNA                                   SALIDA
  ───────                      ────                                   ──────
  1 pega la URL de su landing ─┐
  2 sube su pitch (PDF)  ──────┼─▶ LEER ─────▶ PERFIL ──────▶ REGLAS ──────▶ EXPLICAR ─┬─▶ ① informe: cada obligación
@@ -52,7 +52,7 @@ Team $1,499 MXN/mes · Enterprise a cotizar.
  3 pregunta lo que no entendió ◀──────────────────────────────── voz ─────────────────────        profesional»
 ```
 
-En palabras: el founder entrega lo que ya tiene (2 cosas, cero formularios) → Dona lo lee →
+En palabras: el founder entrega lo que ya tiene (2 cosas, cero formularios) → Donna lo lee →
 saca hechos de sí/no → los cruza con reglas que tienen fuente y fecha → el agente lo explica en
 lenguaje claro y en voz → el founder se lleva 5 entregables y, si quiere, lo manda a un profesional.
 
@@ -62,7 +62,7 @@ lenguaje claro y en voz → el founder se lleva 5 entregables y, si quiere, lo m
 |---|---|---|---|
 | Producto | idea + propuesta de Artur + este flujo | el flujo de la sección 4 funcionando con **3 casos ficticios** | academia, simulador económico, laboratorio de riesgo, B2B (roadmap de Artur, fases 2-3) |
 | Reglas | 0 tarjetas | 25-40 tarjetas verificadas con fuente | cientos, revisadas por especialistas, con alertas cuando cambia la ley |
-| Agente | Dona ya existe: se presenta como Dona y tiene su identidad aprendida | entrenado con las tarjetas y los 3 casos | entrenado con la ley vigente completa |
+| Agente | Donna ya existe: se presenta como Donna y tiene su identidad aprendida | entrenado con las tarjetas y los 3 casos | entrenado con la ley vigente completa |
 | Repo | público, licencia MIT, vacío | motor + tarjetas + app, open source | comunidad que aporta tarjetas |
 | Validación | ninguna | 3 entrevistas en la sede | Fase 0 de Artur: 3 casos de uso priorizados |
 
@@ -81,16 +81,16 @@ ventas y leads/CRM, simulaciones Monte Carlo, otros países.
 
 1. **Un dataset abierto** de lo que la ley mexicana le exige a una startup tecnológica, con fuente y fecha — hoy no conocemos ninguno.
 2. **Políticas para el repo** (COMPLIANCE.md): la ley llevada al lugar donde se construye, que también siguen los asistentes de código con IA.
-3. **Alianza con contadores y abogados**: Dona les manda clientes con el expediente armado — es la «delegación full del servicio legal» sin ejercer sin cédula.
+3. **Alianza con contadores y abogados**: Donna les manda clientes con el expediente armado — es la «delegación full del servicio legal» sin ejercer sin cédula.
 4. **Estímulo a I+D**: evidencia desde el primer commit (Evidence Builder de Artur).
 5. **Cripto y fintech**: el riesgo UIF es alto y la información está dispersa.
 
 ## 8 · Dónde entran los patrocinadores
 
-| Patrocinador | Papel en Dona | Reto | Estado |
+| Patrocinador | Papel en Donna | Reto | Estado |
 |---|---|---|---|
 | **Firecrawl** | LEER: la landing del founder y las páginas oficiales (SAT, DOF, IMSS, UIF) para fechar cada regla | Best Use of Firecrawl | ✅ elegido |
-| **ElevenLabs** | la voz de Dona: lee el informe y responde preguntas habladas | Best Use of ElevenLabs | ✅ elegido |
+| **ElevenLabs** | la voz de Donna: lee el informe y responde preguntas habladas | Best Use of ElevenLabs | ✅ elegido |
 | **MLH Open Source** | el motor de reglas + las tarjetas, donados con licencia MIT | Best Open-Source AI Project | ✅ viene con el repo |
 | Gemma 4 | PERFIL: extraer los hechos sí/no del pitch con un modelo abierto (el pitch no sale de nuestra máquina) | Best Use of Gemma 4 | ⬜ opcional, ~1 h |
 | n8n | revisar el DOF cada día y avisar si cambió una regla | Best n8n Integration | ⬜ opcional, ~1 h |
@@ -108,7 +108,7 @@ la idea y la parte legal. Los tres frentes se conectan por dos contratos que se 
 | Frente | Quién | Hace | Hoy en la noche | Mañana 15:00 |
 |---|---|---|---|---|
 | Idea, legal, reglas y PERFIL | **Valeria** | debate de las preguntas · **PERFIL: qué hechos sí/no se sacan del pitch y cómo se detecta cada uno** · contenido de las tarjetas con fuente y fecha · 3 casos ficticios · avisos legales · pitch y guion · 3 entrevistas en sede | respuestas a las 🔴 + lista de hechos + 10 tarjetas + 3 casos | 25-40 verificadas + pitch |
-| El agente y el motor (código) | **Brian** | **el agente: que funcione, la información que toma y la que entrega** · repo · motor de reglas · entrenamiento de Dona · API del informe | motor leyendo tarjetas + agente recibiendo el perfil | informe de los 3 casos |
+| El agente y el motor (código) | **Brian** | **el agente: que funcione, la información que toma y la que entrega** · repo · motor de reglas · entrenamiento de Donna · API del informe | motor leyendo tarjetas + agente recibiendo el perfil | informe de los 3 casos |
 | Lectura y producto (código) | **Artur** | **Firecrawl: leer la landing y las fuentes oficiales** · web · voz con ElevenLabs · entregables · video de respaldo | Firecrawl leyendo una landing + esqueleto web | demo ensayada |
 
 **Mañana:** 13:00-15:00 integrar · 15:00 congelar · 15:00-16:30 ensayar la demo completa 3 veces · 17:00 demo.

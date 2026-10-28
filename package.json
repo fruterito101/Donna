@@ -1,7 +1,7 @@
 {
-  "name": "dona",
+  "name": "donna",
   "private": true,
-  "description": "Dona: compliance advisor for people who build technology in Mexico (Hacktoberfest México 2026)",
+  "description": "Donna: compliance advisor for people who build technology in Mexico (Hacktoberfest México 2026)",
   "license": "MIT",
   "workspaces": [
     "apps/*",

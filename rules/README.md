@@ -1,4 +1,4 @@
-# rules/ — las reglas de ley de Dona
+# rules/ — las reglas de ley de Donna
 
 Cada archivo `.yaml` es **una regla verificada**: una obligación o un beneficio que la ley mexicana
 le aplica a una startup tecnológica, con su fuente oficial y su fecha. Es lo que el motor
@@ -6,7 +6,7 @@ le aplica a una startup tecnológica, con su fuente oficial y su fecha. Es lo qu
 
 ## Por qué existen
 
-Un modelo de IA puede citar de memoria un artículo que no existe. Por eso Dona no deja que la IA
+Un modelo de IA puede citar de memoria un artículo que no existe. Por eso Donna no deja que la IA
 decida la ley: la decide una regla escrita y verificada por una persona del equipo, y la IA solo la
 explica.
 

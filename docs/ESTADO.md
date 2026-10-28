@@ -1,6 +1,6 @@
 # ESTADO — dónde vamos
 
-⭐ **La fuente de verdad del avance de Dona.** Si eres una persona o un agente de IA que llega al
+⭐ **La fuente de verdad del avance de Donna.** Si eres una persona o un agente de IA que llega al
 proyecto, después del README lee esto. Si trabajaste, **actualízalo antes de irte** (sección 7).
 
 **Actualizado:** 2026-10-27, noche · **Demo:** 2026-10-28, 17:00 · Sandbox Hub, Polanco
@@ -17,7 +17,7 @@ existe**: faltan las reglas, la lectura, el perfil, la web real, la voz y los en
 | # | Pieza | Estado | Dueño | Dónde |
 |---|---|---|---|---|
 | 1 | El agente: identidad, memoria, API | 🟢 funciona | Brian | externo · `docs/AGENTE.md` |
-| 2 | Puerta al agente (`@dona/agent-client`) | 🟢 funciona | Brian | `packages/agent-client/` |
+| 2 | Puerta al agente (`@donna/agent-client`) | 🟢 funciona | Brian | `packages/agent-client/` |
 | 3 | Backend `/api/chat` | 🟢 funciona (probado con el simulado) | Brian | `apps/web/src/app/api/chat/` |
 | 4 | Bot de Telegram @Dona101Bot | 🟢 funciona | Brian | `bots/telegram/` |
 | 5 | Agente simulado para desarrollar | 🟢 funciona | Brian | `mock/` |
@@ -38,7 +38,7 @@ evalúa es lo rojo.
 
 ### Brian — el agente, el motor y el backend
 - [x] Agente con identidad propia y API con llave
-- [x] `@dona/agent-client` + `/api/chat` + simulado
+- [x] `@donna/agent-client` + `/api/chat` + simulado
 - [x] Motor de reglas v0 con pruebas
 - [ ] Motor: cargar las reglas de `rules/*.yaml` (saltar los que empiezan con `_`)
 - [ ] Perfil: convertir `ReadResult` en `Profile` con la lista de hechos de Valeria
@@ -81,19 +81,19 @@ evalúa es lo rojo.
 
 | Fecha | Decisión | Por qué | Quién |
 |---|---|---|---|
-| 27-oct | Se llama **Dona**; repo público, licencia **MIT** | el hackathon pide donar el proyecto | Brian |
+| 27-oct | Se llama **Donna**; repo público, licencia **MIT** | el hackathon pide donar el proyecto | Brian |
 | 27-oct | Retos: **ElevenLabs + Firecrawl** (+ MLH open source por la licencia) | el premio más alto + leer la web con créditos gratis | Brian |
 | 27-oct | La ley la decide el **motor con reglas verificadas**; el agente solo explica | un modelo puede citar artículos de memoria (medido) | equipo |
 | 27-oct | El agente tiene dos papeles: **conocimiento** y **atención al cliente** | una sola asesora para explicar y conversar | Brian |
 | 27-oct | Monorepo **Next.js 16 + Tailwind 4**: frontend + backend + capa del agente | un solo repo, un solo despliegue | Brian |
 | 27-oct | Brian y Artur escriben **todo el código**; Valeria lleva idea, legal, reglas y perfil | cada quien en lo que sabe | Brian |
 | 27-oct | Fuera del hackathon: estrategia financiera, pipeline de ventas, leads, Monte Carlo | solo hay 4 h de construcción el 28 | equipo |
-| 27-oct | Dona en Telegram con su **propio bot**, acceso por enlace de invitación | probarla sin instalar nada | Brian |
+| 27-oct | Donna en Telegram con su **propio bot**, acceso por enlace de invitación | probarla sin instalar nada | Brian |
 
 ## 6 · Bitácora
 
 - **2026-10-27 noche** — Se definió la idea (documento de Artur + libreta + retroalimentación). Se creó
-  el agente de Dona con identidad propia, su API con llave y su bot de Telegram. Se armó el monorepo:
+  el agente de Donna con identidad propia, su API con llave y su bot de Telegram. Se armó el monorepo:
   Next.js + Tailwind, puerta al agente, motor de reglas v0 (7 pruebas en verde), simulado, `/api/chat`
   probado de punta a punta con el simulado, y esta documentación.
 

@@ -1,8 +1,8 @@
 {
-  "name": "@dona/agent-client",
+  "name": "@donna/agent-client",
   "version": "0.1.0",
   "private": true,
-  "description": "The only door to Dona's agent: server-side, wraps every message with Dona's identity, never exposes the key",
+  "description": "The only door to Donna's agent: server-side, wraps every message with Donna's identity, never exposes the key",
   "type": "module",
   "main": "./src/index.ts",
   "exports": {

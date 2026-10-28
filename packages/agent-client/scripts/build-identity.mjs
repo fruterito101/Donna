@@ -1,4 +1,4 @@
-// Turns agent/identity.md (the single source of Dona's identity) into src/identity.generated.ts.
+// Turns agent/identity.md (the single source of Donna's identity) into src/identity.generated.ts.
 // Runs before `npm run dev` and `npm run build`; the generated file is committed so a fresh clone builds.
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";

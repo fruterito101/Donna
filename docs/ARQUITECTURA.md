@@ -1,6 +1,6 @@
-# Arquitectura de Dona
+# Arquitectura de Donna
 
-Cómo está hecha Dona por dentro y qué vive en cada carpeta. Los formatos entre piezas están en
+Cómo está hecha Donna por dentro y qué vive en cada carpeta. Los formatos entre piezas están en
 `docs/CONTRATOS.md`; el avance, en `docs/ESTADO.md`.
 
 ## 1 · El principio que ordena todo
@@ -24,7 +24,7 @@ Los cuatro principios del producto:
  landing URL ─┐
               ├─▶ 1 LEER ─────▶ 2 PERFIL ─────▶ 3 REGLAS ─────▶ 4 EXPLICAR ─┬─▶ informe (web)
  pitch PDF ───┘   texto limpio    hechos sí/no    informe         el agente  ├─▶ voz
-                  con su fecha                    determinista    de Dona    ├─▶ COMPLIANCE.md
+                  con su fecha                    determinista    de Donna    ├─▶ COMPLIANCE.md
                                                                              └─▶ pitch corregido
                                   5 ATENDER: el usuario pregunta ──▶ /api/chat ──▶ el agente
 ```
@@ -49,7 +49,7 @@ npm workspaces. Una sola instalación en la raíz (`npm install`).
 | `packages/rules-engine` | motor de reglas, puro y probado | TypeScript + `yaml` |
 | `packages/reader` | lectura con Firecrawl + PDF | (por crear) |
 | `rules/` | reglas verificadas, una por archivo | YAML |
-| `agent/identity.md` | identidad de Dona; se convierte en código con `npm run identity` | Markdown |
+| `agent/identity.md` | identidad de Donna; se convierte en código con `npm run identity` | Markdown |
 | `bots/telegram` | el bot @Dona101Bot | Python, solo librería estándar |
 | `mock/` | agente simulado | Node, sin dependencias |
 

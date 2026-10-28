@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dona",
+  title: "Donna",
   description: "Tu asesora de cumplimiento para startups tecnológicas en México",
 };
 

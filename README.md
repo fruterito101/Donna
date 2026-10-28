@@ -1,13 +1,13 @@
-# Dona
+# Donna
 
 **Tu asesora de cumplimiento para startups tecnológicas en México.**
 
-Dona lee la landing y el pitch de tu startup y te dice **qué te exige la ley** (SAT, IMSS, UIF, datos
+Donna lee la landing y el pitch de tu startup y te dice **qué te exige la ley** (SAT, IMSS, UIF, datos
 personales, propiedad intelectual), **qué beneficios estás dejando ir** (como el estímulo a la
 investigación y desarrollo) y **qué tienes que documentar** — cada cosa con su fuente oficial y su
 fecha — y te deja un expediente listo para tu contador o abogado.
 
-> Dona no firma opiniones legales ni fiscales: prepara el trabajo para que un profesional con cédula
+> Donna no firma opiniones legales ni fiscales: prepara el trabajo para que un profesional con cédula
 > lo revise.
 
 Proyecto de **Hacktoberfest México 2026** (Mexico Tech Week · Mobil3 + MLH). Licencia **MIT**.
@@ -24,8 +24,8 @@ bloqueos viven en **[`docs/ESTADO.md`](docs/ESTADO.md)**.
 Requisitos: **Node.js 22.18 o mayor** y npm.
 
 ```bash
-git clone https://github.com/fruterito101/Dona.git
-cd Dona
+git clone https://github.com/fruterito101/Donna.git
+cd Donna
 npm install
 npm run mock          # terminal 1 — agente simulado, no necesita llaves
 npm run dev           # terminal 2 — abre http://localhost:3000
@@ -52,7 +52,7 @@ npm run build         # compila todo (debe pasar antes de un PR)
  landing URL ─┐                                              ┌─▶ informe con fuente y fecha
               ├─▶ LEER ──▶ PERFIL ──▶ REGLAS ──▶ EXPLICAR ───┼─▶ la asesora en voz
  pitch PDF ───┘  Firecrawl  hechos     motor      el agente   ├─▶ COMPLIANCE.md para tu repo
-                            sí/no      + reglas   de Dona     └─▶ pitch corregido
+                            sí/no      + reglas   de Donna     └─▶ pitch corregido
                                        verificadas
 ```
 
@@ -62,14 +62,14 @@ en [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 ## Mapa del repositorio
 
 ```
-Dona/
+Donna/
 ├── apps/web/                 Next.js 16 + Tailwind 4 — frontend y backend (rutas /api/*)
 ├── packages/
 │   ├── agent-client/         la única puerta al agente (solo servidor)
 │   ├── rules-engine/         el motor de reglas — perfil + reglas → informe
 │   └── reader/               (por crear) lectura de landing con Firecrawl y del PDF
 ├── rules/                    las reglas de ley verificadas (YAML) — se donan
-├── agent/identity.md         quién es Dona — viaja con cada mensaje al agente
+├── agent/identity.md         quién es Donna — viaja con cada mensaje al agente
 ├── bots/telegram/            el bot @Dona101Bot
 ├── mock/                     agente simulado para desarrollar sin llaves
 └── docs/                     ⭐ el lugar seguro del proyecto
@@ -93,4 +93,4 @@ Dona/
 
 ## Patrocinadores que usamos
 
-**Firecrawl** (leer la web) · **ElevenLabs** (la voz de Dona) · **MLH** (open source).
+**Firecrawl** (leer la web) · **ElevenLabs** (la voz de Donna) · **MLH** (open source).

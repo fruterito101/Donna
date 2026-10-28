@@ -1,4 +1,4 @@
-# Dona — las preguntas para definir la idea
+# Donna — las preguntas para definir la idea
 
 **Las lleva Valeria** (debate, idea y parte legal); Brian y Artur, los devs, responden las de
 tecnología (sección E) y escriben todo el código. Cada una dice **por qué importa** y, cuando hay una, **la propuesta** de la que
@@ -12,7 +12,7 @@ partir — se vale cambiarla. Las respuestas se escriben aquí mismo, debajo de 
 
 | # | Pregunta | Prioridad |
 |---|---|---|
-| 1 | ¿La definición «Dona lee tu startup y te dice qué te exige la ley mexicana, qué beneficios estás dejando ir y qué documentar — con la fuente oficial — y te lo deja listo para tu contador o abogado» es la nuestra? | 🔴 |
+| 1 | ¿La definición «Donna lee tu startup y te dice qué te exige la ley mexicana, qué beneficios estás dejando ir y qué documentar — con la fuente oficial — y te lo deja listo para tu contador o abogado» es la nuestra? | 🔴 |
 | 2 | ¿El alcance (3 casos ficticios, 25-40 reglas, 5 salidas) y lo que queda fuera (ventas, leads, Monte Carlo) está bien? | 🔴 |
 | 3 | ¿Sumamos algún reto opcional (Gemma 4, n8n, MojoAuth, Lovable)? | 🟡 |
 | 4 | ¿Quién toma cada frente (conocimiento · motor y agente · producto y demo)? | 🔴 |
@@ -21,7 +21,7 @@ partir — se vale cambiarla. Las respuestas se escriben aquí mismo, debajo de 
 
 ## A · La esencia
 
-**A1 🔴 ¿Dona enseña o diagnostica?**
+**A1 🔴 ¿Donna enseña o diagnostica?**
 Por qué: la propuesta de Artur es educativa («aprender, simular, documentar»); la libreta es un
 diagnóstico con entregables. Cambia la pantalla principal y el pitch.
 Propuesta: diagnostica primero y enseña al explicar cada punto — la academia es fase 2.
@@ -35,7 +35,7 @@ Propuesta: abrir con el dinero (estímulo a I+D) y cerrar con el riesgo (UIF/SAT
 Por qué: puede usarlo el founder y pagarlo la consultora o el contador aliado.
 Propuesta: usa y paga el founder técnico; el contador es aliado, no cliente, en esta etapa.
 
-**A4 🟡 ¿Qué palabra describe a Dona en una línea: asesora, copiloto, auditora, traductora de la ley?**
+**A4 🟡 ¿Qué palabra describe a Donna en una línea: asesora, copiloto, auditora, traductora de la ley?**
 Por qué: «asesora» roza la asesoría regulada; la palabra define la expectativa del jurado.
 
 ---
@@ -93,7 +93,7 @@ se puede prometer con alguien que firme. ¿Lo nombramos en la demo?
 
 **D4 🔴 ¿Qué significaba «lineamientos/prompts/policies para seguir mientras se desarrolla»? ¿Quién lo
 dijo?** Lectura propuesta: un archivo de políticas para el repo del usuario que su equipo y sus
-asistentes de código con IA siguen. Otra lectura: políticas para que NOSOTROS construyamos Dona bien.
+asistentes de código con IA siguen. Otra lectura: políticas para que NOSOTROS construyamos Donna bien.
 → Preguntárselo a quien lo dijo.
 
 **D5 🟡 ¿«Asesoría de propiedad intelectual» se refiere a la PI del usuario (su código, su marca) o a
@@ -129,7 +129,7 @@ entrenado es un servicio aparte al que la app llama.
 
 **F2 🟢 ¿Las tarjetas llevan una licencia de datos (ej. CC-BY) además del MIT del código?**
 
-**F3 🟡 ¿Cómo contamos en el pitch el agente entrenado?** Propuesta: «el motor de conocimiento de Dona»,
+**F3 🟡 ¿Cómo contamos en el pitch el agente entrenado?** Propuesta: «el motor de conocimiento de Donna»,
 sin entrar en cómo está construido.
 
 ---
@@ -141,7 +141,7 @@ sin entrar en cómo está construido.
 ir un estímulo de I+D y te falta registrarte ante la UIF», dicho en voz.
 **G3 🟡 ¿Qué número mostramos?** (cuánto dinero se deja ir · cuántas obligaciones no sabía) — solo con
 fuente.
-**G4 🟢 ¿El nombre «Dona» se queda? ¿Qué historia cuenta?**
+**G4 🟢 ¿El nombre «Donna» se queda? ¿Qué historia cuenta?**
 
 ---
 
@@ -151,7 +151,7 @@ fuente.
 **H2 🔴 ¿Los 3 están registrados en MLH?** Por qué: sin registro no se compite por premios.
 **H3 🔴 ¿Dónde vivimos esta noche?** (chat del equipo · tablero de tareas — Linear y Miro vienen gratis
 con el evento)
-**H4 🟢 ¿Qué pasa con Dona después del 28: producto o solo hackathon? ¿Cómo se reparte entre los 3?**
+**H4 🟢 ¿Qué pasa con Donna después del 28: producto o solo hackathon? ¿Cómo se reparte entre los 3?**
 Por qué: es más fácil acordarlo hoy que después de ganar.
 
 ---

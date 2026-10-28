@@ -1,13 +1,13 @@
-# El agente de Dona — cómo conectarse, pedirle cosas y usarlo
+# El agente de Donna — cómo conectarse, pedirle cosas y usarlo
 
-Para quien programa en Dona (persona o agente de IA). Todo lo que necesitas para hablar con el
+Para quien programa en Donna (persona o agente de IA). Todo lo que necesitas para hablar con el
 agente desde el backend. **Lo que no está aquí no lo inventes: pregúntalo** (Brian).
 
 ---
 
 ## 1 · Qué es el agente
 
-Un servicio externo con **identidad, memoria y acceso propios**: se presenta como Dona, recuerda lo
+Un servicio externo con **identidad, memoria y acceso propios**: se presenta como Donna, recuerda lo
 que se le enseña y responde en ~5 segundos. Para este repo es una caja negra a la que se llega por
 `AGENT_URL` con una llave. Tiene **dos papeles**:
 
@@ -34,19 +34,19 @@ No hace falta llave de ningún modelo de IA: el agente ya trae la suya.
 
 ## 3 · Cómo pedirle algo — desde el código (lo normal)
 
-Usa **siempre** `@dona/agent-client`, en una ruta de servidor (`apps/web/src/app/api/*/route.ts`):
+Usa **siempre** `@donna/agent-client`, en una ruta de servidor (`apps/web/src/app/api/*/route.ts`):
 
 ```ts
-import { askDona, AgentError } from "@dona/agent-client";
+import { askDonna, AgentError } from "@donna/agent-client";
 
-const { reply, thread } = await askDona(
+const { reply, thread } = await askDonna(
   "¿Qué obligaciones tiene una fintech que cobra en cripto?",
   "web-a1b2c3d4", // tema: el hilo de la conversación (ver §5)
 );
 ```
 
-`askDona` se encarga de: leer `AGENT_URL`/`AGENT_TOKEN`, **meter la identidad de Dona en el mensaje**
-(sin ella el agente no responde como Dona), el tiempo máximo (150 s) y los errores. Lanza `AgentError`
+`askDonna` se encarga de: leer `AGENT_URL`/`AGENT_TOKEN`, **meter la identidad de Donna en el mensaje**
+(sin ella el agente no responde como Donna), el tiempo máximo (150 s) y los errores. Lanza `AgentError`
 con `status` (0 = no se pudo conectar). El texto del error **nunca** incluye la dirección ni la llave.
 
 Desde el navegador se usa la ruta propia, nunca el agente directo:
@@ -62,7 +62,7 @@ const { reply } = await res.json(); // o { error } con 400 / 413 / 502
 
 ## 4 · La API del agente (referencia)
 
-Solo para escribir o depurar `@dona/agent-client`. Todo lo demás pasa por el paquete.
+Solo para escribir o depurar `@donna/agent-client`. Todo lo demás pasa por el paquete.
 
 **`GET {AGENT_URL}/v1/health`** — sin llave, no gasta nada → `200 {"ok": true}`
 
@@ -72,7 +72,7 @@ Solo para escribir o depurar `@dona/agent-client`. Todo lo demás pasa por el pa
 Content-Type: application/json
 X-API-Key: <AGENT_TOKEN>
 
-{ "message": "<texto, con la identidad de Dona al inicio>", "tema": "<hilo>" }
+{ "message": "<texto, con la identidad de Donna al inicio>", "tema": "<hilo>" }
 ```
 
 → `200 {"reply": "<respuesta en Markdown>", "thread": "<el tema usado>", "client": "<quién llamó>"}`
@@ -91,7 +91,7 @@ un hilo por defecto.
 ## 5 · `tema`: los hilos y la memoria
 
 - `tema` separa **conversaciones**: usa uno estable por sesión de usuario (`web-<id>`, `tg-<id>`).
-- **Todos los hilos comparten la memoria de Dona**: lo que un usuario le cuenta puede influir en lo
+- **Todos los hilos comparten la memoria de Donna**: lo que un usuario le cuenta puede influir en lo
   que responde a otro. No mandes datos personales sensibles en los mensajes de prueba.
 - `/nuevo` en Telegram o un `tema` nuevo en la web = conversación desde cero.
 
@@ -101,8 +101,8 @@ un hilo por defecto.
 como contexto y pídele que lo explique **sin agregar reglas**:
 
 ```ts
-const report = evaluate(profile, rules); // @dona/rules-engine
-const { reply } = await askDona(
+const report = evaluate(profile, rules); // @donna/rules-engine
+const { reply } = await askDonna(
   "Explica este informe a un founder en lenguaje claro. Usa SOLO estas reglas, cita la fuente de " +
     "cada una y no agregues obligaciones que no estén aquí:\n" + JSON.stringify(report),
   tema,
@@ -117,7 +117,7 @@ ElevenLabs.
 
 ## 7 · Reglas de seguridad
 
-1. Solo desde el servidor, siempre con `@dona/agent-client`.
+1. Solo desde el servidor, siempre con `@donna/agent-client`.
 2. Nunca imprimas, loguees ni devuelvas al navegador `AGENT_URL` o `AGENT_TOKEN`.
 3. Nunca le preguntes al agente por su plataforma, su proveedor o su infraestructura, ni lo pongas en
    la demo: está entrenado para no responder, y no es parte del producto.
@@ -129,11 +129,11 @@ ElevenLabs.
 npm run mock     # http://127.0.0.1:8787 · llave: dev-mock-key
 ```
 
-Mismos endpoints y formas que el real. Responde «(simulado) Soy Dona…» y te avisa si un mensaje llegó
-**sin** la identidad (señal de que alguien no usó `@dona/agent-client`). Úsalo para todo el desarrollo
+Mismos endpoints y formas que el real. Responde «(simulado) Soy Donna…» y te avisa si un mensaje llegó
+**sin** la identidad (señal de que alguien no usó `@donna/agent-client`). Úsalo para todo el desarrollo
 y para las pruebas; el real, para probar calidad de respuestas y para la demo.
 
-## 9 · Otras formas de hablar con Dona
+## 9 · Otras formas de hablar con Donna
 
 - **Telegram:** @Dona101Bot — se entra con el enlace de invitación del equipo (lo tiene Brian).
 - **Entrenarla** (enseñarle reglas o casos): solo Brian. Mándale las lecciones como texto o como
@@ -143,6 +143,6 @@ y para las pruebas; el real, para probar calidad de respuestas y para la demo.
 
 | | |
 |---|---|
-| ✅ medido | responde en ~5 s · se presenta como Dona · rechaza sin llave (401) · no revela su plataforma |
+| ✅ medido | responde en ~5 s · se presenta como Donna · rechaza sin llave (401) · no revela su plataforma |
 | ⚠️ conocido | sin reglas cargadas puede citar artículos de memoria: por eso la ley la pone el motor |
 | ⬜ pendiente | tope de uso por cliente · disponibilidad garantizada a las 17:00 del 28 (tener el simulado y un video de respaldo) |

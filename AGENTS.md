@@ -1,11 +1,11 @@
-# AGENTS.md — instrucciones para agentes de IA (y personas) que trabajan en Dona
+# AGENTS.md — instrucciones para agentes de IA (y personas) que trabajan en Donna
 
 Este repositorio lo programan personas **y** agentes de IA. Si eres un agente, este archivo es tu
 punto de partida: léelo completo antes de tocar nada.
 
 ## 1 · Qué es esto, en una línea
 
-**Dona** lee la landing y el pitch de una startup tecnológica mexicana y le dice qué le exige la ley,
+**Donna** lee la landing y el pitch de una startup tecnológica mexicana y le dice qué le exige la ley,
 qué beneficios está dejando ir y qué documentar — con la fuente oficial de cada cosa — listo para su
 contador o abogado. Proyecto del Hacktoberfest México 2026; demo el **28 de octubre de 2026, 17:00**.
 
@@ -22,11 +22,11 @@ contador o abogado. Proyecto del Hacktoberfest México 2026; demo el **28 de oct
 ## 3 · Reglas que no se rompen
 
 1. **Nunca escribas una llave, token, URL privada o contraseña en el repo**, en un commit, un issue o un log. Los valores reales viven en `apps/web/.env.local` (ignorado por git) y los comparte Brian en privado. Si necesitas uno y no lo tienes, **detente y pídelo**: no lo inventes ni lo busques.
-2. **El agente solo se llama desde el servidor**, siempre a través de `@dona/agent-client`. Nunca desde un componente de cliente, nunca con variables `NEXT_PUBLIC_*`.
-3. **La IA no decide qué ley aplica.** Lo decide `@dona/rules-engine` con las reglas verificadas de `rules/`. El agente solo **explica** lo que el motor ya decidió. Nunca agregues texto legal escrito por un modelo como si fuera una regla.
+2. **El agente solo se llama desde el servidor**, siempre a través de `@donna/agent-client`. Nunca desde un componente de cliente, nunca con variables `NEXT_PUBLIC_*`.
+3. **La IA no decide qué ley aplica.** Lo decide `@donna/rules-engine` con las reglas verificadas de `rules/`. El agente solo **explica** lo que el motor ya decidió. Nunca agregues texto legal escrito por un modelo como si fuera una regla.
 4. **Los contratos de `docs/CONTRATOS.md` no se cambian solos.** Si tu tarea necesita cambiar uno, propónlo en `docs/ESTADO.md` (sección Bloqueos) y avisa: rompe el trabajo de otra persona.
 5. **Respeta los dueños** (sección 4). Si tu tarea cae en la parte de otra persona, déjalo anotado en `docs/ESTADO.md` en vez de reescribirla.
-6. **No hables del proveedor ni de la infraestructura del agente** en código, comentarios, docs o pitch. Para este repo es «el agente de Dona», un servicio externo al que se llega por `AGENT_URL`.
+6. **No hables del proveedor ni de la infraestructura del agente** en código, comentarios, docs o pitch. Para este repo es «el agente de Donna», un servicio externo al que se llega por `AGENT_URL`.
 7. **Al terminar una sesión de trabajo, actualiza `docs/ESTADO.md`**: marca lo hecho, lo que quedó a medias, lo que te bloqueó y una línea en la Bitácora. Un agente que trabaja y no deja rastro obliga al siguiente a adivinar.
 8. **Verifica antes de decir «listo»**: `npm test` y `npm run build` en verde. Si no corriste algo, dilo.
 
