@@ -4,7 +4,7 @@
 decidir, en `docs/PENDIENTES.md`. Si eres una persona o un agente de IA que llega al
 proyecto, después del README lee esto. Si trabajaste, **actualízalo antes de irte** (sección 7).
 
-**Actualizado:** 2026-10-28, madrugada · **Demo:** 2026-10-28, 17:00 · Sandbox Hub, Polanco
+**Actualizado:** 2026-10-28, 02:00 · **Demo:** 2026-10-28, 17:00 · Sandbox Hub, Polanco
 
 ---
 
@@ -106,6 +106,15 @@ evalúa es lo rojo.
 - **2026-10-28 madrugada** — Valeria respondió A1-A3, B1-B5 y C1-C5 (`docs/PREGUNTAS.md`). El `README.md`
   pasa a ser la fuente de verdad de qué es Donna (paso a paso y mapa) y nace `docs/PENDIENTES.md` con
   todo lo que sigue abierto. Regla nueva: un PR, un propósito, con su porqué.
+- **2026-10-28 madrugada** — Cada visitante de la web tiene su propia conversación: su llave es una cookie
+  firmada que crea el servidor, y ante el agente es un cliente aparte con identidad firmada. Antes el
+  navegador elegía el hilo y se podía leer una conversación ajena. Probado: 12/12 pruebas, 2 sabotajes
+  cazados, y de punta a punta contra el agente real (un visitante no ve lo de otro; una cookie falsa
+  empieza de cero).
+- **2026-10-28 mañana** — Guía `docs/COMUNICACION.md`: cómo mandar, recibir y verificar con Donna sin
+  exponer nada, con instrucciones para el agente de IA de quien programa. `currentVisitor()` es el único
+  lugar que dice quién es el visitante. Cada dev tiene su propia llave de desarrollo (la de Artur, creada
+  y probada desde internet: es su propio cliente y no puede hacerse pasar por un visitante).
 
 ## 7 · Cómo actualizar este archivo (personas y agentes de IA)
 

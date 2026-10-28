@@ -131,7 +131,8 @@ trabajo de otra persona — por eso se cambian solo en un PR que lo diga.
 | [`docs/PREGUNTAS.md`](docs/PREGUNTAS.md) | cada pregunta de diseño, su porqué y su respuesta | se responde una pregunta |
 | [`docs/CONTRATOS.md`](docs/CONTRATOS.md) | los formatos entre piezas | los tres aprueban un cambio |
 | [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md) | las capas por dentro y dónde corre cada cosa | cambia una capa |
-| [`docs/AGENTE.md`](docs/AGENTE.md) | cómo conectarse al agente y usarlo | cambia la conexión |
+| [`docs/COMUNICACION.md`](docs/COMUNICACION.md) | cómo hablar con Donna desde el código: mandar, recibir, verificar, sin exponer nada | cambia cómo se habla con Donna |
+| [`docs/AGENTE.md`](docs/AGENTE.md) | la API de Donna en detalle | cambia la conexión |
 | [`docs/DEFINICION.md`](docs/DEFINICION.md) | el producto completo: mercado, patrocinadores, más allá de la demo | cambia la visión |
 
 Si dos archivos se contradicen: sobre **qué es Donna** manda este README; sobre **el avance** manda
@@ -194,9 +195,10 @@ Crea `apps/web/.env.local` con estas variables. Con el simulado, estos valores f
 ```bash
 AGENT_URL=http://127.0.0.1:8787
 AGENT_TOKEN=dev-mock-key
+AGENT_SIGNING_SECRET=dev-signing-secret
 ```
 
-Para hablar con **el agente real**, Brian te pasa en privado `AGENT_URL` y `AGENT_TOKEN`. Nunca se
+Para hablar con **el agente real**, Brian te pasa en privado `AGENT_URL`, `AGENT_TOKEN` y `AGENT_SIGNING_SECRET`. Nunca se
 suben al repo. Todas las variables están en [`docs/AGENTE.md`](docs/AGENTE.md#variables-de-entorno).
 
 ```bash
