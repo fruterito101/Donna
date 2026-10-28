@@ -56,3 +56,11 @@ test("the brief stays under the cap however many rules apply, saying how many it
   assert.match(brief, /\(\+\d+ punto\(s\) más en el informe en pantalla\)/);
   assert.match(brief, /no agregues leyes/, "the instruction is never cut");
 });
+
+test("Donna gets a rule's whole text, conditions included, and is told not to calculate", () => {
+  const benefit = rule({ id: "dinero", kind: "benefit", title: "El beneficio", requires: "Un crédito del 30%. Solo sobre lo que exceda el promedio." });
+  const brief = explainBrief(buildReport({ answered: { fact_a: "sí" } }, { rules: [benefit], facts }))!;
+  assert.match(brief, /Solo sobre lo que exceda el promedio\./, "the second sentence carries the condition");
+  assert.match(brief, /No hagas cálculos ni ejemplos con cifras/);
+  assert.match(brief, /Di SIEMPRE las condiciones/);
+});
