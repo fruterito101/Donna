@@ -1,0 +1,153 @@
+{
+  "case": "freelancer",
+  "message": "Caso ficticio nuevo e independiente: soy desarrollador freelance en México. Ya presto servicios y emito facturas a dos clientes de EEUU; cobro USD por transferencias bancarias. Trabajo solo sin empleados; no recibo pagos en cripto ni compro, vendo, custodio o envío cripto para clientes. No estoy lanzando startup: quiero ordenar mi expediente para mi contador. Explica qué puede revisar Donna y qué falta confirmar. No des por hecho que me corresponde un beneficio; separa lo confirmado, lo condicionado y lo que requiere revisión.",
+  "answered": {
+    "cobra_al_extranjero": true,
+    "factura_en_mexico": true,
+    "tiene_ingresos": true,
+    "tiene_empleados": false,
+    "recibe_pagos_en_cripto": false,
+    "ofrece_servicios_de_activos_virtuales": false
+  },
+  "report": {
+    "status": 200,
+    "seconds": 0.22,
+    "body": {
+      "report": {
+        "obligations": [
+          {
+            "rule": {
+              "id": "datos-aviso-de-privacidad",
+              "authority": "DATOS",
+              "kind": "obligation",
+              "title": "Publicar un aviso de privacidad completo",
+              "requires": "Si guardas o usas datos de personas, debes informarles en un aviso de privacidad qué datos tratas y para qué. Debe decir al menos quién eres y tu domicilio, qué datos usas (señalando los sensibles), para qué los usas, cómo pueden limitar su uso, cómo ejercer sus derechos ARCO (acceso, rectificación, cancelación y oposición) y cómo les avisarás de cambios.",
+              "applies_if": [
+                "guarda_datos_personales"
+              ],
+              "evidence": [
+                "aviso de privacidad publicado y fechado",
+                "registro de dónde y cuándo se muestra a cada persona"
+              ],
+              "law": "Ley Federal de Protección de Datos Personales en Posesión de los Particulares, arts. 14 y 15",
+              "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf",
+              "source_quote": "Artículo 14. El responsable tendrá la obligación de informar a la persona titular, a través del aviso de privacidad, la existencia y características principales del tratamiento al que serán sometidos sus datos personales, a fin de que pueda tomar decisiones informadas al respecto.",
+              "valid_from": "2025-03-21",
+              "verified_by": "Brian López",
+              "verified_on": "2026-10-28",
+              "frequency": "once",
+              "consequence": {
+                "description": "Omitir en el aviso de privacidad alguno de los elementos del art. 15 es infracción, con multa de 100 a 160,000 veces la UMA.",
+                "law": "LFPDPPP art. 58 fr. V y art. 59 fr. II",
+                "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf"
+              },
+              "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. Es la NUEVA ley publicada en el DOF el 20-03-2025 (última reforma 14-11-2025); valid_from = día siguiente, según su transitorio Primero, salvo lo del transitorio Tercero, que no se revisó."
+            },
+            "status": "needs_data",
+            "missing_facts": [
+              "guarda_datos_personales"
+            ]
+          },
+          {
+            "rule": {
+              "id": "sat-inscripcion-rfc",
+              "authority": "SAT",
+              "kind": "obligation",
+              "title": "Inscribirte en el RFC",
+              "requires": "Si debes presentar declaraciones o emitir facturas electrónicas (CFDI) por lo que cobras, tienes que inscribirte en el Registro Federal de Contribuyentes y mantener actualizados tu domicilio, tu situación fiscal, un correo y un teléfono. Si tu negocio es una sociedad, además tiene obligaciones sobre sus socios y accionistas.",
+              "applies_if": [
+                "tiene_ingresos"
+              ],
+              "evidence": [
+                "constancia de situación fiscal",
+                "acuses de los avisos de actualización"
+              ],
+              "law": "Código Fiscal de la Federación, art. 27, apartados A y B",
+              "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf",
+              "source_quote": "I. Las personas físicas y personas morales están obligadas a dar cumplimiento a las fracciones I, II, III y IV del apartado B del presente artículo, siempre que: a) Deban presentar declaraciones periódicas, o b) Estén obligadas a expedir comprobantes fiscales digitales por Internet por los actos o actividades que realicen o por los ingresos que perciban.",
+              "valid_from": "2021-11-12",
+              "verified_by": "Brian López",
+              "verified_on": "2026-10-28",
+              "frequency": "once",
+              "consequence": {
+                "description": "Multa de $5,070 a $15,200 por no inscribirte cuando estás obligado o hacerlo tarde (salvo si lo haces de manera espontánea).",
+                "law": "CFF art. 79 fr. I y art. 80 fr. I",
+                "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
+              },
+              "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF de la reforma del apartado (12-11-2021). Los montos de la multa son los actualizados en el DOF 28-12-2025 según la nota del PDF; cambian cada año."
+            },
+            "status": "applies",
+            "missing_facts": []
+          }
+        ],
+        "benefits": [
+          {
+            "rule": {
+              "id": "estimulo-id-tecnologico",
+              "authority": "ESTIMULO",
+              "kind": "benefit",
+              "title": "Estímulo fiscal a la investigación y desarrollo de tecnología",
+              "requires": "Un crédito fiscal del 30% de lo que gastes o inviertas en proyectos propios de investigación o desarrollo tecnológico hechos en México, aplicable contra tu ISR. Solo cuenta lo que gastes por encima del promedio de tus tres años anteriores, tiene un tope de 50 millones de pesos por contribuyente y hay que cumplir las reglas del Comité Interinstitucional, que pide prototipos o entregables y patentes registradas en México. No se combina con otros estímulos o beneficios fiscales.",
+              "applies_if": [
+                "hace_id_tecnologico"
+              ],
+              "evidence": [
+                "descripción de cada proyecto de I+D y su avance tecnológico",
+                "registro de gastos e inversiones por proyecto",
+                "prototipos, entregables y solicitudes de patente"
+              ],
+              "law": "Ley del Impuesto sobre la Renta, art. 202",
+              "source": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+              "source_quote": "Artículo 202. Se otorga un estímulo fiscal a los contribuyentes del impuesto sobre la renta que efectúen proyectos de investigación y desarrollo tecnológico, consistente en aplicar un crédito fiscal equivalente al 30% de los gastos e inversiones realizados en el ejercicio en investigación o desarrollo de tecnología, contra el impuesto sobre la renta causado en el ejercicio en que se determine dicho crédito.",
+              "valid_from": "2016-11-30",
+              "verified_by": "Brian López",
+              "verified_on": "2026-10-28",
+              "frequency": "annual",
+              "x_nota": "Borrador investigado el 2026-10-28 desde el PDF oficial de la Cámara de Diputados; firmado por Brian López el 2026-10-28 al comparar la cita con la fuente; las dudas de abajo siguen abiertas para Valeria. La cita se copió del PDF quitando espacios que mete la extracción: compárala con la fuente. valid_from = DOF en que se adicionó el artículo (la fr. I se reformó el 09-12-2019); la entrada en vigor no se revisó. El PDF de la LISR dice «Última reforma DOF 01-04-2024»: confirmar que no hay una más reciente. Para Valeria: ¿el régimen RESICO cuenta como «otro tratamiento fiscal» incompatible? ¿Las reglas del Comité y la convocatoria de este año siguen abiertas? Ojo: el agente citó antes el art. 189, que es el estímulo al cine."
+            },
+            "status": "needs_data",
+            "missing_facts": [
+              "hace_id_tecnologico"
+            ]
+          }
+        ],
+        "questions": [
+          "guarda_datos_personales",
+          "hace_id_tecnologico"
+        ],
+        "unverified": [],
+        "expired": []
+      },
+      "ask": [
+        {
+          "fact": "guarda_datos_personales",
+          "question": "¿Guardas datos de personas (nombres, correos, perfiles)?"
+        },
+        {
+          "fact": "hace_id_tecnologico",
+          "question": "¿Desarrollas tecnología nueva con incertidumbre técnica?"
+        }
+      ],
+      "notes": [],
+      "origin": {
+        "cobra_al_extranjero": "answered",
+        "factura_en_mexico": "answered",
+        "tiene_ingresos": "answered",
+        "tiene_empleados": "answered",
+        "recibe_pagos_en_cripto": "answered",
+        "ofrece_servicios_de_activos_virtuales": "answered"
+      },
+      "drafts_shown": false,
+      "rules_total": 9,
+      "rules_verified": 4,
+      "explanation": null
+    }
+  },
+  "chat": {
+    "status": 200,
+    "seconds": 32.32,
+    "body": {
+      "reply": "Artur, aquí va lo que Donna puede revisar para este caso —y dónde necesita que tu contador confirme.\n\n---\n\n## Lo que Donna puede mapear para ti\n\n### ✅ Confirmado (aplica sin datos adicionales)\n\n**Obligación de emitir CFDI**\nSi ya facturas, ya tienes RFC activo. Cada factura a clientes extranjeros debe emitirse como exportación de servicios. El régimen más común para freelance es **RESICO-PF** o **Actividad Empresarial y Profesional** —cuál te aplica depende de tu situación exacta, eso lo confirma tu contador.\n\n**Tipo de cambio para efectos fiscales**\nLos pagos en USD se convierten a pesos al tipo de cambio del DOF (Diario Oficial de la Federación) del día en que percibes el ingreso. Eso afecta el monto que declaras. Si usas el tipo del banco, puede haber una diferencia que el SAT note.\n\n**Aviso de privacidad**\nSi en tu trabajo manejas datos de personas (aunque sean de tus clientes en EEUU), la LFPDPPP puede aplicarte como responsable. Si solo tratas datos de personas morales, el análisis cambia. Punto para revisar.\n\n---\n\n### 🟡 Condicionado (aplica *si* se cumple una condición que no confirmaste)\n\n**Deducción de gastos**\nPuedes deducir gastos estrictamente indispensables para tu actividad (equipo, software, internet, etc.) *si* tienes el CFDI correspondiente y el gasto es proporcional a tus ingresos. Sin los comprobantes, no hay deducción posible.\n\n**Estímulo fiscal de I+D (CONACYT/PECITI)**\nSolo aplica si desarrollas tecnología nueva o mejorada de forma sistemática y tienes el gasto documentado por proyecto. Con dos clientes y servicios de desarrollo estándar, es *posible* pero no automático. Requiere análisis del tipo de trabajo que haces. No doy por hecho que aplica.\n\n---\n\n### 🔴 Requiere revisión con tu contador (Donna no puede confirmarlo)\n\n**Régimen fiscal correcto**\nRESICO-PF tiene límite de ingresos y condiciones de acceso. Si ya estás inscrito en un régimen, cambiar puede tener consecuencias. Eso lo tiene que revisar tu contador con tu historial en el SAT.\n\n**Impuesto sobre ingresos en EEUU**\nCobras de clientes en EEUU. Dependiendo de tu contrato y del estado de tus clientes, podría haber retención en la fuente (withholding tax). México y EEUU tienen convenio para evitar doble tributación, pero aplicarlo requiere análisis específico. Donna no confirma esto: es territorio de un contador con experiencia en fiscal internacional.\n\n**UIF — actividad vulnerable**\nPrestas servicios de tecnología y cobras en USD por transferencia. En principio, sin cripto y sin actividades listadas expresamente, no veo obligación UIF activa —pero si algún cliente te paga montos altos o irregulares, o si tu actividad encaja en alguno de los supuestos del Artículo 17 de la Ley Federal para la Prevención e Identificación de Operaciones con Recursos de Procedencia Ilícita, aplica revisarlo. Ese artículo lo tiene que leer tu contador con el detalle de lo que haces.\n\n---\n\n## Qué llevarle a tu contador (expediente mínimo)\n\n1. RFC y régimen actual\n2. Relación de facturas emitidas (con fecha, cliente, monto en USD y tipo de cambio usado)\n3. CFDI de gastos deducibles del año\n4. Contratos o acuerdos con tus clientes de EEUU\n5. Extractos bancarios de los pagos recibidos\n\nCon eso, tu contador puede verificar los puntos condicionados y confirmar los que Donna marcó en rojo.\n\n---\n\n¿Quieres que profundice en alguno de estos puntos, o que te ayude a armar la lista de documentos en un formato para compartirle a tu contador?"
+    }
+  }
+}
