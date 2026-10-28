@@ -139,6 +139,37 @@ resultado es un **estado**, nunca un error: `comprobada` (la cita sigue en la p�
 página cambió: la regla se marca para revisión) · `sin_comprobar` (no hay llave, Firecrawl no respondió o no
 se ha corrido). Ningún estado detiene el informe ni el build; se guarda en la regla como campo `x_`.
 
+## 5-ter · `POST /api/report` — lo que llama la web
+
+La web (o la lectura) manda los hechos como los tenga; el backend corre el motor y devuelve el informe listo
+para pintar. Código: `apps/web/src/app/api/report/route.ts` · lógica pura: `buildReport` y `explainBrief`
+en `packages/rules-engine/src/report.ts`.
+
+```ts
+// petición — todo opcional; flexible como en §3
+{ detected?: RawProfile,   // lo que sacó la lectura de la página y del pitch
+  answered?: RawProfile,   // lo que contestó el usuario: manda sobre lo detectado
+  explain?: boolean }      // true = Donna explica el informe en lenguaje claro
+
+// respuesta
+{ report: Report,                      // §5, ya filtrado: en producción SOLO reglas firmadas
+  ask: { fact, question }[],           // lo que falta preguntar, en español, listo para mostrar
+  notes: ProfileNote[],                // lo recibido que no se pudo usar (nunca se adivina)
+  origin: Record<hecho, "answered" | "detected">,
+  drafts_shown: boolean,               // true solo en desarrollo: la pantalla debe decirlo
+  rules_total: number, rules_verified: number,   // p. ej. «9 reglas, 0 firmadas»
+  explanation: string | null,          // el texto de Donna, si se pidió
+  explanation_error?: string }         // por qué no hay explicación; el informe sale igual
+```
+
+- **La explicación nunca bloquea el informe:** si Donna no responde, `explanation` es `null` y llega
+  `explanation_error`. Si no hay nada que explicar, no se le llama (no se gasta la suscripción).
+- **Donna explica, no decide:** recibe solo las reglas del informe, con su ley, su fuente y su cita, y la
+  instrucción de no agregar leyes, cifras ni plazos. Abre con los beneficios y cierra con las obligaciones.
+- **Borradores en desarrollo:** con `next dev` y `DONNA_SHOW_DRAFTS=1` el informe incluye las reglas sin
+  firmar (`drafts_shown: true`). En producción eso no tiene efecto, aunque la variable exista.
+- **Límites:** cuerpo ≤ 20 KB (413), `detected` y `answered` deben ser objetos de ≤ 100 hechos (400).
+
 ## 6 · Pendiente de fijar
 
 - ⬜ Los tres aprueban esta versión (o la cambian). §1 pasó a v1 el 28-oct por decisión de Brian.

@@ -25,14 +25,14 @@ existe**: faltan las reglas, la lectura, el perfil, la web real, la voz y los en
 | 6 | Motor de reglas | 🟢 contrato v1: carga y valida `rules/` al compilar, importa la hoja de Valeria, oculta lo no verificado (38 pruebas) | Brian | `packages/rules-engine/` |
 | 7 | Reglas de ley verificadas | 🟡 9 borradores con cita literal de la ley; 0 verificadas (no se muestran) | Valeria | `rules/` |
 | 8 | Lista de hechos del perfil | 🟡 propuesta v0 en el catálogo `rules/_hechos.yaml` | Valeria | `rules/_hechos.yaml` |
-| 9 | Perfil (código que saca los hechos) | 🔴 no existe | Brian | backend |
+| 9 | Perfil (código que saca los hechos) | 🟡 `buildProfile` + `/api/report` listos; falta sacar los hechos del texto leído | Brian | `packages/rules-engine/` · `apps/web/src/app/api/report/` |
 | 10 | Lectura: Firecrawl + PDF | 🔴 no existe | Artur | `packages/reader/` |
 | 11 | Web del producto | 🟡 base Next + página de prueba | Artur | `apps/web/` |
 | 12 | Voz con ElevenLabs | 🔴 no existe | Artur | — |
 | 13 | Entregables: informe, COMPLIANCE.md, pitch corregido | 🔴 no existe | Artur | — |
 | 14 | Pitch, guion, aviso legal | 🔴 no existe | Valeria | — |
 
-`███████░░░░░░░` **6 de 14 en verde, 3 a medias.** Lo verde es la infraestructura; lo que el jurado
+`███████░░░░░░░` **6 de 14 en verde, 4 a medias.** Lo verde es la infraestructura; lo que el jurado
 evalúa es lo rojo.
 
 ## 3 · Tareas por persona
@@ -42,8 +42,10 @@ evalúa es lo rojo.
 - [x] `@donna/agent-client` + `/api/chat` + simulado
 - [x] Motor de reglas v0 con pruebas
 - [x] Motor: cargar las reglas de `rules/*.yaml`, validarlas al compilar e importar la hoja de reglas
-- [ ] Perfil: convertir `ReadResult` en `Profile` con la lista de hechos de Valeria
-- [ ] `/api/report`: URL + PDF → lectura → perfil → motor → explicación → `Report`
+- [x] Perfil: `buildProfile` acepta lo que mande la lectura o el usuario, en cualquier forma, con el catálogo de hechos
+- [ ] Perfil: sacar los hechos del texto leído (`ReadResult` → `detected`)
+- [x] `/api/report`: hechos (detectados o contestados) → perfil → motor → informe filtrado → explicación de Donna (`CONTRATOS.md` §5-ter)
+- [ ] Conectar la lectura de Artur a `/api/report` (URL + PDF → `detected`)
 - [ ] Entrenar al agente con las reglas verificadas y los 3 casos
 - [ ] Tope de uso del agente · servidor disponible el 28 a las 17:00
 
@@ -137,6 +139,11 @@ evalúa es lo rojo.
   LISR** (el 189 que el agente citó es el del cine); **recibir** cripto como pago no aparece en la fracción de la
   UIF, solo **ofrecer** servicios con cripto a clientes; el IVA 0% de TI exige infraestructura y personal en México.
   El motor ya acepta perfiles y hojas flexibles (49 pruebas).
+- **2026-10-28 tarde** — `POST /api/report`: hechos → informe → explicación de Donna. Probado con `next start`
+  (producción): carga las 9 reglas en tiempo de ejecución, no muestra ningún borrador aunque se le pida, no
+  llama a Donna si no hay nada que explicar, y responde 400/413 a entradas malas. Con `next dev` y
+  `DONNA_SHOW_DRAFTS=1`: el personaje de la demo da 4 beneficios, 4 obligaciones y 2 preguntas en español,
+  y la explicación llega al agente con la instrucción de usar solo esas reglas. 54 pruebas.
 
 ## 7 · Cómo actualizar este archivo (personas y agentes de IA)
 
