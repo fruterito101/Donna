@@ -1,11 +1,12 @@
 {
   "name": "donna",
   "private": true,
-  "description": "Donna: compliance advisor for people who build technology in Mexico (Hacktoberfest México 2026)",
+  "description": "Donna: compliance advisor for people who build technology in Mexico (Hacktoberfest M\u00e9xico 2026)",
   "license": "MIT",
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "frontend/lovable"
   ],
   "scripts": {
     "identity": "node packages/agent-client/scripts/build-identity.mjs",
@@ -17,7 +18,9 @@
     "mock": "node mock/agent-mock.mjs",
     "rules": "node packages/rules-engine/scripts/build-rules.ts",
     "rules:import": "node packages/rules-engine/scripts/import-rules.ts",
-    "dof:smoke": "node packages/dof/scripts/smoke.ts"
+    "dof:smoke": "node packages/dof/scripts/smoke.ts",
+    "test:frontend": "npm run test -w @donna/frontend",
+    "test:domain": "node --test scripts/domain.integration.test.mjs"
   },
   "engines": {
     "node": ">=22.18"

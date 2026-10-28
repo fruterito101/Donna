@@ -125,6 +125,8 @@ no cumple la ley de datos personales se contradice. Propuesta: no guardar nada e
 
 **E1 🔴 ¿Stack de la web?** (Next.js · Lovable · otro). Por qué: decide si entra el reto de Lovable.
 
+**Respuesta de Artur, 2026-10-28:** interfaz creada en Lovable, conservada en TanStack Start y prerenderizada durante el build del despliegue Next existente. Landing `/`, app `/app`, contacto `/professional-contact`; APIs y claves en Next. Dominio `donna-mx.vercel.app`. Ver `DOMINIO.md`.
+
 **E2 🔴 ¿En qué lenguaje va el motor de reglas y en qué formato las tarjetas?** Propuesta: tarjetas
 en YAML (las escribe alguien no programador), motor en el mismo lenguaje que el backend.
 

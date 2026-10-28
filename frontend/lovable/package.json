@@ -1,5 +1,5 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "@donna/frontend",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "build:next": "vite build"
   },
   "overrides": {
     "rolldown": "1.2.1"
@@ -92,5 +93,8 @@
     "typescript-eslint": "^8.56.1",
     "vite": "8.1.5",
     "vitest": "^4.1.10"
+  },
+  "exports": {
+    "./server/chat-request": "./src/server/donna-request.ts"
   }
 }

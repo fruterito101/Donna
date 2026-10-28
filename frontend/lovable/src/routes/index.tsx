@@ -9,6 +9,7 @@ const DESC = "Sabes de código y de producto. Donna te ayuda a entender qué rev
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [{ rel: "canonical", href: "https://donna-mx.vercel.app/" }],
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },

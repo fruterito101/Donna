@@ -60,7 +60,7 @@ Los paquetes exportan TypeScript directo; Next los compila (`transpilePackages` 
 
 | Pieza | Dónde |
 |---|---|
-| La web y su backend | Vercel — https://donna-mx.vercel.app, conectada a la rama `main`, directorio raíz `apps/web` |
+| La web y su backend | Vercel — https://donna-mx.vercel.app, conectada a `main`, raíz `apps/web`: prerender de Lovable en `/`, `/app`, `/professional-contact` y `/operaciones`; APIs Next conservadas |
 | El agente | servicio externo, privado; se llega por `AGENT_URL` |
 | El bot de Telegram | servidor privado del equipo (lo opera Brian) |
 
@@ -75,3 +75,7 @@ Los paquetes exportan TypeScript directo; Next los compila (`transpilePackages` 
   `docs/AGENTE.md` §5.
 - **Datos del usuario (propuesta para la demo):** no guardar los pitches ni las landings que suba, y
   decirlo en pantalla. Pendiente de decisión del equipo (`docs/PREGUNTAS.md` D6).
+
+## Interfaz bajo el mismo dominio
+
+`frontend/lovable` forma parte del workspace npm. Antes del build Next, `scripts/build-frontend.mjs` genera solo las cuatro páginas públicas y sus recursos cliente. No se copian archivos del servidor TanStack ni credenciales. La app mantiene navegación TanStack y su sesión en memoria; las APIs se ejecutan en Next. `/api/donna/chat` comparte la validación de peticiones del frontend y delega al handler Next sin una llamada HTTP circular. Ver `DOMINIO.md`.

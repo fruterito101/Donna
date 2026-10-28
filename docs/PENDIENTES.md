@@ -23,7 +23,6 @@ cosas distintas.
 | — | Aprobar el [`README.md`](../README.md) como la definición de Donna | que los tres construyan la misma idea | los tres |
 | D1 | ¿Qué aviso legal exacto lleva cada informe, y quién lo redacta? | el informe: es lo que separa «herramienta» de «asesoría sin cédula» | Valeria |
 | D4 | ¿Qué significaba «lineamientos/prompts/policies»? ¿Quién lo dijo? | qué es el `COMPLIANCE.md` | quien lo dijo |
-| E1 | ¿La web se hace en Lovable (suma su reto) o sigue en Next.js? | la web | Artur |
 | E5 | Plan B si algo no responde a las 17:00 (propuesta: video + respuestas guardadas) | la demo | Artur |
 | F1 | ¿Qué se dona exactamente? (propuesta: motor, reglas y web) | el pitch y la licencia | los tres |
 | G1 | ¿Quién presenta y cuánto dura? | el guion | los tres |
@@ -63,6 +62,7 @@ cosas distintas.
 
 | Qué | Cómo está hoy | Lo confirma |
 |---|---|---|
+| Publicación del dominio integrado | Distribución aprobada e implementada en la rama `feat/domain-routing`; falta revisión, merge a `main` y comprobación del despliegue público | Artur y Brian |
 | E2 · formato de las reglas y lenguaje del motor | reglas en YAML, escritas desde una hoja de cálculo (`npm run rules:import`), y motor en TypeScript, el mismo lenguaje del backend | Brian y Artur |
 | Formato del `COMPLIANCE.md` y del pitch corregido | sin proponer | Artur |
 | Titular de la licencia MIT | `LICENSE` dice «Copyright (c) 2026 Fruterito», el nombre de la cuenta de GitHub. ¿Queda así, o «Brian, Artur y Valeria», o «los autores de Donna»? Es quién aparece como autor de lo donado | los tres |
