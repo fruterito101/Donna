@@ -158,6 +158,10 @@ evalúa es lo rojo.
   real: 81 publicaciones del día, el texto completo de una (32,310 caracteres) con su enlace oficial y una búsqueda
   («hacienda», 3 resultados). La prueba de humo cazó un 406 que la simulación no veía (SIDOF rechaza un `Accept`
   específico). 65 pruebas, 2 sabotajes cazados.
+- **2026-10-28 tarde** — Se cierra el pendiente «el artículo del estímulo a I+D, sin verificar»: es el **art. 202 de
+  la LISR** (el 189 que el agente citó es el estímulo al cine), comparado contra el PDF oficial y firmado por Brian
+  (`rules/estimulo-id-tecnologico.yaml`). Se abren 3 pendientes de la licencia MIT (titular, licencia por paquete,
+  qué cubre).
 
 ## 7 · Cómo actualizar este archivo (personas y agentes de IA)
 

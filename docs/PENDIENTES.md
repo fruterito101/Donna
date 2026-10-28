@@ -65,7 +65,9 @@ cosas distintas.
 |---|---|---|
 | E2 · formato de las reglas y lenguaje del motor | reglas en YAML, escritas desde una hoja de cálculo (`npm run rules:import`), y motor en TypeScript, el mismo lenguaje del backend | Brian y Artur |
 | Formato del `COMPLIANCE.md` y del pitch corregido | sin proponer | Artur |
-| El artículo del estímulo a I+D | el agente lo citó de memoria en una prueba: **sin verificar**, no se usa hasta que haya regla | Valeria |
+| Titular de la licencia MIT | `LICENSE` dice «Copyright (c) 2026 Fruterito», el nombre de la cuenta de GitHub. ¿Queda así, o «Brian, Artur y Valeria», o «los autores de Donna»? Es quién aparece como autor de lo donado | los tres |
+| La licencia en cada paquete | la raíz declara `MIT`; `apps/web`, `agent-client`, `rules-engine` y `dof` no declaran ninguna. Si alguien los toma por separado, no ve la licencia | Brian |
+| Qué cubre la MIT | todo lo que está en el repo: código, reglas (`rules/`) y la identidad de Donna (`agent/identity.md`). **No** cubre el agente, que es un servicio externo y no se dona (ver F1) | los tres |
 
 ---
 
