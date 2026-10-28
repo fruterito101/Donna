@@ -31,6 +31,7 @@ existe**: faltan las reglas, la lectura, el perfil, la web real, la voz y los en
 | 12 | Voz con ElevenLabs | 🔴 no existe | Artur | — |
 | 13 | Entregables: informe, COMPLIANCE.md, pitch corregido | 🔴 no existe | Artur | — |
 | 14 | Pitch, guion, aviso legal | 🔴 no existe | Valeria | — |
+| 15 | Lectura del DOF (API oficial SIDOF) | 🟡 cliente listo y probado contra la API real; falta el MCP, el vigilante de reglas y conectarlo al agente | Brian | `packages/dof/` |
 
 `███████░░░░░░░` **6 de 14 en verde, 4 a medias.** Lo verde es la infraestructura; lo que el jurado
 evalúa es lo rojo.
@@ -108,6 +109,8 @@ evalúa es lo rojo.
 | 28-oct | Las reglas se adelantan investigando la ley oficial y entran **sin verificar**; Valeria corrige y firma | no esperar a que ella escriba desde cero; nada sin firma llega a producción | Brian |
 | 28-oct | Las reglas son **genéricas**: no hay personaje fijo; donde la ley distingue, Donna pregunta | el founder llega sin saber nada y hay que guiarlo | Brian |
 | 28-oct | Si Valeria no alcanza, firma quien compare la regla con su fuente | `verified_by` es quien la comparó, no un abogado; el aviso legal dice que no es opinión legal | Brian |
+| 28-oct | Donna lee el DOF por la **API oficial SIDOF**, nunca el sitio | `robots.txt` de dof.gob.mx prohíbe robots en las notas; SIDOF da JSON | Brian |
+| 28-oct | Con el DOF se construye: cliente, MCP, vigilante de reglas, skill `/dof` y memoria en bloque | que Donna consulte la fuente oficial y que una reforma marque la regla afectada | Brian |
 
 ## 6 · Bitácora
 
@@ -148,6 +151,11 @@ evalúa es lo rojo.
   y la explicación llega al agente con la instrucción de usar solo esas reglas. 54 pruebas.
 - **2026-10-28 tarde** — Brian firma las 4 reglas de la demo (estímulo a I+D, UIF, RFC, aviso de privacidad) tras
   comparar cada cita con su fuente: son las primeras que el informe muestra en producción. Las otras 5 siguen en revisión.
+
+- **2026-10-28 tarde** — `@donna/dof`: el Diario Oficial por la API oficial de Gobernación (SIDOF). Contra la API
+  real: 81 publicaciones del día, el texto completo de una (32,310 caracteres) con su enlace oficial y una búsqueda
+  («hacienda», 3 resultados). La prueba de humo cazó un 406 que la simulación no veía (SIDOF rechaza un `Accept`
+  específico). 65 pruebas, 2 sabotajes cazados.
 
 ## 7 · Cómo actualizar este archivo (personas y agentes de IA)
 

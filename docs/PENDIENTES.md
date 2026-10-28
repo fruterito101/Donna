@@ -47,6 +47,7 @@ cosas distintas.
 | G2 | ¿Cuál es el momento «wow»? (propuesta: pegar una página y oír en voz el estímulo y la UIF) | los tres |
 | G3 | ¿Qué número mostramos? Solo con fuente | Valeria |
 | — | ¿Sumamos algún reto opcional (Gemma 4, n8n, MojoAuth, Lovable)? | los tres |
+| — | DOF: medir los términos de uso y el límite de peticiones de SIDOF antes de usarlo en producción | Brian |
 | — | ¿Qué cuenta como **fuente oficial** en una regla? Hoy el motor acepta cualquier `https://`. Se decide junto con la lectura de Artur, que lee las páginas oficiales con Firecrawl para fechar cada regla ([`DEFINICION.md`](DEFINICION.md)) | Brian y Artur |
 
 ## 3 · 🟢 Después del hackathon
@@ -56,6 +57,7 @@ cosas distintas.
 | F2 | ¿Las reglas llevan una licencia de datos (ej. CC-BY) además del MIT del código? |
 | G4 | ¿El nombre «Donna» se queda? ¿Qué historia cuenta? |
 | H4 | ¿Qué pasa con Donna después del 28: producto o solo hackathon? ¿Cómo se reparte? |
+| — | DOF, lo que sigue del cliente: el **MCP** (consultar publicaciones, una nota, buscar), el **vigilante de reglas** (marca «posible reforma: revisar» cuando el DOF publica algo de una ley que cita una regla), la skill `/dof` y la memoria en bloque (cada pieza marcada «publicación oficial, no revisada») |
 
 ## 4 · Por revisar — ya está hecho de una forma, falta confirmarla
 

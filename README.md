@@ -150,7 +150,8 @@ Donna/
 ├── packages/
 │   ├── agent-client/         la única puerta al agente (solo servidor)
 │   ├── rules-engine/         el motor: perfil + reglas → informe
-│   └── reader/               (por crear) lectura de la página con Firecrawl y del PDF
+│   ├── reader/               (por crear) lectura de la página con Firecrawl y del PDF
+│   └── dof/                  el Diario Oficial por la API oficial (SIDOF): publicaciones, texto completo, búsqueda
 ├── rules/                    las reglas de ley verificadas, una por archivo (YAML) — se donan
 ├── agent/identity.md         quién es Donna — viaja con cada mensaje al agente
 ├── bots/telegram/            Donna en Telegram
