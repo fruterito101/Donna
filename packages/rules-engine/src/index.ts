@@ -3,6 +3,7 @@
 import { parse } from "yaml";
 
 export { buildProfile, type BuiltProfile, type FactInput, type ProfileNote, type RawProfile } from "./profile.ts";
+export { buildReport, explainBrief, type Ask, type ReportResponse } from "./report.ts";
 
 /** The yes/no facts about a startup (the PERFIL layer). `undefined` = not known yet. */
 export type Profile = Record<string, boolean | undefined>;
