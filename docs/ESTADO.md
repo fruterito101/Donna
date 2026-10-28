@@ -163,6 +163,8 @@ evalúa es lo rojo.
   (`rules/estimulo-id-tecnologico.yaml`). Se abren 3 pendientes de la licencia MIT (titular, licencia por paquete,
   qué cubre).
 
+- **2026-10-28 · Artur / admisión profesional** — Frontend Lovable: CTA «Contactar a un Profesional», contexto revisable, consentimiento explícito y tablero `/operaciones` con cinco columnas. Chat y admisión conectados al backend Donna existente mediante proxy same-origin con cookie de visitante aislada. Fichas solo en memoria; pendientes ElevenLabs, autenticación, persistencia y entrega al despacho. Fuente `4c9144c05fd46a829e0eb6b35588ea1ec53d821e`. Verificación: 50 pruebas UI/proxy, tipos y build del frontend; 65 pruebas del monorepo. Preview alojada requiere sesión (401), sin comprobación end-to-end allí.
+
 ## 7 · Cómo actualizar este archivo (personas y agentes de IA)
 
 Al terminar una sesión de trabajo:

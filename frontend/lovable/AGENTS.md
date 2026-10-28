@@ -11,7 +11,12 @@
 
 ## Project rules
 - Landing is a single route (`src/routes/index.tsx`) composed from `src/components/donna/*`; demo case data and report text live in `src/lib/donna-case.ts` so rules are unit-tested.
-- Frontend only: no backend, auth or AI calls in the current delivery; the guided workspace must not call the external Next /api/chat endpoint.
+- Browser chat calls only /api/donna/chat; its server handler proxies the existing Donna Next backend with fixed server-controlled origin, bounded input, same-origin validation and only donna_visitor cookies. No new model, AI gateway or agent keys.
 - Product/design rules live in PRODUCT.md, DESIGN.md and LANDING_BRIEF.md; read before changing copy or styling.
 - The /app leaf owns its marketing-free workspace shell; all session state and guided transitions use src/lib/donna-workspace.ts to keep uncertainty and summary rules testable.
 - Local file selection retains metadata only, never parses or uploads files; summaries derive from shared user-supplied session state so profile edits remain synchronized.
+- SessionProvider above the root Outlet owns workspace and intake reducers per render instance, never a mutable module singleton, so SPA handoffs preserve data without SSR visitor leakage.
+- Intake registration uses a pure consent-validated, idempotent reducer and frozen snapshots independent of workspace edits; chat replies never populate structured facts or consent, and leads never use browser storage or external delivery.
+- /operaciones owns a marketing-free operational shell; /app to /operaciones is a non-destructive SPA handoff exempt from the consultation navigation blocker.
+- Root-owned chat hooks share a per-provider pending-request lock; explicit retries reuse the user turn without a scripted assistant fallback or duplicate lead.
+- Admission chat and intake information use sibling forms with explicit button types so chat actions and cancellation cannot submit or restore the intake draft.

@@ -69,3 +69,5 @@ motion:
 - Altura de viewport, scroll independiente para conversación, vistas y expediente; composer en flujo, nunca encima de mensajes.
 - Entre 768 y 1199 px expediente desplegable; móvil navegación en drawer y expediente independiente. Diálogos con Escape y retorno de foco. Controles de al menos 44 px y foco auburn visible.
 - Estados vacíos útiles, hechos separados de pendientes, superficies sobrias sin tarjetas anidadas ni métricas decorativas.
+- Captación: CTA auburn con Phone cerca del pie de sidebar, también móvil. Ficha editable sans con revisión exacta, autorización sin preselección y voz deshabilitada; sin waveform activo ni simulación de llamada.
+- Operaciones: encabezados sans sobrios, tabla semántica de cinco columnas y scroll horizontal contenido en región etiquetada; detalle en panel con Escape/foco de retorno. Ninguna métrica no derivada de registros reales de sesión.

@@ -1,10 +1,10 @@
 # Donna /app — modo Operate
 
 ## Entrega
-Interfaz frontend guiada, no agente conectado. / conserva marketing y enlaza a /app; /app tiene shell propia y enlace de regreso. Una sola consulta local, sin historial inventado.
+Conversación real con Donna existente mediante proxy same-origin, sin otro modelo. / conserva marketing y enlaza a /app; /app tiene shell propia y enlace de regreso. Una consulta de visita, sin historial inventado.
 
 ## Flujo y estados
-Bienvenida vacía → elegir tema o aportar descripción → nombre → descripción → etapa → cobro/tema → revisión. Textos preparados reconocen acciones, no dan opiniones fiscales. No hay autoplay. «No estoy seguro» permanece pendiente.
+Bienvenida vacía → mensaje/tema explícito → solicitud real → reply del backend Donna en texto seguro. Sin autoenvíos, una solicitud pendiente entre consulta y admisión, errores claros y reintento explícito sin duplicar turno. Mi negocio se completa por formulario separado; la IA no confirma hechos. No hay autoplay. «No estoy seguro» permanece pendiente.
 
 Conversación, formulario Mi negocio, expediente (Resumen/Pendientes/Fuentes) y plantilla Documentos comparten estado en memoria. Guardar contexto actualiza expediente y resumen. Las tareas no acreditan cumplimiento legal. Nueva consulta y salida piden confirmación si hay trabajo; recargar o cerrar descarta la sesión.
 
@@ -14,4 +14,15 @@ Adjuntos PDF/texto de hasta 10 MB: validación local, solo metadatos, quitar y e
 Desktop sidebar 232 px y expediente 360 px; tablet expediente desplegable; móvil navegación y expediente en paneles modales accesibles. Conversación con scroll independiente y composer en flujo. El scroll automático solo sigue mensajes cerca del final.
 
 ## Pendiente de integración
-Conectar el agente mediante una frontera de servidor apropiada para este proyecto, identidad de visitante, manejo de errores y contratos acordados. No se llama al /api/chat del Next externo ni se presupone CORS/cookies. Faltan fuentes verificadas, lectura segura de documentos, política de datos, almacenamiento durable y autenticación si se acuerdan. No hay keys, Cloud, modelos ni conectores en esta entrega.
+Proxy implementado: navegador → POST /api/donna/chat → servidor → https://donna-mx.vercel.app/api/chat, origen público confirmado. Solo {message}, trim, máximo 4000 caracteres y 24 KB UTF8; origen same-origin obligatorio, redirects bloqueados, no-store, timeout 25 s. Solo cookie donna_visitor reenviada y solo Set-Cookie homónima devuelta, con atributos preservados. Next conserva askDonna/currentVisitor y sus claves; no contratos modificados ni identidad global. No hay docs/ARQUITECTURA.md en este checkout; el contrato descrito por el usuario y una consulta técnica HTTP 200 son la evidencia disponible. Faltan voz, fuentes verificadas, lectura segura, política de datos, almacenamiento durable y autenticación operadores.
+
+## Captación y centro de prospectos — alcance actual local
+CTA Phone «Contactar a un Profesional» en sidebar desktop/móvil → ficha escrita Información → Revisar → Registrar. Lleva copia explícita de nombre, descripción, etapa, temas, notas y nombres de documentos (sin lectura); editarla no cambia Mi negocio. Regreso sin pérdida de consulta; cancelación sin prospecto.
+
+Campos mínimos: startup, persona, descripción y un canal de contacto válido. Cargo, necesidad, objetivo y urgencia pueden quedar pendientes. Admisión real con Donna tras revisar y aceptar aportar el contexto delimitado y acotado; ficha y autorización siguen explícitas. Voz deshabilitada con «Voz pendiente de conexión»; no hay micrófono ni llamada simulada. Asistente de admisión con IA, no humano ni representante del despacho.
+
+Autorización explícita de contacto/compartir con «Despacho Galicia Abogados Fiscales», no preseleccionada. Registro local, idempotente, con snapshot inmutable y consentimiento fechado; estado «Pendiente de integración», no entregado. Store por instancia del provider raíz, solo memoria, sin mezcla SSR ni persistencia. Nueva consulta conserva registros; recargar descarta todo.
+
+/operaciones: shell Operate, «Centro de prospectos», cinco columnas exactas Nombre de la startup / Contacto / Descripción del negocio / Contexto / Dirigido a. Búsqueda, ficha completa en panel accesible y contadores derivados. Enlace SPA «Vista operativa» desde app, sin «Descartar consulta»; volver preserva workspace. Vista de sesión sin auth ni acceso multiusuario.
+
+Segunda línea comercial: prospectos perfilados para despachos. Donna conectado por contrato {message}; el navegador no selecciona hilo/visitante/tema. El proxy no crea otro hilo: el Next conserva su contrato de identidad. ElevenLabs TTS y operación durable pendientes. Detalles en INTAKE_INTEGRATION.md.
