@@ -60,4 +60,5 @@
 - [x] Check the resulting pages and navigation in the browser with the mock backend; capture evidence.
 - [x] Document exact routing/build commands and prototype limitations; update the state log.
 - [x] Request a fresh whole-branch review and resolve important findings: independent review completed without actionable findings.
-- [ ] Push a feature branch and create a PR. Do not claim the public domain changed until its deployment is confirmed.
+- [x] Push feature branch `feat/domain-routing`.
+- [ ] Create PR: GitHub connector returned 403 (Resource not accessible by integration); local gh CLI has no authenticated session. Open https://github.com/fruterito101/Donna/pull/new/feat/domain-routing. Public deployment remains unconfirmed.
