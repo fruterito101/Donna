@@ -16,14 +16,15 @@ contador o abogado. Proyecto del Hacktoberfest México 2026; demo el **28 de oct
 3. `docs/PENDIENTES.md` — lo que falta decidir o revisar. Si tu tarea depende de algo que está ahí, **detente y avisa**: no lo decidas tú.
 4. `docs/ARQUITECTURA.md` — las capas, el flujo de la información, qué vive en cada carpeta.
 5. `docs/CONTRATOS.md` — los formatos que conectan las piezas (regla, perfil, informe).
-6. `docs/AGENTE.md` — **solo si tu tarea toca al agente**: cómo conectarse, pedirle cosas y usarlo.
-7. `docs/DEFINICION.md` — el producto completo (alcance, mercado, patrocinadores).
-8. `apps/web/AGENTS.md` — ⚠️ esta versión de Next.js (16.4) cambia APIs: lee su documentación local en `node_modules/next/dist/docs/` antes de escribir código de Next.
+6. **`docs/COMUNICACION.md` — si tu tarea habla con Donna** (chat, voz, informe, entregables): cómo mandar, recibir y verificar sin exponer nada. Trae instrucciones listas para copiar a tu agente de IA.
+7. `docs/AGENTE.md` — la API de Donna en detalle, para escribir o depurar `@donna/agent-client`.
+8. `docs/DEFINICION.md` — el producto completo (alcance, mercado, patrocinadores).
+9. `apps/web/AGENTS.md` — ⚠️ esta versión de Next.js (16.4) cambia APIs: lee su documentación local en `node_modules/next/dist/docs/` antes de escribir código de Next.
 
 ## 3 · Reglas que no se rompen
 
 1. **Nunca escribas una llave, token, URL privada o contraseña en el repo**, en un commit, un issue o un log. Los valores reales viven en `apps/web/.env.local` (ignorado por git) y los comparte Brian en privado. Si necesitas uno y no lo tienes, **detente y pídelo**: no lo inventes ni lo busques.
-2. **El agente solo se llama desde el servidor**, siempre a través de `@donna/agent-client`. Nunca desde un componente de cliente, nunca con variables `NEXT_PUBLIC_*`.
+2. **El agente solo se llama desde el servidor**, siempre a través de `@donna/agent-client`. Nunca desde un componente de cliente, nunca con variables `NEXT_PUBLIC_*`. **Quién es el visitante lo dice `currentVisitor()`** (`apps/web/src/lib/visitor.ts`), nunca el cuerpo de la petición ni la IP. Detalle: `docs/COMUNICACION.md`.
 3. **La IA no decide qué ley aplica.** Lo decide `@donna/rules-engine` con las reglas verificadas de `rules/`. El agente solo **explica** lo que el motor ya decidió. Nunca agregues texto legal escrito por un modelo como si fuera una regla.
 4. **Los contratos de `docs/CONTRATOS.md` no se cambian solos.** Si tu tarea necesita cambiar uno, propónlo en `docs/ESTADO.md` (sección Bloqueos) y avisa: rompe el trabajo de otra persona.
 5. **Respeta los dueños** (sección 4). Si tu tarea cae en la parte de otra persona, déjalo anotado en `docs/ESTADO.md` en vez de reescribirla.

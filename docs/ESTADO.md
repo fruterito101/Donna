@@ -111,6 +111,10 @@ evalúa es lo rojo.
   navegador elegía el hilo y se podía leer una conversación ajena. Probado: 12/12 pruebas, 2 sabotajes
   cazados, y de punta a punta contra el agente real (un visitante no ve lo de otro; una cookie falsa
   empieza de cero).
+- **2026-10-28 mañana** — Guía `docs/COMUNICACION.md`: cómo mandar, recibir y verificar con Donna sin
+  exponer nada, con instrucciones para el agente de IA de quien programa. `currentVisitor()` es el único
+  lugar que dice quién es el visitante. Cada dev tiene su propia llave de desarrollo (la de Artur, creada
+  y probada desde internet: es su propio cliente y no puede hacerse pasar por un visitante).
 
 ## 7 · Cómo actualizar este archivo (personas y agentes de IA)
 

@@ -1,18 +1,14 @@
 // Backend → agent. The browser talks to THIS route; only this server talks to the agent,
-// so AGENT_URL, AGENT_TOKEN and AGENT_SIGNING_SECRET never reach the browser. See docs/AGENTE.md.
-// Who the visitor is comes from a signed httpOnly cookie that only this server writes — never from
-// the request body — so nobody can read or continue another visitor's conversation.
-import { cookies } from "next/headers";
-import { askDonna, AgentError, newVisitorId, readVisitor, signVisitor } from "@donna/agent-client";
+// so AGENT_URL, AGENT_TOKEN and AGENT_SIGNING_SECRET never reach the browser.
+// Who the visitor is comes from currentVisitor() (a signed httpOnly cookie) — never from the
+// request body — so nobody can read or continue another visitor's conversation.
+// The whole contract for talking to Donna: docs/COMUNICACION.md.
+import { askDonna, AgentError } from "@donna/agent-client";
+import { currentVisitor } from "@/lib/visitor";
 
 const MAX_MESSAGE = 4_000;
-const VISITOR_COOKIE = "donna_visitor";
-const VISITOR_MAX_AGE_S = 60 * 60 * 24 * 30;
 
 export async function POST(request: Request) {
-  const secret = process.env.AGENT_SIGNING_SECRET ?? "";
-  if (!secret) return Response.json({ error: "service not configured" }, { status: 503 });
-
   let body: { message?: unknown };
   try {
     body = await request.json();
@@ -23,18 +19,8 @@ export async function POST(request: Request) {
   if (!message) return Response.json({ error: "message is required" }, { status: 400 });
   if (message.length > MAX_MESSAGE) return Response.json({ error: `message over ${MAX_MESSAGE} chars` }, { status: 413 });
 
-  const jar = await cookies();
-  let visitorId = readVisitor(jar.get(VISITOR_COOKIE)?.value, secret);
-  if (!visitorId) {
-    visitorId = newVisitorId();
-    jar.set(VISITOR_COOKIE, signVisitor(visitorId, secret), {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      path: "/",
-      maxAge: VISITOR_MAX_AGE_S,
-    });
-  }
+  const visitorId = await currentVisitor();
+  if (!visitorId) return Response.json({ error: "service not configured" }, { status: 503 });
 
   try {
     const { reply } = await askDonna(message, "web", { visitorId });

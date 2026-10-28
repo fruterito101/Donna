@@ -26,7 +26,7 @@ Van en `apps/web/.env.local` (ignorado por git). **Nunca** en el repo, en un com
 | Variable | Qué es | Quién la da | Con el simulado |
 |---|---|---|---|
 | `AGENT_URL` | dirección del agente | Brian, en privado | `http://127.0.0.1:8787` |
-| `AGENT_TOKEN` | llave del agente | Brian, en privado | `dev-mock-key` |
+| `AGENT_TOKEN` | llave del agente: **cada dev recibe la suya, de desarrollo**; la de producción vive solo en Vercel | Brian, en privado | `dev-mock-key` |
 | `AGENT_SIGNING_SECRET` | firma la cookie de cada visitante y su identidad ante el agente (§5) | Brian, en privado | cualquier texto, ej. `dev-signing-secret` |
 | `FIRECRAWL_API_KEY` | lectura de páginas | cada dev, con su cuenta del evento | — |
 | `ELEVENLABS_API_KEY` | la voz | cada dev, con su cuenta del evento | — |
@@ -34,6 +34,9 @@ Van en `apps/web/.env.local` (ignorado por git). **Nunca** en el repo, en un com
 No hace falta llave de ningún modelo de IA: el agente ya trae la suya.
 
 ## 3 · Cómo pedirle algo — desde el código (lo normal)
+
+⭐ La guía paso a paso para el equipo (plantilla de ruta, cómo recibir, cómo verificar, errores) es
+[`COMUNICACION.md`](COMUNICACION.md). Aquí va solo lo esencial.
 
 Usa **siempre** `@donna/agent-client`, en una ruta de servidor (`apps/web/src/app/api/*/route.ts`):
 
