@@ -33,16 +33,16 @@ export function buildReport(
   return { report, ask, notes, origin, drafts_shown: showDrafts, rules_total: rules.length, rules_verified };
 }
 
-/** First sentence, at most `max` chars: Donna needs the gist, the screen shows the full text. */
-const gist = (text: string, max = 160) => {
-  const first = text.split(/(?<=\.)\s/)[0];
-  return first.length <= max ? first : `${first.slice(0, max - 1)}…`;
-};
+/** At most `max` chars. Never cut to a first sentence: a rule's conditions live in the rest (2026-10-28,
+ *  Donna explained the R&D incentive without its conditions and overstated it). */
+const clip = (text: string, max: number) => (text.length <= max ? text : `${text.slice(0, max - 1)}…`);
 
 const line = (item: ReportItem) => {
   const r = item.rule;
-  let text = `- ${r.title} (${r.authority}): ${gist(r.requires)} [${r.law}]`;
-  if (r.consequence) text += ` Si no se cumple: ${gist(r.consequence.description, 120)}`;
+  // A benefit keeps its whole text: its conditions are what stops Donna from promising it.
+  // An obligation keeps its essentials; its law and its fine travel with it.
+  let text = `- ${r.title} (${r.authority}): ${clip(r.requires, r.kind === "benefit" ? 600 : 200)} [${r.law}]`;
+  if (r.consequence) text += ` Si no se cumple: ${clip(r.consequence.description, 110)}`;
   if (item.status === "needs_data") text += ` (aplica solo si se confirma: ${item.missing_facts.join(", ")})`;
   return text;
 };
@@ -59,10 +59,10 @@ export function explainBrief(res: ReportResponse, maxChars: number = MAX_BRIEF):
   const { benefits, obligations } = res.report;
   if (!benefits.length && !obligations.length && !res.ask.length) return null;
   const blocks = [
-    "Explica este informe de cumplimiento a un founder que no sabe de leyes. Usa SOLO las reglas de abajo:",
-    "no agregues leyes, artículos, cifras ni plazos que no estén aquí. Si algo no está, di que no lo tienes.",
-    "Empieza por los beneficios (el dinero que puede estar dejando ir), sigue con las obligaciones (el riesgo),",
-    "y termina con las preguntas que faltan. Breve, claro, en español. Recuerda que no es una opinión legal.",
+    "Explica este informe a un founder que no sabe de leyes. Usa SOLO las reglas de abajo: no agregues leyes,",
+    "artículos, cifras ni plazos. No hagas cálculos ni ejemplos con cifras. Di SIEMPRE las condiciones de cada",
+    "beneficio: no prometas que le toca. Primero beneficios, luego obligaciones, luego preguntas. Breve, en español.",
+    "No es opinión legal.",
     "",
     `BENEFICIOS (${benefits.length}):`,
     ...(benefits.length ? benefits.map(line) : ["- ninguno con la información actual"]),
